@@ -4,8 +4,10 @@ In order to make authorized calls to Todoist APIs, your application must first
 obtain an access token from the users. This section describes the different ways
 of obtaining such a token.
 
-In case you're building an application and needs to access Todoist as an user,
-we encourage your application to use
+For the sake of simplicity we decided to not list the token on every parameter
+table but please note that the **token is required for every resource**.
+
+Note that we encourage your application to use
 the [OAuth](http://en.wikipedia.org/wiki/OAuth) protocol to obtain the access
 token from the user.
 
@@ -195,8 +197,8 @@ Access-Control-Allow-Origin: *
 
 ```python
 >>> import requests
->>> requests.post('https://todoist.com/api/v7/sync', 
-...               data={'token': '0123456789abcdef0123456789abcdef01234567'}, 
+>>> requests.post('https://todoist.com/api/v7/sync',
+...               data={'token': '0123456789abcdef0123456789abcdef01234567'},
 ...               headers={'Origin': 'https://example.com'}).headers
 
 {'Access-Control-Allow-Credentials': 'false', 'Access-Control-Allow-Origin': '*', <...>}
