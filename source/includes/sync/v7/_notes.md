@@ -107,7 +107,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 item_id *Integer* | Yes | The item which the note is part of (a unique number or temp id).
 content *String* | Yes | The content of the note (a string value).
@@ -141,7 +141,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 project_id *Integer or String (temp_id)* | Yes | The project which the note is part of.
 content *String* | Yes | The content of the note.
@@ -173,7 +173,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp_id)* | Yes | The id of the note.
 content *String* | Yes | The content of the note.
@@ -202,6 +202,6 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp_id)* | Yes | The id of the note.

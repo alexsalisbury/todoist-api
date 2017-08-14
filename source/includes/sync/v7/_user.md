@@ -258,7 +258,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 email *String* | No | The user's email.
 full_name *String* | No | The user's real name formatted as `Firstname Lastname`.
@@ -301,7 +301,7 @@ Update the karma goals of the user.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 daily_goal *Integer* | No | The target number of tasks to complete per day.
 weekly_goal *Integer* | No | The target number of tasks to complete per week.

@@ -82,7 +82,7 @@ Add a new task to a project.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 content *String* | Yes | The text of the task.
 project_id  *Integer or String (temp id)* | No | The id of the project to add the task to (a number or a temp id).  By default the task is added to the user’s `Inbox` project.
@@ -125,7 +125,7 @@ Updates an item for the user related to the API credentials.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp id)* | Yes | The id of the task.
 content *String* | No | The text of the task.
@@ -167,7 +167,7 @@ Delete an existing task.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 ids  *Array of Integer (id) or String (temp id)* | Yes | List of the ids of the tasks to delete.
 
@@ -197,7 +197,7 @@ Move a task from one project to another project.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 project_items *Object* | Yes | A JSON mapping telling Todoist where the items are currently found. From project ids to item ids, for example `{"1523":["9637423"]}`, where `1523` is the project id and `9637423` is the item id.
 to_project *Integer* | Yes | The project id that the tasks should be moved to, for example `1245`.
@@ -229,7 +229,7 @@ simplified version of the command.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 ids *Array of Integer or String (temp id)* | Yes | A JSON list of ids to complete (numbers or temp ids).
 force_history *Integer* | No | Whether these tasks should be moved to history (where `1` is true and `0` is false, and the default is `1`) This is useful when checking off sub tasks.
@@ -260,7 +260,7 @@ Uncomplete tasks and move them to the active projects.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 ids *Array of Integer or String (temp id)*| Yes | A list of items to uncomplete.
 restore_state *Object* | No | A dictionary object, where the item id is the key, and its value is a list of four elements, whether the item is in history, whether it is checked, its order and indent - `item_id: [in_history, checked, item_order, indent]`
@@ -294,7 +294,7 @@ this). See also `item_close` for a simplified version of the command.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String* | Yes | The id of the item to update (a number or a temp id).
 new_date_utc *String* | No | The date of the task in the format `YYYY-MM-DDTHH:MM` (for example: `2012-3-24T23:59`). The value of `new_date_utc` must be in UTC. Note that, when the `new_date_utc` argument is specified, the `date_string` is required and has to specified as well, and also, the `date_string` argument will be parsed as local timestamp, and converted to UTC internally, according to the user's profile settings.
@@ -331,7 +331,7 @@ to history), recurring task is moved forward (due date is updated).
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp id)* | Yes | The id of the item to close (a number or a temp id).
 
@@ -361,7 +361,7 @@ Update the orders and indents of multiple items at once.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 ids_to_orders_indents *Object* | Yes | A dictionary, where an item id is the key, and a list with two elements, the order and the indent, are its value: `item_id: [item_order, indent]`.
 
@@ -391,6 +391,6 @@ Update the day orders of multiple items at once.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 ids_to_orders *Object* | Yes | A dictionary, where an item id is the key, and the day order its value: `item_id: day_order`.

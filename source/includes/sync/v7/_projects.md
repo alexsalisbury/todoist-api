@@ -57,7 +57,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 name *String* | Yes | The name of the project (a string value).
 color *Integer* | No | The color of the project (a number between `0` and `11`, or between `0` and `21` for premium users).
@@ -91,7 +91,7 @@ Update an existing project.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id  *Integer or String (temp_id)* | Yes | The id of the project (could be temp id).
 name *String* | No | The name of the project (a string value).
@@ -127,7 +127,7 @@ Delete an existing project.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 ids *Array of Integer (id) or String (temp id)* | Yes | List of the ids of the projects to delete (could be temp ids).
 
@@ -160,7 +160,7 @@ Archive project and its children.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 ids *Array of Integer (id) or String (temp id)* | Yes | List of the ids of the projects to archive (could be temp ids).
 
@@ -192,7 +192,7 @@ Unarchive project and its children.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 ids  *Array of Integer (id) or String (temp id)* | Yes | List of the ids of the projects to unarchive (could be temp ids).
 
@@ -221,6 +221,6 @@ Update the orders and indents of multiple projects at once.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 ids_to_orders_indents *Object* | Yes | A dictionary object, with a project id as key and a two elements list as value: `project_id: [item_order, indent]`

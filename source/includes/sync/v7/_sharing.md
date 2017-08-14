@@ -89,7 +89,7 @@ Share a project with another user.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 project_id *Integer or String (temp_id)* | Yes | The project to be shared.
 email *String* | Yes | The user email with whom to share the project.
@@ -121,7 +121,7 @@ Remove an user from a shared project.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 project_id *Integer or String (temp_id)* | Yes | The project to be affected.
 email *String* | Yes | The user email with whom the project was shared with.
@@ -153,7 +153,7 @@ Accept an invitation to join a shared project.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 invitation_id *Integer* | Yes | The invitation id.
 invitation_secret *String* | Yes | The secret fetched from the live notification.
@@ -185,7 +185,7 @@ Reject an invitation to join a shared project.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 invitation_id *Integer* | Yes | The invitation id.
 invitation_secret *String* | Yes | The secret fetched from the live notification.
@@ -217,6 +217,6 @@ Delete an invitation to join a shared project.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 invitation_id *Integer* | Yes | The invitation to be deleted.

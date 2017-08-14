@@ -53,7 +53,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 name *String* | Yes | The name of the filter.
 query *String* | Yes | The query to search for. [Examples of searches](https://todoist.com/Help/Filtering) can be found in the Todoist help page.
@@ -86,7 +86,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp_id)* | Yes | The id of the filter.
 name *String* | No | The name of the filter
@@ -120,7 +120,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp_id)* | Yes | The id of the filter.
 
@@ -151,6 +151,6 @@ Update the orders of multiple filters at once.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id_order_mapping *Object* | Yes | A dictionary, where a filter id is the key, and the order its value: `filter_id: order`.

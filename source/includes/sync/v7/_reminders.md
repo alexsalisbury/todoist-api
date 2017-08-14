@@ -112,7 +112,7 @@ Add a new reminder to the user account related to the API credentials.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 item_id *Integer or String (temp_id)* | Yes | The item id for which the reminder is about.
 notify_uid *Integer* | No | The user id which should be notified of the reminder, typically the current user id creating the reminder.
@@ -156,7 +156,7 @@ Update a reminder from the user account related to the API credentials.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp_id)* | Yes | The id of the reminder.
 notify_uid *Integer* | No | The user id which should be notified of the reminder, typically the current user id creating the reminder.
@@ -200,7 +200,7 @@ Delete a reminder from the user account related to the API credentials.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp_id)* | Yes | The id of the filter.
 

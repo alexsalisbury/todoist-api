@@ -48,7 +48,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 name *String* | Yes | The name of the label
 color *Integer* | No | The color of the label (a number between `0` and `7`, or between `0` and `12` for premium users).
@@ -80,7 +80,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp_id)* | Yes | The id of the label.
 name *String* | No | The name of the label.
@@ -113,7 +113,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp_id)* | Yes | The id of the label.
 
@@ -145,6 +145,6 @@ $ curl https://todoist.com/api/v7/sync \
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id_order_mapping *Object* | Yes | A dictionary, where a label id is the key, and the order its value: `label_id: order`.

@@ -376,7 +376,7 @@ Set the last known notification.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer* | Yes | The id of the last known notification (a number or `0` or `null` to mark all read).
 
@@ -407,7 +407,7 @@ Mark the notification as read.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer* | Yes |  The id of the notification.
 
@@ -464,6 +464,6 @@ Mark the notification as unread.
 
 ### Command arguments
 
-Parameter | Required | Description
+Argument | Required | Description
 --------- | -------- | -----------
 id *Integer* | Yes | The id of the notification.
