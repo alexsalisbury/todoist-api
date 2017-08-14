@@ -93,7 +93,7 @@ invitation object has an unique id and secret code. Anyone who knows this
 information, can activate invitation and join your business account. Invitation
 is deactivated at the moment it's accepted or rejected by receiver, or deleted
 manually by sender.
- 
+
 Invitation objects are not created (quietly skipped), if the invitation
 recipient is an existing Todoist user and this user already belongs to a
 business account.
@@ -109,7 +109,6 @@ The return value is a list of invitation objects.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-token *String* | Yes | The user's API token
 email_list *Array of Strings* | Yes | The emails of users which will be invited
 message *String* | No | Additional text which will be included to invitation welcome message
 
@@ -165,13 +164,12 @@ value.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-token *String* | Yes | The user's API token
 id *Integer* | Yes | The invitation id (a number).
 secret *String* | Yes | The secret fetched from the live notification (a string value).
 
 #### For the Sync API command:
 
-Parameter | Required | Description
+Command argument | Required | Description
 --------- | -------- | -----------
 invitation_id *Integer* | Yes | The invitation id (a number).
 invitation_secret *String* | Yes | The secret fetched from the live notification (a string value).
@@ -223,14 +221,12 @@ a successful return value.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-token *String* | Yes | The user's API token
 id *Integer* | Yes | The invitation id (a number).
 secret *String* | Yes | The secret fetched from the live notification (a string value).
-token *String* | No | The user's API token
 
 #### For the Sync API command:
 
-Parameter | Required | Description
+Command argument | Required | Description
 --------- | -------- | -----------
 invitation_id *Integer* | Yes | The invitation id (a number).
 invitation_secret *String* | Yes | The secret fetched from the live notification (a string value).
