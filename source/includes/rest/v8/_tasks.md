@@ -304,7 +304,6 @@ Parameter | Required | Description
 --------- | -------- | -----------
 content *String* | Yes | Task content
 project_id *Integer* | No | Task project id. If not set, task is put to user's Inbox
-order *Integer* | No | Non-zero integer value used by clients to sort tasks inside project
 label_ids *Array of Integers* | No | Ids of labels associated with the task
 priority *Integer* | No | Task priority from 1 (normal) to 4 (urgent)
 due_string *String* | No | [human-defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time.
