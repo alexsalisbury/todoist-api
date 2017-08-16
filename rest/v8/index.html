@@ -338,6 +338,10 @@ requires a <code class="prettyprint">token</code> query string parameter that ho
 <a href="https://todoist.com/Users/viewPrefs?page=authorizations">Todoist personal API token</a> or
 <a href="https://developer.todoist.com/sync/v7/#oauth">OAuth API token</a>.</p>
 
+<p>Note that we&rsquo;re using <code class="prettyprint">$token</code> on all of our <code class="prettyprint">curl</code> examples, so you
+can define a temporary environment variable containing your token and
+easily copy &amp; paste <code class="prettyprint">curl</code> commands into your terminal.</p>
+
           <h1 id="projects">Projects</h1>
 
 <blockquote>
@@ -967,12 +971,7 @@ once (<code class="prettyprint">due_lang</code> is a special case).</p>
 <tr>
 <td>project_id <em>Integer</em></td>
 <td>No</td>
-<td>Task project id. If not set, task is put to user&rsquo;s Inbox</td>
-</tr>
-<tr>
-<td>order <em>Integer</em></td>
-<td>No</td>
-<td>Non-zero integer value used by clients to sort tasks inside project</td>
+<td>Task project id</td>
 </tr>
 <tr>
 <td>label_ids <em>Array of Integers</em></td>
