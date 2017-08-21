@@ -3320,6 +3320,12 @@ the reference.</p>
     -d <span class="nv">token</span><span class="o">=</span>0123456789abcdef0123456789abcdef01234567 <span class="se">\</span>
     -d <span class="nv">commands</span><span class="o">=</span><span class="s1">'[{"type": "note_add", "temp_id": "59fe4461-287b-4b00-bacc-ee771137a732", "uuid": "e1005f08-acd6-4172-bab1-4338f8616e49", "args": {"item_id": 33548400, "content": "Note1"}}]'</span>
 
+<span class="c"># or adding a note with a file attached:</span>
+
+<span class="gp">$ </span>curl https://todoist.com/api/v7/sync <span class="se">\</span>
+    -d <span class="nv">token</span><span class="o">=</span>0123456789abcdef0123456789abcdef01234567 <span class="se">\</span>
+    -d <span class="nv">commands</span><span class="o">=</span><span class="s1">'[{"type": "note_add", "temp_id": "6149e689-1a54-48d6-a8c2-0ee5425554a9", "uuid": "554a65e9-56d9-478e-b35b-520c419e37d9", "args": {"item_id": 33548400, "content": "Note1", "file_attachment": {"file_type":"image\/gif","file_name":"image.gif","image":"https:\/\/domain\/image.gif","file_url":"https:\/\/domain\/image.gif","image_width":90,"image_height":76,"file_size":7962}}}]'</span>
+
 <span class="o">{</span>
   ...
   <span class="s2">"sync_status"</span>: <span class="o">{</span><span class="s2">"e1005f08-acd6-4172-bab1-4338f8616e49"</span>: <span class="s2">"ok"</span><span class="o">}</span>,
@@ -4146,6 +4152,11 @@ the reference.</p>
 <td>The item id for which the reminder is about.</td>
 </tr>
 <tr>
+<td>type <em>String</em></td>
+<td>Yes</td>
+<td>The type of the reminder: <code class="prettyprint">relative</code> for a time-based reminder specified in minutes from now, <code class="prettyprint">absolute</code> for a time-based reminder with a specific time and date in the future, and <code class="prettyprint">location</code> for a location-based reminder.</td>
+</tr>
+<tr>
 <td>notify_uid <em>Integer</em></td>
 <td>No</td>
 <td>The user id which should be notified of the reminder, typically the current user id creating the reminder.</td>
@@ -4154,11 +4165,6 @@ the reference.</p>
 <td>service <em>String</em></td>
 <td>No</td>
 <td>The way to get notified of the reminder: <code class="prettyprint">email</code> for e-mail, <code class="prettyprint">mobile</code> for mobile text message, or <code class="prettyprint">push</code> for mobile push notification.</td>
-</tr>
-<tr>
-<td>type <em>String</em></td>
-<td>No</td>
-<td>The type of the reminder: <code class="prettyprint">relative</code> for a time-based reminder specified in minutes from now, <code class="prettyprint">absolute</code> for a time-based reminder with a specific time and date in the future, and <code class="prettyprint">location</code> for a location-based reminder.</td>
 </tr>
 <tr>
 <td>date_string <em>String</em></td>
