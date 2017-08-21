@@ -90,6 +90,12 @@ $ curl https://todoist.com/api/v7/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "note_add", "temp_id": "59fe4461-287b-4b00-bacc-ee771137a732", "uuid": "e1005f08-acd6-4172-bab1-4338f8616e49", "args": {"item_id": 33548400, "content": "Note1"}}]'
 
+# or adding a note with a file attached:
+
+$ curl https://todoist.com/api/v7/sync \
+    -d token=0123456789abcdef0123456789abcdef01234567 \
+    -d commands='[{"type": "note_add", "temp_id": "6149e689-1a54-48d6-a8c2-0ee5425554a9", "uuid": "554a65e9-56d9-478e-b35b-520c419e37d9", "args": {"item_id": 33548400, "content": "Note1", "file_attachment": {"file_type":"image\/gif","file_name":"image.gif","image":"https:\/\/domain\/image.gif","file_url":"https:\/\/domain\/image.gif","image_width":90,"image_height":76,"file_size":7962}}}]'
+
 {
   ...
   "sync_status": {"e1005f08-acd6-4172-bab1-4338f8616e49": "ok"},
