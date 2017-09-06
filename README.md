@@ -42,3 +42,19 @@ docker-compose up
 
 You can now see the docs at http://localhost:4567.
 Make your changes and submit a [pull request back to Doist](https://github.com/Doist/todoist-api/pulls).
+
+### Pushing a new version
+
+We use [slate](http://github.com/lord/slate) to build this project and it comes
+with a `deploy.sh` script out of the box. We use it to deploy our documentation
+to Github Pages.
+
+In case you don't want to install the Ruby environment, you can use docker for
+it:
+
+    docker-compose run app ./deploy.sh --source-only
+
+It will install all the dependencies needed for your environment and you can
+push to Github pages by running:
+
+    ./deploy.sh --push-only
