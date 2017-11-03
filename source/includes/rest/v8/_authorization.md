@@ -25,7 +25,7 @@ requests.get('https://beta.todoist.com/API/v8/projects',
 
 API endpoints accept GET arguments as `url-encoded` values. Every endpoint
 requires a `token` query string parameter that holds the
-[Todoist personal API token](https://todoist.com/Users/viewPrefs?page=authorizations) or
+[Todoist personal API token](https://todoist.com/Users/viewPrefs?page=integrations) or
 [OAuth API token](https://developer.todoist.com/sync/v7/#oauth).
 
 Note that we're using `$token` on all of our `curl` examples, so you
