@@ -59,7 +59,7 @@
 Property | Description
 ----------|------------
 id *Integer* | Task id
-project_id *Integer* | Tasks's project id
+project_id *Integer* | Tasks's project id (read-only)
 content *String* | Task content
 completed *Boolean* | Flag to mark completed tasks
 label_ids *Array of Integers* | Array of label ids, associated with a task
@@ -303,7 +303,7 @@ Update a task and return an empty body with the HTTP status code 204
 Parameter | Required | Description
 --------- | -------- | -----------
 content *String* | Yes | Task content
-project_id *Integer* | No | Task project id
+project_id *Integer* | No | Task project id (read-only)
 label_ids *Array of Integers* | No | Ids of labels associated with the task
 priority *Integer* | No | Task priority from 1 (normal) to 4 (urgent)
 due_string *String* | No | [human-defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time.
