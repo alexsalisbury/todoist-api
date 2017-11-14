@@ -188,7 +188,7 @@ $ curl https://todoist.com/api/v7/sync \
 ```python
 >>> import todoist
 >>> api = todoist.TodoistAPI('0123456789abcdef0123456789abcdef01234567')
->>> api.items.get_by_id(33548400)
+>>> item = api.items.get_by_id(33548400)
 >>> item.move(128501607)
 >>> api.commit()
 ```
@@ -209,7 +209,7 @@ $ curl https://todoist.com/api/v7/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "item_complete", "uuid": "a74bfb5c-5f1d-4d14-baea-b7415446a871", "args": {"ids": [33548400]}}]'
 
-{ 
+{
   ...
   "sync_status": {"a74bfb5c-5f1d-4d14-baea-b7415446a871": "ok"},
   ...
