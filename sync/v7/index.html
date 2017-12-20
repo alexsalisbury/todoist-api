@@ -4381,7 +4381,16 @@ the reference.</p>
   <span class="s2">"karma_trend"</span>: <span class="s2">"up"</span>,
   <span class="s2">"days_items"</span>: <span class="o">[</span>
     <span class="o">{</span> <span class="s2">"date"</span>: <span class="s2">"2014-11-03"</span>,
-      <span class="s2">"items"</span>: <span class="o">[]</span>,
+      <span class="s2">"items"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+          <span class="s2">"completed"</span>: 7,
+          <span class="s2">"id"</span>: 148483789
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">"completed"</span>: 5,
+          <span class="s2">"id"</span>: 148483788
+        <span class="o">}</span>
+      <span class="o">]</span>,
       <span class="s2">"total_completed"</span>: 0 <span class="o">}</span>,
   <span class="o">]</span>,
   <span class="s2">"completed_count"</span>: 0,
@@ -4396,7 +4405,16 @@ the reference.</p>
   <span class="s2">"karma"</span>: 50.0,
   <span class="s2">"week_items"</span>: <span class="o">[</span>
     <span class="o">{</span> <span class="s2">"date"</span>: <span class="s2">"2014-11-03</span><span class="se">\/</span><span class="s2">2014-11-09"</span>,
-      <span class="s2">"items"</span>: <span class="o">[]</span>,
+      <span class="s2">"items"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+          <span class="s2">"completed"</span>: 7,
+          <span class="s2">"id"</span>: 148483789
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">"completed"</span>: 5,
+          <span class="s2">"id"</span>: 148483788
+        <span class="o">}</span>
+      <span class="o">]</span>,
       <span class="s2">"total_completed"</span>: 0 <span class="o">}</span>,
   <span class="o">]</span>,
   <span class="s2">"project_colors"</span>: <span class="o">{</span>
@@ -4443,7 +4461,16 @@ the reference.</p>
   <span class="s">'karma_trend'</span><span class="p">:</span> <span class="s">'up'</span><span class="p">,</span>
   <span class="s">'days_items'</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="s">'date'</span><span class="p">:</span> <span class="s">'2014-11-03'</span><span class="p">,</span>
-      <span class="s">'items'</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s">"items"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s">"completed"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+          <span class="s">"id"</span><span class="p">:</span> <span class="mi">148483789</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s">"completed"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+          <span class="s">"id"</span><span class="p">:</span> <span class="mi">148483788</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
       <span class="s">'total_completed'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
   <span class="p">],</span>
   <span class="s">'completed_count'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -4458,7 +4485,16 @@ the reference.</p>
   <span class="s">'karma'</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span>
   <span class="s">'week_items'</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="s">'date'</span><span class="p">:</span> <span class="s">'2014-11-03/2014-11-09'</span><span class="p">,</span>
-      <span class="s">'items'</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s">"items"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s">"completed"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+          <span class="s">"id"</span><span class="p">:</span> <span class="mi">148483789</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s">"completed"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+          <span class="s">"id"</span><span class="p">:</span> <span class="mi">148483788</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
       <span class="s">'total_completed'</span><span class="p">:</span> <span class="mi">0</span> <span class="p">},</span>
   <span class="p">],</span>
   <span class="s">'project_colors'</span><span class="p">:</span> <span class="p">{</span>
@@ -4519,7 +4555,7 @@ the reference.</p>
 </tr>
 <tr>
 <td>days_items <em>Object</em></td>
-<td>The last 7 days of completion of completed items and their <code class="prettyprint">id</code>s</td>
+<td>The last 7 days of completion. Items completed in the last 4 weeks. The objects inside <code class="prettyprint">items</code> are composed by an <code class="prettyprint">id</code> (<code class="prettyprint">project_id</code>) and the number of completed tasks for it.</td>
 </tr>
 <tr>
 <td>completed_count <em>Integer</em></td>
@@ -4535,7 +4571,7 @@ the reference.</p>
 </tr>
 <tr>
 <td>week_items <em>Object</em></td>
-<td>Items completed in the last 4 weeks</td>
+<td>Items completed in the last 4 weeks. The objects inside <code class="prettyprint">items</code> are composed by an <code class="prettyprint">id</code> (<code class="prettyprint">project_id</code>) and the number of completed tasks for it.</td>
 </tr>
 <tr>
 <td>project_colors <em>Object</em></td>
