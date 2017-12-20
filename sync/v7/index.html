@@ -4399,7 +4399,13 @@ the reference.</p>
       <span class="s2">"items"</span>: <span class="o">[]</span>,
       <span class="s2">"total_completed"</span>: 0 <span class="o">}</span>,
   <span class="o">]</span>,
-  <span class="s2">"project_colors"</span>: <span class="o">{}</span>,
+  <span class="s2">"project_colors"</span>: <span class="o">{</span>
+    <span class="s2">"2153004888"</span>: 7,
+    <span class="s2">"2159009077"</span>: 4,
+    <span class="s2">"2155005784"</span>: 4,
+    <span class="s2">"2155006874"</span>: 9,
+    <span class="s2">"2168008691"</span>: 3,
+  <span class="o">}</span>,
   <span class="s2">"goals"</span>: <span class="o">{</span>
     <span class="s2">"karma_disabled"</span>: 0,
     <span class="s2">"user_id"</span>: 4,
@@ -4455,7 +4461,13 @@ the reference.</p>
       <span class="s">'items'</span><span class="p">:</span> <span class="p">[],</span>
       <span class="s">'total_completed'</span><span class="p">:</span> <span class="mi">0</span> <span class="p">},</span>
   <span class="p">],</span>
-  <span class="s">'project_colors'</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s">'project_colors'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">"2153004888"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="s">"2159009077"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s">"2155005784"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s">"2155006874"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s">"2168008691"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="p">},</span>
   <span class="s">'goals'</span><span class="p">:</span> <span class="p">{</span>
     <span class="s">'karma_disabled'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s">'user_id'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
@@ -4488,6 +4500,110 @@ the reference.</p>
 
 </code></pre>
 <p>Get the user&rsquo;s productivity stats.</p>
+
+<h3 id="properties">Properties</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>karma_last_update  <em>Float</em></td>
+<td>The karma delta on the last update</td>
+</tr>
+<tr>
+<td>karma_trend <em>String</em></td>
+<td>Karma trend. Possible values: <code class="prettyprint">up</code> or <code class="prettyprint">down</code></td>
+</tr>
+<tr>
+<td>days_items <em>Object</em></td>
+<td>The last 7 days of completion of completed items and their <code class="prettyprint">id</code>s</td>
+</tr>
+<tr>
+<td>completed_count <em>Integer</em></td>
+<td>Total completed tasks count</td>
+</tr>
+<tr>
+<td>karma_update_reasons</td>
+<td>Log of the last karma updates. <code class="prettyprint">positive_karma_reasons</code> and <code class="prettyprint">negative_karma_reasons</code> are <em>Integer</em> numbers regarding the action done to generate them. Please refer to the <strong>Positive and negative karma reasons</strong> below.</td>
+</tr>
+<tr>
+<td>karma <em>Float</em></td>
+<td>Karma score</td>
+</tr>
+<tr>
+<td>week_items <em>Object</em></td>
+<td>Items completed in the last 4 weeks</td>
+</tr>
+<tr>
+<td>project_colors <em>Object</em></td>
+<td>Projects color mapping</td>
+</tr>
+<tr>
+<td>goals <em>Object</em></td>
+<td>Goals definition. The same settings and stats shown in the interface.</td>
+</tr>
+</tbody></table>
+
+<h4 id="positive-and-negative-karma-reasons">Positive and negative karma reasons</h4>
+
+<table><thead>
+<tr>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>You added tasks</td>
+</tr>
+<tr>
+<td>2</td>
+<td>You completed tasks</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Usage of advanced features</td>
+</tr>
+<tr>
+<td>4</td>
+<td>You are using Todoist. Thanks!</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Signed up for Todoist Beta!</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Used Todoist Support section!</td>
+</tr>
+<tr>
+<td>7</td>
+<td>For using Todoist Premium - thanks for supporting us!</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Getting Started Guide task completed!</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Daily Goal reached!</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Weekly Goal reached!</td>
+</tr>
+<tr>
+<td>50</td>
+<td>You have tasks that are over %s days overdue&rsquo;</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Inactive for longer period of time&rsquo;</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-all-completed-items">Get all completed items</h2>
 
