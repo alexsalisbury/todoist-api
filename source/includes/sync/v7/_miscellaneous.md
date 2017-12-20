@@ -32,7 +32,6 @@ $ curl https://todoist.com/api/v7/completed/get_stats \
       "total_completed": 0 },
   ],
   "project_colors": {},
-  "karma_graph": "https:\/\/todoist.com\/chart?cht=lc&chs=255x70&chd=s:A9&chco=dd4b39&chf=bg,s,ffffff&chxt=x,y&chxl=0:%7cMo%2C%2020%7c%7c1:%7c0%7c50&chxs=0,999999%7c1,999999",
   "goals": {
     "karma_disabled": 0,
     "user_id": 4,
@@ -92,7 +91,6 @@ $ curl https://todoist.com/api/v7/completed/get_stats \
       'total_completed': 0 },
   ],
   'project_colors': {},
-  'karma_graph': 'https://todoist.com/chart?cht=lc&chs=255x70&chd=s:A9&chco=dd4b39&chf=bg,s,ffffff&chxt=x,y&chxl=0:%7cMo%2C%2020%7c%7c1:%7c0%7c50&chxs=0,999999%7c1,999999',
   'goals': {
     'karma_disabled': 0,
     'user_id': 4,
