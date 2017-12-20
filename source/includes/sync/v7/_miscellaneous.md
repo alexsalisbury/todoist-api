@@ -13,7 +13,16 @@ $ curl https://todoist.com/api/v7/completed/get_stats \
   "karma_trend": "up",
   "days_items": [
     { "date": "2014-11-03",
-      "items": [],
+      "items": [
+        {
+          "completed": 7,
+          "id": 148483789
+        },
+        {
+          "completed": 5,
+          "id": 148483788
+        }
+      ],
       "total_completed": 0 },
   ],
   "completed_count": 0,
@@ -28,10 +37,25 @@ $ curl https://todoist.com/api/v7/completed/get_stats \
   "karma": 50.0,
   "week_items": [
     { "date": "2014-11-03\/2014-11-09",
-      "items": [],
+      "items": [
+        {
+          "completed": 7,
+          "id": 148483789
+        },
+        {
+          "completed": 5,
+          "id": 148483788
+        }
+      ],
       "total_completed": 0 },
   ],
-  "project_colors": {},
+  "project_colors": {
+    "2153004888": 7,
+    "2159009077": 4,
+    "2155005784": 4,
+    "2155006874": 9,
+    "2168008691": 3,
+  },
   "goals": {
     "karma_disabled": 0,
     "user_id": 4,
@@ -72,7 +96,16 @@ $ curl https://todoist.com/api/v7/completed/get_stats \
   'karma_trend': 'up',
   'days_items': [
     { 'date': '2014-11-03',
-      'items': [],
+      "items": [
+        {
+          "completed": 7,
+          "id": 148483789
+        },
+        {
+          "completed": 5,
+          "id": 148483788
+        }
+      ],
       'total_completed': 0}
   ],
   'completed_count': 0,
@@ -87,10 +120,25 @@ $ curl https://todoist.com/api/v7/completed/get_stats \
   'karma': 50.0,
   'week_items': [
     { 'date': '2014-11-03/2014-11-09',
-      'items': [],
+      "items": [
+        {
+          "completed": 7,
+          "id": 148483789
+        },
+        {
+          "completed": 5,
+          "id": 148483788
+        }
+      ],
       'total_completed': 0 },
   ],
-  'project_colors': {},
+  'project_colors': {
+    "2153004888": 7,
+    "2159009077": 4,
+    "2155005784": 4,
+    "2155006874": 9,
+    "2168008691": 3,
+  },
   'goals': {
     'karma_disabled': 0,
     'user_id': 4,
@@ -124,6 +172,38 @@ $ curl https://todoist.com/api/v7/completed/get_stats \
 ```
 
 Get the user's productivity stats.
+
+### Properties
+
+Property | Description
+-------- | -----------
+karma_last_update  *Float* | The karma delta on the last update
+karma_trend *String* | Karma trend. Possible values: `up` or `down`
+days_items *Object* | The last 7 days of completion. Items completed in the last 4 weeks. The objects inside `items` are composed by an `id` (`project_id`) and the number of completed tasks for it.
+completed_count *Integer* | Total completed tasks count
+karma_update_reasons  | Log of the last karma updates. `positive_karma_reasons` and `negative_karma_reasons` are _Integer_ numbers regarding the action done to generate them. Please refer to the **Positive and negative karma reasons** below.
+karma *Float* | Karma score
+week_items *Object* | Items completed in the last 4 weeks. The objects inside `items` are composed by an `id` (`project_id`) and the number of completed tasks for it.
+project_colors *Object* | Projects color mapping
+goals *Object* | Goals definition. The same settings and stats shown in the interface.
+
+
+#### Positive and negative karma reasons
+
+Number | Description
+------ | -----------
+1      | You added tasks
+2      | You completed tasks
+3      | Usage of advanced features
+4      | You are using Todoist. Thanks!
+5      | Signed up for Todoist Beta!
+6      | Used Todoist Support section!
+7      | For using Todoist Premium - thanks for supporting us!
+8      | Getting Started Guide task completed!
+9      | Daily Goal reached!
+10     | Weekly Goal reached!
+50     | You have tasks that are over %s days overdue'
+52     | Inactive for longer period of time'
 
 
 ## Get all completed items
