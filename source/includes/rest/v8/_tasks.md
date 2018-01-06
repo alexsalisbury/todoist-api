@@ -215,8 +215,8 @@ due_date *String* | No | Specific date in `YYYY-MM-DD` format relative to userâ€
 due_datetime *String* | No | specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC
 due_lang *String* | No | 2-letter code specifying language in case `due_string` is not written in English
 
-Please note that you can only use one of the `due_*` fields can be used at
-once (`due_lang` is a special case).
+Please note that only one of the `due_*` fields can be used at
+the same time (`due_lang` is a special case).
 
 ## Get a task
 
@@ -311,8 +311,8 @@ due_date *String* | No | Specific date in `YYYY-MM-DD` format relative to userâ€
 due_datetime *String* | No | specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC
 due_lang *String* | No | 2-letter code specifying language in case `due_string` is not written in English
 
-Please note that you can only use one of the `due_*` fields can be used at
-once (`due_lang` is a special case).
+Please note that only one of the `due_*` fields can be used at
+the same time (`due_lang` is a special case).
 
 
 ## Close a task
