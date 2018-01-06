@@ -56,7 +56,7 @@ requests.get("https://beta.todoist.com/API/v8/labels", params={"token": token}).
 ]
 ```
 
-Return a JSON-encoded array containing all user labels
+Returns a JSON-encoded array containing all user labels
 
 
 ## Create a new label
@@ -95,7 +95,7 @@ requests.post("https://beta.todoist.com/API/v8/labels",
 }
 ```
 
-Create a new label and return its object as JSON.
+Creates a new label and returns its object as JSON.
 
 ### JSON body parameters
 
@@ -130,7 +130,7 @@ requests.get("https://beta.todoist.com/API/v8/labels/1234", params={"token": tok
 }
 ```
 
-Return a label by id
+Returns a label by id
 
 
 ## Update a label
@@ -157,7 +157,7 @@ requests.post("https://beta.todoist.com/API/v8/labels/2148300211",
 )
 ```
 
-Update a label and return an empty body with a HTTP status code 204.
+Updates a label and returns an empty body with a HTTP status code 204.
 
 ### JSON body parameters
 
@@ -180,4 +180,4 @@ import requests
 requests.delete("https://beta.todoist.com/API/v8/labels/1234", params={"token": token})
 ```
 
-Delete a label and return an empty body with a HTTP status code 204.
+Deletes a label and returns an empty body with a HTTP status code 204.

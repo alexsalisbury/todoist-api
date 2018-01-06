@@ -28,7 +28,7 @@ Property | Description
 ----------|------------
 id *Integer* | Project id
 name *String* | Project name
-order *Integer* | Project position in the list of projects Project order (read-only)
+order *Integer* | Project position in the list of projects/Project order (read-only)
 indent *Integer* | Value from 1 to 4 for the Project indentation level (read-only)
 comment_count *Integer* | Number of project comments
 
@@ -197,4 +197,4 @@ import requests, json
 requests.delete("https://beta.todoist.com/API/v8/projects/1234", params={"token": token}).json()
 ```
 
-Delete a project and returns an empty response.
+Deletes a project and returns an empty response.
