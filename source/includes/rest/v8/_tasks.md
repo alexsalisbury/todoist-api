@@ -59,7 +59,7 @@
 Property | Description
 ----------|------------
 id *Integer* | Task id
-project_id *Integer* | Tasks's project id (read-only)
+project_id *Integer* | Task's project id (read-only)
 content *String* | Task content
 completed *Boolean* | Flag to mark completed tasks
 label_ids *Array of Integers* | Array of label ids, associated with a task
@@ -121,7 +121,7 @@ requests.get("https://beta.todoist.com/API/v8/tasks", params={"token": token, "p
 
 ```
 
-Return a JSON-encoded array containing all user tasks
+Returns a JSON-encoded array containing all user tasks
 
 
 ### Parameters
@@ -198,7 +198,7 @@ requests.post("https://beta.todoist.com/API/v8/tasks",
 }
 ```
 
-Create a new tasks and return the JSON object according for it.
+Creates a new task and returns the JSON object according for it.
 
 
 ### JSON body parameters
@@ -215,8 +215,8 @@ due_date *String* | No | Specific date in `YYYY-MM-DD` format relative to userâ€
 due_datetime *String* | No | specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC
 due_lang *String* | No | 2-letter code specifying language in case `due_string` is not written in English
 
-Please note that you can only use one of the `due_*` fields can be used at
-once (`due_lang` is a special case).
+Please note that only one of the `due_*` fields can be used at
+the same time (`due_lang` is a special case).
 
 ## Get a task
 
@@ -269,7 +269,7 @@ requests.get("https://beta.todoist.com/API/v8/tasks/1234", params={"token": toke
 
 ```
 
-Return a task by id
+Returns a task by id
 
 
 ## Update a task
@@ -296,7 +296,7 @@ requests.post("https://beta.todoist.com/API/v8/tasks/1234",
 )
 ```
 
-Update a task and return an empty body with the HTTP status code 204
+Updates a task and returns an empty body with the HTTP status code 204
 
 ### JSON body parameters
 
@@ -311,8 +311,8 @@ due_date *String* | No | Specific date in `YYYY-MM-DD` format relative to userâ€
 due_datetime *String* | No | specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC
 due_lang *String* | No | 2-letter code specifying language in case `due_string` is not written in English
 
-Please note that you can only use one of the `due_*` fields can be used at
-once (`due_lang` is a special case).
+Please note that only one of the `due_*` fields can be used at
+the same time (`due_lang` is a special case).
 
 
 ## Close a task
@@ -328,7 +328,7 @@ import requests
 requests.post("https://beta.todoist.com/API/v8/tasks/1234/close", params={"token": token})
 ```
 
-Close a task and return an empty body with a HTTP status code 204.
+Closes a task and returns an empty body with a HTTP status code 204.
 
 The command does exactly what official clients do when you close a task. Regular
 tasks are completed and moved to history, subtasks are checked (marked as done,
@@ -348,7 +348,7 @@ import requests
 requests.post("https://beta.todoist.com/API/v8/tasks/1234/reopen", params={"token": token})
 ```
 
-Reopen a tasks and return an empty body with a HTTP status code 204.
+Reopens a task and returns an empty body with a HTTP status code 204.
 
 This command reopens a previously closed task. Works both with checked tasks in
 user's workspace and tasks moved to history. The behaviour varies for different
@@ -357,9 +357,9 @@ are uncompleted or extracted from the history)
 
 - Regular tasks are extracted from the history and added back to the user
   workspace as normal unchecked tasks (without their subtasks though).
-- Completed subtasks of a non-completed task simply marked as uncompleted.
-- Moved to history subtasks added back to the workspace as first-level tasks.
-- Non-completed recurring tasks ignored.
+- Completed subtasks of a non-completed task are simply marked as uncompleted.
+- Subtasks that were moved to history are added back to the workspace as first-level tasks.
+- Non-completed recurring tasks are ignored.
 
 
 ## Delete a task
@@ -375,4 +375,4 @@ import requests
 requests.delete("https://beta.todoist.com/API/v8/tasks/1234", params={"token": token})
 ```
 
-Delete a task and return an empty body with a HTTP status 204.
+Deletes a task and returns an empty body with a HTTP status 204.

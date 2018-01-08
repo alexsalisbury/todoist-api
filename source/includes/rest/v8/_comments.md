@@ -102,8 +102,8 @@ required.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-project_id *Integer* | No | Id of the project used to filter comments
-task_id *Integer* | No | Id of the task used to filter comments
+project_id *Integer* | Yes (or `task_id`)  | Id of the project used to filter comments
+task_id *Integer* | Yes (or `project_id`)  | Id of the task used to filter comments
 
 **Note**: You **must** use at least one of them
 
@@ -180,7 +180,7 @@ requests.post("https://beta.todoist.com/API/v8/comments",
 }
 ```
 
-Create a new comment on a project or task and return its object
+Creates a new comment on a project or task and returns its object
 
 ### JSON body parameters
 
@@ -258,7 +258,7 @@ requests.post("https://beta.todoist.com/API/v8/comments/1234",
 )
 ```
 
-Update a comment and return an empty body with a HTTP status code 204
+Updates a comment and returns an empty body with a HTTP status code 204
 
 ### JSON body parameters
 
@@ -280,4 +280,4 @@ import requests
 requests.delete("https://beta.todoist.com/API/v8/comments/1234", params={"token": token})
 ```
 
-Delete a comment and return an empty body with a HTTP status code 204
+Deletes a comment and returns an empty body with a HTTP status code 204
