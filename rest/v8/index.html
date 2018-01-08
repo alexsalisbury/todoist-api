@@ -380,7 +380,7 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
 </tr>
 <tr>
 <td>order <em>Integer</em></td>
-<td>Project position in the list of projects Project order (read-only)</td>
+<td>Project position in the list of projects/Project order (read-only)</td>
 </tr>
 <tr>
 <td>indent <em>Integer</em></td>
@@ -552,7 +552,7 @@ with an empty body.</p>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="p">,</span> <span class="n">json</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/projects/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre>
-<p>Delete a project and returns an empty response.</p>
+<p>Deletes a project and returns an empty response.</p>
 
           <h1 id="tasks">Tasks</h1>
 
@@ -620,7 +620,7 @@ with an empty body.</p>
 </tr>
 <tr>
 <td>project_id <em>Integer</em></td>
-<td>Tasks&rsquo;s project id (read-only)</td>
+<td>Task&rsquo;s project id (read-only)</td>
 </tr>
 <tr>
 <td>content <em>String</em></td>
@@ -729,7 +729,7 @@ with an empty body.</p>
 <span class="p">]</span>
 
 </code></pre>
-<p>Return a JSON-encoded array containing all user tasks</p>
+<p>Returns a JSON-encoded array containing all user tasks</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -822,7 +822,7 @@ server would return 402 Payment Required.</p>
     <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://todoist.com/showTask?id=123"</span>
 <span class="p">}</span>
 </code></pre>
-<p>Create a new tasks and return the JSON object according for it.</p>
+<p>Creates a new task and returns the JSON object according for it.</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
 
@@ -880,8 +880,8 @@ server would return 402 Payment Required.</p>
 </tr>
 </tbody></table>
 
-<p>Please note that you can only use one of the <code class="prettyprint">due_*</code> fields can be used at
-once (<code class="prettyprint">due_lang</code> is a special case).</p>
+<p>Please note that only one of the <code class="prettyprint">due_*</code> fields can be used at
+the same time (<code class="prettyprint">due_lang</code> is a special case).</p>
 
 <h2 id="get-a-task">Get a task</h2>
 
@@ -930,7 +930,7 @@ once (<code class="prettyprint">due_lang</code> is a special case).</p>
 <span class="p">}</span>
 
 </code></pre>
-<p>Return a task by id</p>
+<p>Returns a task by id</p>
 
 <h2 id="update-a-task">Update a task</h2>
 
@@ -952,7 +952,7 @@ once (<code class="prettyprint">due_lang</code> is a special case).</p>
     <span class="p">}</span>
 <span class="p">)</span>
 </code></pre>
-<p>Update a task and return an empty body with the HTTP status code 204</p>
+<p>Updates a task and returns an empty body with the HTTP status code 204</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
 
@@ -1005,8 +1005,8 @@ once (<code class="prettyprint">due_lang</code> is a special case).</p>
 </tr>
 </tbody></table>
 
-<p>Please note that you can only use one of the <code class="prettyprint">due_*</code> fields can be used at
-once (<code class="prettyprint">due_lang</code> is a special case).</p>
+<p>Please note that only one of the <code class="prettyprint">due_*</code> fields can be used at
+the same time (<code class="prettyprint">due_lang</code> is a special case).</p>
 
 <h2 id="close-a-task">Close a task</h2>
 
@@ -1017,7 +1017,7 @@ once (<code class="prettyprint">due_lang</code> is a special case).</p>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/tasks/1234/close"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
 </code></pre>
-<p>Close a task and return an empty body with a HTTP status code 204.</p>
+<p>Closes a task and returns an empty body with a HTTP status code 204.</p>
 
 <p>The command does exactly what official clients do when you close a task. Regular
 tasks are completed and moved to history, subtasks are checked (marked as done,
@@ -1032,7 +1032,7 @@ but not moved to history), recurring task is moved forward (due date is updated)
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/tasks/1234/reopen"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
 </code></pre>
-<p>Reopen a tasks and return an empty body with a HTTP status code 204.</p>
+<p>Reopens a task and returns an empty body with a HTTP status code 204.</p>
 
 <p>This command reopens a previously closed task. Works both with checked tasks in
 user&rsquo;s workspace and tasks moved to history. The behaviour varies for different
@@ -1042,9 +1042,9 @@ are uncompleted or extracted from the history)</p>
 <ul>
 <li>Regular tasks are extracted from the history and added back to the user
 workspace as normal unchecked tasks (without their subtasks though).</li>
-<li>Completed subtasks of a non-completed task simply marked as uncompleted.</li>
-<li>Moved to history subtasks added back to the workspace as first-level tasks.</li>
-<li>Non-completed recurring tasks ignored.</li>
+<li>Completed subtasks of a non-completed task are simply marked as uncompleted.</li>
+<li>Subtasks that were moved to history are added back to the workspace as first-level tasks.</li>
+<li>Non-completed recurring tasks are ignored.</li>
 </ul>
 
 <h2 id="delete-a-task">Delete a task</h2>
@@ -1056,7 +1056,7 @@ workspace as normal unchecked tasks (without their subtasks though).</li>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/tasks/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
 </code></pre>
-<p>Delete a task and return an empty body with a HTTP status 204.</p>
+<p>Deletes a task and returns an empty body with a HTTP status 204.</p>
 
           <h1 id="comments">Comments</h1>
 
@@ -1183,12 +1183,12 @@ required.</p>
 </thead><tbody>
 <tr>
 <td>project_id <em>Integer</em></td>
-<td>No</td>
+<td>Yes (or <code class="prettyprint">task_id</code>)</td>
 <td>Id of the project used to filter comments</td>
 </tr>
 <tr>
 <td>task_id <em>Integer</em></td>
-<td>No</td>
+<td>Yes (or <code class="prettyprint">project_id</code>)</td>
 <td>Id of the task used to filter comments</td>
 </tr>
 </tbody></table>
@@ -1263,7 +1263,7 @@ required.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<p>Create a new comment on a project or task and return its object</p>
+<p>Creates a new comment on a project or task and returns its object</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
 
@@ -1353,7 +1353,7 @@ required.</p>
     <span class="p">}</span>
 <span class="p">)</span>
 </code></pre>
-<p>Update a comment and return an empty body with a HTTP status code 204</p>
+<p>Updates a comment and returns an empty body with a HTTP status code 204</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
 
@@ -1380,7 +1380,7 @@ required.</p>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/comments/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
 </code></pre>
-<p>Delete a comment and return an empty body with a HTTP status code 204</p>
+<p>Deletes a comment and returns an empty body with a HTTP status code 204</p>
 
           <h1 id="labels">Labels</h1>
 
@@ -1445,7 +1445,7 @@ required.</p>
     <span class="p">}</span>
 <span class="p">]</span>
 </code></pre>
-<p>Return a JSON-encoded array containing all user labels</p>
+<p>Returns a JSON-encoded array containing all user labels</p>
 
 <h2 id="create-a-new-label">Create a new label</h2>
 
@@ -1479,7 +1479,7 @@ required.</p>
   <span class="s">"order"</span><span class="p">:</span> <span class="mi">10</span>
 <span class="p">}</span>
 </code></pre>
-<p>Create a new label and return its object as JSON.</p>
+<p>Creates a new label and returns its object as JSON.</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
 
@@ -1523,7 +1523,7 @@ required.</p>
     <span class="s">"order"</span><span class="p">:</span> <span class="mi">10</span>
 <span class="p">}</span>
 </code></pre>
-<p>Return a label by id</p>
+<p>Returns a label by id</p>
 
 <h2 id="update-a-label">Update a label</h2>
 
@@ -1545,7 +1545,7 @@ required.</p>
     <span class="p">}</span>
 <span class="p">)</span>
 </code></pre>
-<p>Update a label and return an empty body with a HTTP status code 204.</p>
+<p>Updates a label and returns an empty body with a HTTP status code 204.</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
 
@@ -1577,7 +1577,7 @@ required.</p>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/labels/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
 </code></pre>
-<p>Delete a label and return an empty body with a HTTP status code 204.</p>
+<p>Deletes a label and returns an empty body with a HTTP status code 204.</p>
 
       </div>
       <div class="dark-box">
