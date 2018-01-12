@@ -317,7 +317,7 @@ JSON-encoded representation of one or more objects.</p>
 <blockquote>
 <p>Authenticated request and response examples</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl <span class="s2">"https://beta.todoist.com/API/v8/projects?token=</span><span class="nv">$token</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl <span class="s2">"https://beta.todoist.com/API/v8/projects?token=</span><span class="nv">$token</span><span class="s2">"</span>
 
 <span class="o">[</span>
     <span class="o">{</span>
@@ -326,13 +326,13 @@ JSON-encoded representation of one or more objects.</p>
         <span class="s2">"comment_count"</span>: 0
     <span class="o">}</span>
 <span class="o">]</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://beta.todoist.com/API/v8/projects'</span><span class="p">,</span>
     <span class="n">query_string</span><span class="o">=</span><span class="p">{</span><span class="s">'token'</span><span class="p">:</span> <span class="n">your_token</span><span class="p">)}</span>
 <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 <span class="p">[{</span><span class="s">u'comment_count'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span> <span class="s">u'name'</span><span class="p">:</span> <span class="s">u'Inbox'</span><span class="p">}]</span>
-</code></pre>
+</code></pre></div>
 <p>API endpoints accept GET arguments as <code class="prettyprint">url-encoded</code> values. Every endpoint
 requires a <code class="prettyprint">token</code> query string parameter that holds the
 <a href="https://todoist.com/Users/viewPrefs?page=integrations">Todoist personal API token</a> or
@@ -347,21 +347,21 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
 <blockquote>
 <p>An example project object</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"comment_count"</span>: 10,
     <span class="s2">"id"</span>: 1234,
     <span class="s2">"indent"</span>: 1,
     <span class="s2">"name"</span>: <span class="s2">"My project"</span>,
     <span class="s2">"order"</span>: 1
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="p">{</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="p">{</span>
     <span class="s">"comment_count"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
     <span class="s">"id"</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
     <span class="s">"indent"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"My project"</span><span class="p">,</span>
     <span class="s">"order"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <h3 id="properties">Properties</h3>
 
 <table><thead>
@@ -397,7 +397,7 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
 <blockquote>
 <p>Get all projects</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/projects?token=</span><span class="nv">$token</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/projects?token=</span><span class="nv">$token</span><span class="s2">"</span>
 
 <span class="o">[</span>
     <span class="o">{</span>
@@ -408,7 +408,7 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
         <span class="s2">"indent"</span>: 1
     <span class="o">}</span>
 <span class="o">]</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/projects"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 <span class="p">[</span>
@@ -420,7 +420,7 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
         <span class="s">"indent"</span><span class="p">:</span> <span class="mi">1</span>
     <span class="p">}</span>
 <span class="p">]</span>
-</code></pre>
+</code></pre></div>
 <p>Returns JSON-encoded array containing all user projects.</p>
 
 <h2 id="create-a-new-project">Create a new project</h2>
@@ -428,11 +428,11 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
 <blockquote>
 <p>Create a new project</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/projects?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
-    -X POST <span class="se">\</span>
-    --data <span class="s1">'{"name": "Movies to watch"}'</span> <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    -H <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/projects?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">--data</span> <span class="s1">'{"name": "Movies to watch"}'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
 
 <span class="o">{</span>
     <span class="s2">"id"</span>: 1234,
@@ -441,7 +441,7 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
     <span class="s2">"order"</span>: 1,
     <span class="s2">"indent"</span>: 1
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">uuid</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">json</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">uuid</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">json</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/projects"</span><span class="p">,</span>
     <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">},</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"Movies to watch"</span><span class="p">}),</span>
@@ -458,7 +458,7 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
     <span class="s">"order"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"indent"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <p>Creates a new project and return its value in a JSON format</p>
 
 <h3 id="parameters">Parameters</h3>
@@ -482,7 +482,7 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
 <blockquote>
 <p>Get a project</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/projects/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/projects/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
 
 <span class="o">{</span>
     <span class="s2">"id"</span>: 1234,
@@ -491,7 +491,7 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
     <span class="s2">"order"</span>: 1,
     <span class="s2">"indent"</span>: 1
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">uuid</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">json</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">uuid</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">json</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/projects/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 <span class="p">{</span>
@@ -501,7 +501,7 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
     <span class="s">"order"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"indent"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <p>Returns a JSON object containing a project object related to the given id</p>
 
 <h2 id="update-a-project">Update a project</h2>
@@ -509,12 +509,12 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
 <blockquote>
 <p>Update a project</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/projects/1234?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
-    -X POST <span class="se">\</span>
-    --data <span class="s1">'{"name": "Movies to review"}'</span> <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    -H <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">uuid</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">json</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/projects/1234?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">--data</span> <span class="s1">'{"name": "Movies to review"}'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">uuid</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">json</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/projects/1234"</span><span class="p">,</span>
     <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">},</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"Movies to review"</span><span class="p">}),</span>
@@ -523,7 +523,7 @@ easily copy &amp; paste <code class="prettyprint">curl</code> commands into your
         <span class="s">"X-Request-Id"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
     <span class="p">}</span>
 <span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <p>Updates the project for the given id and returns HTTP status code 204
 with an empty body.</p>
 
@@ -548,10 +548,10 @@ with an empty body.</p>
 <blockquote>
 <p>Delete a project</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="s2">"https://beta.todoist.com/API/v8/projects/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="p">,</span> <span class="n">json</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="s2">"https://beta.todoist.com/API/v8/projects/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="p">,</span> <span class="n">json</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/projects/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre>
+</code></pre></div>
 <p>Deletes a project and returns an empty response.</p>
 
           <h1 id="tasks">Tasks</h1>
@@ -559,7 +559,7 @@ with an empty body.</p>
 <blockquote>
 <p>Task object sample</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"comment_count"</span>: 10,
     <span class="s2">"completed"</span>: <span class="nb">true</span>,
     <span class="s2">"content"</span>: <span class="s2">"My task"</span>,
@@ -582,7 +582,7 @@ with an empty body.</p>
     <span class="s2">"project_id"</span>: 2345,
     <span class="s2">"url"</span>: <span class="s2">"https://todoist.com/showTask?id=12345&amp;sync_id=56789"</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="p">{</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="p">{</span>
     <span class="s">"comment_count"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
     <span class="s">"completed"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s">"content"</span><span class="p">:</span> <span class="s">"My task"</span><span class="p">,</span>
@@ -605,7 +605,7 @@ with an empty body.</p>
     <span class="s">"project_id"</span><span class="p">:</span> <span class="mi">2345</span><span class="p">,</span>
     <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://todoist.com/showTask?id=12345&amp;sync_id=56789"</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <h3 id="properties">Properties</h3>
 
 <table><thead>
@@ -696,7 +696,7 @@ with an empty body.</p>
 <blockquote>
 <p>Get tasks</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/tasks?token=</span><span class="nv">$token</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/tasks?token=</span><span class="nv">$token</span><span class="s2">"</span>
 
 <span class="o">[</span>
     <span class="o">{</span>
@@ -711,7 +711,7 @@ with an empty body.</p>
     <span class="o">}</span>,
     ...
 <span class="o">]</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/tasks"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">,</span> <span class="s">"project_id"</span><span class="p">:</span> <span class="mi">123</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 <span class="p">[</span>
@@ -728,7 +728,7 @@ with an empty body.</p>
     <span class="o">...</span>
 <span class="p">]</span>
 
-</code></pre>
+</code></pre></div>
 <p>Returns a JSON-encoded array containing all user tasks</p>
 
 <h3 id="parameters">Parameters</h3>
@@ -770,11 +770,11 @@ server would return 402 Payment Required.</p>
 <blockquote>
 <p>Create a new task</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/tasks?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
-    -X POST <span class="se">\</span>
-    --data <span class="s1">'{"content": "Appointment with Maria", "due_string": "tomorrow at 12:00", "due_lang": "en", "priority": 4}'</span> <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    -H <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/tasks?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">--data</span> <span class="s1">'{"content": "Appointment with Maria", "due_string": "tomorrow at 12:00", "due_lang": "en", "priority": 4}'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
 
 <span class="o">{</span>
     <span class="s2">"comment_count"</span>: 0,
@@ -792,7 +792,7 @@ server would return 402 Payment Required.</p>
     <span class="s2">"project_id"</span>: 234,
     <span class="s2">"url"</span>: <span class="s2">"https://todoist.com/showTask?id=123"</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">uuid</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">json</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">uuid</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">json</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/tasks"</span><span class="p">,</span>
     <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">},</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"content"</span><span class="p">:</span> <span class="s">"Appointment with Maria"</span><span class="p">,</span>
@@ -821,7 +821,7 @@ server would return 402 Payment Required.</p>
     <span class="s">"project_id"</span><span class="p">:</span> <span class="mi">234</span><span class="p">,</span>
     <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://todoist.com/showTask?id=123"</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <p>Creates a new task and returns the JSON object according for it.</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
@@ -888,7 +888,7 @@ the same time (<code class="prettyprint">due_lang</code> is a special case).</p>
 <blockquote>
 <p>Get a task</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
 
 <span class="o">{</span>
     <span class="s2">"comment_count"</span>: 0,
@@ -908,7 +908,7 @@ the same time (<code class="prettyprint">due_lang</code> is a special case).</p>
     <span class="s2">"url"</span>: <span class="s2">"https://todoist.com/showTask?id=123"</span>
 <span class="o">}</span>
 
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/tasks/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 <span class="p">{</span>
@@ -929,7 +929,7 @@ the same time (<code class="prettyprint">due_lang</code> is a special case).</p>
     <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://todoist.com/showTask?id=123"</span>
 <span class="p">}</span>
 
-</code></pre>
+</code></pre></div>
 <p>Returns a task by id</p>
 
 <h2 id="update-a-task">Update a task</h2>
@@ -937,12 +937,12 @@ the same time (<code class="prettyprint">due_lang</code> is a special case).</p>
 <blockquote>
 <p>Update a task</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
-    -X POST <span class="se">\</span>
-    --data <span class="s1">'{"content": "Movies to watch"}'</span> <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    -H <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">uuid</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">json</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">--data</span> <span class="s1">'{"content": "Movies to watch"}'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">uuid</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">json</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/tasks/1234"</span><span class="p">,</span>
     <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">},</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"content"</span><span class="p">:</span> <span class="s">"Movies to watch"</span><span class="p">}),</span>
@@ -951,7 +951,7 @@ the same time (<code class="prettyprint">due_lang</code> is a special case).</p>
         <span class="s">"X-Request-Id"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
     <span class="p">}</span>
 <span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <p>Updates a task and returns an empty body with the HTTP status code 204</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
@@ -1013,10 +1013,10 @@ the same time (<code class="prettyprint">due_lang</code> is a special case).</p>
 <blockquote>
 <p>Close a task</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234/close?token=</span><span class="nv">$token</span><span class="s2">"</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234/close?token=</span><span class="nv">$token</span><span class="s2">"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/tasks/1234/close"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
-</code></pre>
+</code></pre></div>
 <p>Closes a task and returns an empty body with a HTTP status code 204.</p>
 
 <p>The command does exactly what official clients do when you close a task. Regular
@@ -1028,10 +1028,10 @@ but not moved to history), recurring task is moved forward (due date is updated)
 <blockquote>
 <p>Reopen a task</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234/reopen?token=</span><span class="nv">$token</span><span class="s2">"</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234/reopen?token=</span><span class="nv">$token</span><span class="s2">"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/tasks/1234/reopen"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
-</code></pre>
+</code></pre></div>
 <p>Reopens a task and returns an empty body with a HTTP status code 204.</p>
 
 <p>This command reopens a previously closed task. Works both with checked tasks in
@@ -1052,10 +1052,10 @@ workspace as normal unchecked tasks (without their subtasks though).</li>
 <blockquote>
 <p>Delete a task</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/tasks/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
-</code></pre>
+</code></pre></div>
 <p>Deletes a task and returns an empty body with a HTTP status 204.</p>
 
           <h1 id="comments">Comments</h1>
@@ -1063,7 +1063,7 @@ workspace as normal unchecked tasks (without their subtasks though).</li>
 <blockquote>
 <p>Comment object sample</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"attachment"</span>: <span class="o">{</span>
         <span class="s2">"file_name"</span>: <span class="s2">"File.pdf"</span>,
         <span class="s2">"file_type"</span>: <span class="s2">"application/pdf"</span>,
@@ -1076,7 +1076,7 @@ workspace as normal unchecked tasks (without their subtasks though).</li>
     <span class="s2">"project_id"</span>: 2345,
     <span class="s2">"task_id"</span>: 2345
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="p">{</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="p">{</span>
     <span class="s">"attachment"</span><span class="p">:</span> <span class="p">{</span>
         <span class="s">"file_name"</span><span class="p">:</span> <span class="s">"File.pdf"</span><span class="p">,</span>
         <span class="s">"file_type"</span><span class="p">:</span> <span class="s">"application/pdf"</span><span class="p">,</span>
@@ -1089,7 +1089,7 @@ workspace as normal unchecked tasks (without their subtasks though).</li>
     <span class="s">"project_id"</span><span class="p">:</span> <span class="mi">2345</span><span class="p">,</span>
     <span class="s">"task_id"</span><span class="p">:</span> <span class="mi">2345</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <h3 id="properties">Properties</h3>
 
 <table><thead>
@@ -1133,7 +1133,7 @@ see <a href="https://developer.todoist.com/sync/v7#uploads">sync API documentati
 <blockquote>
 <p>Get all comments</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/comments?task_id=2345&amp;token=</span><span class="nv">$token</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/comments?task_id=2345&amp;token=</span><span class="nv">$token</span><span class="s2">"</span>
 
 <span class="o">[</span>
     <span class="o">{</span>
@@ -1150,7 +1150,7 @@ see <a href="https://developer.todoist.com/sync/v7#uploads">sync API documentati
     <span class="o">}</span>
 <span class="o">]</span>
 
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/comments"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">,</span> <span class="s">"task_id"</span><span class="p">:</span> <span class="mi">2345</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 <span class="p">[</span>
@@ -1167,7 +1167,7 @@ see <a href="https://developer.todoist.com/sync/v7#uploads">sync API documentati
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">]</span>
-</code></pre>
+</code></pre></div>
 <p>Returns JSON-encoded array of all comments for a given <code class="prettyprint">task_id</code> or
 <code class="prettyprint">project_id</code>. Note that one of <code class="prettyprint">task_id</code> or <code class="prettyprint">project_id</code> arguments is
 required.</p>
@@ -1200,7 +1200,7 @@ required.</p>
 <blockquote>
 <p>Create a new comment</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>cat &gt; /tmp/note.json
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span><span class="nb">cat</span> <span class="o">&gt;</span> /tmp/note.json
 <span class="o">{</span>
     <span class="s2">"task_id"</span>: 2345,
     <span class="s2">"content"</span>: <span class="s2">"Hello world"</span>,
@@ -1213,11 +1213,11 @@ required.</p>
 <span class="o">}</span>
 ^C
 
-<span class="gp">$ </span>curl <span class="s2">"https://beta.todoist.com/API/v8/comments?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
-    -X POST <span class="se">\</span>
-    --data @/tmp/note.json <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    -H <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
+<span class="nv">$ </span>curl <span class="s2">"https://beta.todoist.com/API/v8/comments?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">--data</span> @/tmp/note.json <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
 
 <span class="o">{</span>
     <span class="s2">"id"</span>: 123,
@@ -1231,7 +1231,7 @@ required.</p>
         <span class="s2">"file_name"</span>: <span class="s2">"File.pdf"</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/comments"</span><span class="p">,</span>
     <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">},</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
@@ -1262,7 +1262,7 @@ required.</p>
         <span class="s">"file_name"</span><span class="p">:</span> <span class="s">"File.pdf"</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <p>Creates a new comment on a project or task and returns its object</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
@@ -1301,7 +1301,7 @@ required.</p>
 <blockquote>
 <p>Get a comment</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/comments/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/comments/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
 
 <span class="o">{</span>
     <span class="s2">"id"</span>: 1234,
@@ -1315,7 +1315,7 @@ required.</p>
         <span class="s2">"file_name"</span>: <span class="s2">"File.pdf"</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/comments/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 <span class="p">{</span>
@@ -1330,7 +1330,7 @@ required.</p>
         <span class="s">"file_name"</span><span class="p">:</span> <span class="s">"File.pdf"</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <p>Returns a comment by id</p>
 
 <h2 id="update-a-comment">Update a comment</h2>
@@ -1338,12 +1338,12 @@ required.</p>
 <blockquote>
 <p>Update a comment</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/comments/1234?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
-    -X POST <span class="se">\</span>
-    --data <span class="s1">'{"content": "Goodbye world"}'</span> <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    -H <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/comments/1234?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">--data</span> <span class="s1">'{"content": "Goodbye world"}'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/comments/1234"</span><span class="p">,</span>
     <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">},</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"content"</span><span class="p">:</span> <span class="s">"Goodbye world"</span><span class="p">}),</span>
@@ -1352,7 +1352,7 @@ required.</p>
         <span class="s">"X-Request-Id"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
     <span class="p">}</span>
 <span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <p>Updates a comment and returns an empty body with a HTTP status code 204</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
@@ -1376,10 +1376,10 @@ required.</p>
 <blockquote>
 <p>Delete a comment</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="s2">"https://beta.todoist.com/API/v8/comments/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="s2">"https://beta.todoist.com/API/v8/comments/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/comments/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
-</code></pre>
+</code></pre></div>
 <p>Deletes a comment and returns an empty body with a HTTP status code 204</p>
 
           <h1 id="labels">Labels</h1>
@@ -1387,17 +1387,17 @@ required.</p>
 <blockquote>
 <p>Label object sample</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"id"</span>: 1234,
     <span class="s2">"name"</span>: <span class="s2">"Project X"</span>,
     <span class="s2">"order"</span>: 10
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="p">{</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="p">{</span>
     <span class="s">"id"</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"Project X"</span><span class="p">,</span>
     <span class="s">"order"</span><span class="p">:</span> <span class="mi">10</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <h3 id="properties">Properties</h3>
 
 <table><thead>
@@ -1425,7 +1425,7 @@ required.</p>
 <blockquote>
 <p>Get all labels</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/labels?token=</span><span class="nv">$token</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/labels?token=</span><span class="nv">$token</span><span class="s2">"</span>
 
 <span class="o">[</span>
     <span class="o">{</span>
@@ -1434,7 +1434,7 @@ required.</p>
         <span class="s2">"order"</span>: 10
     <span class="o">}</span>
 <span class="o">]</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/labels"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 <span class="p">[</span>
@@ -1444,7 +1444,7 @@ required.</p>
         <span class="s">"order"</span><span class="p">:</span> <span class="mi">10</span>
     <span class="p">}</span>
 <span class="p">]</span>
-</code></pre>
+</code></pre></div>
 <p>Returns a JSON-encoded array containing all user labels</p>
 
 <h2 id="create-a-new-label">Create a new label</h2>
@@ -1452,18 +1452,18 @@ required.</p>
 <blockquote>
 <p>Create a new label</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/labels?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
-    -X POST <span class="se">\</span>
-    --data <span class="s1">'{"name": "Movies to watch"}'</span> <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    -H <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/labels?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">--data</span> <span class="s1">'{"name": "Movies to watch"}'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
 
 <span class="o">{</span>
     <span class="s2">"id"</span>: 1234,
     <span class="s2">"name"</span>: <span class="s2">"Project X"</span>,
     <span class="s2">"order"</span>: 10
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/labels"</span><span class="p">,</span>
     <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">},</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"Movies to watch"</span><span class="p">}),</span>
@@ -1478,7 +1478,7 @@ required.</p>
   <span class="s">"name"</span><span class="p">:</span> <span class="s">"Project X"</span><span class="p">,</span>
   <span class="s">"order"</span><span class="p">:</span> <span class="mi">10</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <p>Creates a new label and returns its object as JSON.</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
@@ -1507,14 +1507,14 @@ required.</p>
 <blockquote>
 <p>Get a label</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/labels/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/labels/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
 
 <span class="o">{</span>
     <span class="s2">"id"</span>: 1234,
     <span class="s2">"name"</span>: <span class="s2">"Project X"</span>,
     <span class="s2">"order"</span>: 10
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/labels/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 <span class="p">{</span>
@@ -1522,7 +1522,7 @@ required.</p>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"Project X"</span><span class="p">,</span>
     <span class="s">"order"</span><span class="p">:</span> <span class="mi">10</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <p>Returns a label by id</p>
 
 <h2 id="update-a-label">Update a label</h2>
@@ -1530,12 +1530,12 @@ required.</p>
 <blockquote>
 <p>Update a label</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/labels/1234?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
-    -X POST <span class="se">\</span>
-    --data <span class="s1">'{"name": "Project Y"}'</span> <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    -H <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://beta.todoist.com/API/v8/labels/1234?token=</span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">--data</span> <span class="s1">'{"name": "Project Y"}'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Request-Id: </span><span class="k">$(</span>uuidgen<span class="k">)</span><span class="s2">"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/labels/2148300211"</span><span class="p">,</span>
     <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">},</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"Project Z"</span><span class="p">}),</span>
@@ -1544,7 +1544,7 @@ required.</p>
         <span class="s">"X-Request-Id"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
     <span class="p">}</span>
 <span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <p>Updates a label and returns an empty body with a HTTP status code 204.</p>
 
 <h3 id="json-body-parameters">JSON body parameters</h3>
@@ -1573,11 +1573,37 @@ required.</p>
 <blockquote>
 <p>Delete a label</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="s2">"https://beta.todoist.com/API/v8/labels/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="s2">"https://beta.todoist.com/API/v8/labels/1234?token=</span><span class="nv">$token</span><span class="s2">"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/labels/1234"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"token"</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
-</code></pre>
+</code></pre></div>
 <p>Deletes a label and returns an empty body with a HTTP status code 204.</p>
+
+          <h1 id="brand-usage">Brand usage</h1>
+
+<p>Thanks for using Todoist&rsquo;s API to build an application!</p>
+
+<p>If you plan to utilize Todoist&rsquo;s logo or branding in the visual design
+of your application or website, please adhere to
+<a href="https://doist.com/wp-content/uploads/2015/10/Todoist-logo.zip">Todoist&rsquo;s brand guidelines</a>.</p>
+
+<p>In addition, please take note of the following:</p>
+
+<ul>
+<li>&ldquo;Todoist” cannot be the first word in your application&rsquo;s name. It
+can be used in the name of your app, though. For instance “x for
+Todoist” or “x with Todoist”, etc. This makes it clear that your
+application is created by you and not by Doist.</li>
+<li>You must clearly state that your application is &quot;not created by,
+affiliated with, or supported by Doist&rdquo; in your application
+description.</li>
+</ul>
+
+<p>By using the Todoist marks you agree to properly follow the above
+brand guidelines as well as
+our <a href="https://en.todoist.com/terms">Terms of Service</a>. For further
+information about the use of the Todoist brand, please contact
+<a href="mailto:press@doist.com">press@doist.com</a>.</p>
 
       </div>
       <div class="dark-box">
