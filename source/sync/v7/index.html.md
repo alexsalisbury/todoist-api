@@ -30,6 +30,7 @@ includes:
   - sync/v7/urlschemes
   - sync/v7/webhooks
   - sync/v7/changelog
+  - sync/v7/brand
 
 search: false
 ---
