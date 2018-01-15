@@ -203,7 +203,7 @@ Number | Description
 9      | Daily Goal reached!
 10     | Weekly Goal reached!
 50     | You have tasks that are over %s days overdue'
-52     | Inactive for longer period of time'
+52     | Inactive for a longer period of time'
 
 
 ## Get all completed items
