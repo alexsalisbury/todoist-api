@@ -98,6 +98,8 @@ labels *Array of Integer* | No | The tasks labels (a list of label ids such as `
 assigned_by_uid *Integer* | No | The id of user who assigns the current task. This makes sense for shared projects only. Accepts `0` or any user id from the list of project collaborators. If this value is unset or invalid, it will be automatically setup to your uid.
 responsible_uid *Integer* | No | The id of user who is responsible for accomplishing the current task. This makes sense for shared projects only. Accepts any user id from the list of project collaborators or `null` or an empty string to unset.
 auto_reminder *Boolean* | No | When this option is enabled, the default reminder will be added to the new item if it has a due date with time set.  See also the [auto_reminder user option](#user) for more info about the default reminder.
+auto_parse_labels *Boolean* | No | When this option is enabled, the labels will be parsed from the task content and added to the task. In case the label doesn't exist, a new one will be created.
+
 
 ## Update an item
 
