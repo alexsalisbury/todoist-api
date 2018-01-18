@@ -11,7 +11,8 @@
   "query": "priority 1",
   "color": 6,
   "item_order": 3,
-  "is_deleted": 0
+  "is_deleted": 0,
+  "is_favorite": 0
 }
 ```
 
@@ -25,6 +26,7 @@ query *String* | The query to search for. [Examples of searches](https://todoist
 color *Integer* | The color of the filter (between `0` and `7`, or between `0` and `12` for premium users).  The color codes corresponding to these numbers are: `#019412`, `#a39d01`, `#e73d02`, `#e702a4`, `#9902e7`, `#1d02e7`, `#0082c5`, `#555555`.  And for the additional colors of the premium users: `#008299`, `#03b3b2`, `#ac193d`, `#82ba00`, `#111111`.
 item_order *Integer* | Filter’s order in the filter list (where the smallest value should place the filter at the top).
 is_deleted *Integer* | Whether the filter is marked as deleted (where `1` is true and `0` is false).
+is_favorite *Integer* | Whether the filter is favorite (where `1` is true and `0` is false).
 
 ## Add a filter
 
@@ -59,6 +61,7 @@ name *String* | Yes | The name of the filter.
 query *String* | Yes | The query to search for. [Examples of searches](https://todoist.com/Help/Filtering) can be found in the Todoist help page.
 color *Integer* | No | The color of the filter (between `0` and `7`, or between `0` and `12` for premium users).
 item_order *Integer* | No | Filter’s order in the filter list (the smallest value should place the filter at the top).
+is_favorite *Integer* | No | Whether the filter is favorite (where `1` is true and `0` is false).
 
 ## Update a filter
 
@@ -93,6 +96,7 @@ name *String* | No | The name of the filter
 query *String* | No | The query to search for. [Examples of searches](https://todoist.com/Help/Filtering) can be found in the Todoist help page.
 color *Integer* | No | The color of the filter (between `0` and `7`, or between `0` and `12` for premium users).
 item_order *Integer* | No | Filter’s order in the filter list (where the smallest value should place the filter at the top).
+is_favorite *Integer* | No | Whether the filter is favorite (where `1` is true and `0` is false).
 
 ## Delete a filter
 

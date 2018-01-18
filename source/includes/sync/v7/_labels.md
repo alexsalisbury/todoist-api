@@ -8,7 +8,8 @@
   "name": "Label1",
   "color": 7,
   "item_order": 0,
-  "is_deleted": 0
+  "is_deleted": 0,
+  "is_favorite": 0
 }
 ```
 
@@ -21,6 +22,7 @@ name *String* | The name of the label.
 color *Integer* | The color of the label (a number between `0` and `7`, or between `0` and `12` for premium users). The color codes corresponding to these numbers are: `#019412`, `#a39d01`, `#e73d02`, `#e702a4`, `#9902e7`, `#1d02e7`, `#0082c5`, `#555555`.  And for the additional colors of the premium users: `#008299`, `#03b3b2`, `#ac193d`, `#82ba00`, `#111111`.
 item_order *Integer* | Label’s order in the label list (a number, where the smallest value should place the label at the top).
 is_deleted *Integer* | Whether the label is marked as deleted (where `1` is true and `0` is false).
+is_favorite *Integer* | Whether the label is favorite (where `1` is true and `0` is false).
 
 ## Add a label
 
@@ -53,6 +55,7 @@ Argument | Required | Description
 name *String* | Yes | The name of the label
 color *Integer* | No | The color of the label (a number between `0` and `7`, or between `0` and `12` for premium users).
 item_order *Integer* | No | Label’s order in the label list (a number, where the smallest value should place the label at the top).
+is_favorite *Integer* | No | Whether the label is favorite (where `1` is true and `0` is false).
 
 ## Update a label
 
@@ -86,6 +89,7 @@ id *Integer or String (temp_id)* | Yes | The id of the label.
 name *String* | No | The name of the label.
 color *Integer* | No | The color of the label (a number between `0` and `7`, or between `0` and `12` for premium users).
 item_order *Integer* | No | Label’s order in the label list.
+is_favorite *Integer* | No | Whether the label is favorite (where `1` is true and `0` is false).
 
 ## Delete a label
 
