@@ -13,6 +13,7 @@
   "shared": false,
   "is_deleted": 0,
   "is_archived": 0,
+  "is_favorite": 0
 }
 ```
 
@@ -29,6 +30,7 @@ collapsed  *Integer* | Whether the project's sub-projects are collapsed (where `
 shared  *Boolean* | Whether the project is shared (a `true` or `false` value).
 is_deleted *Integer* | Whether the project is marked as deleted (where `1` is true and `0` is false).
 is_archived *Integer* | Whether the project is marked as archived (where `1` is true and `0` is false).
+is_favorite *Integer* | Whether the project is favorite (where `1` is true and `0` is false).
 inbox_project *Boolean* | Whether the project is `Inbox` (`true` or otherwise this property is not sent).
 team_inbox *Boolean* | Whether the project is `TeamInbox` (`true` or otherwise this property is not sent).
 
@@ -63,6 +65,7 @@ name *String* | Yes | The name of the project (a string value).
 color *Integer* | No | The color of the project (a number between `0` and `11`, or between `0` and `21` for premium users).
 indent *Integer* | No | The indent of the item (a number between `1` and `4`, where `1` is top-level).
 item_order *Integer* | No | Project's order in the project list (a number, where the smallest value should place the project at the top).
+is_favorite *Integer* | No | Whether the project is favorite (where `1` is true and `0` is false).
 
 ## Update a project
 
@@ -99,6 +102,7 @@ color *Integer* | No | The color of the project (a number between `0` and `11`, 
 indent *Integer* | No | The indent of the item (a number between `1` and `4`, where `1` is top-level).
 item_order *Integer* | No | Project's order in the project list (a number, where the smallest value should place the project at the top).
 collapsed *Integer* | No | Whether the project's sub-projects are collapsed (where `1` is true and `0` is false).
+is_favorite *Integer* | No | Whether the project is favorite (where `1` is true and `0` is false).
 
 
 ## Delete projects
