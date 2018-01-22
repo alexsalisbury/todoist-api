@@ -1949,6 +1949,7 @@ order to prevent clients from accidentally overloading our servers.</p>
   </span><span class="s2">"shared"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"is_archived"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_favorite"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <h3 id="properties">Properties</h3>
@@ -1994,6 +1995,10 @@ order to prevent clients from accidentally overloading our servers.</p>
 <tr>
 <td>is_archived <em>Integer</em></td>
 <td>Whether the project is marked as archived (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
+</tr>
+<tr>
+<td>is_favorite <em>Integer</em></td>
+<td>Whether the project is favorite (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
 </tr>
 <tr>
 <td>inbox_project <em>Boolean</em></td>
@@ -2049,6 +2054,11 @@ order to prevent clients from accidentally overloading our servers.</p>
 <td>item_order <em>Integer</em></td>
 <td>No</td>
 <td>Project&rsquo;s order in the project list (a number, where the smallest value should place the project at the top).</td>
+</tr>
+<tr>
+<td>is_favorite <em>Integer</em></td>
+<td>No</td>
+<td>Whether the project is favorite (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
 </tr>
 </tbody></table>
 
@@ -2108,6 +2118,11 @@ order to prevent clients from accidentally overloading our servers.</p>
 <td>collapsed <em>Integer</em></td>
 <td>No</td>
 <td>Whether the project&rsquo;s sub-projects are collapsed (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
+</tr>
+<tr>
+<td>is_favorite <em>Integer</em></td>
+<td>No</td>
+<td>Whether the project is favorite (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
 </tr>
 </tbody></table>
 
@@ -2901,7 +2916,10 @@ to history), recurring task is moved forward (due date is updated).</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">update_orders_indents</span><span class="p">({</span><span class="mi">33548400</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </code></pre></div>
-<p>Update the orders and indents of multiple items at once.</p>
+<p>Update the orders and indents of multiple items at once. You will
+notice the <code class="prettyprint">parent_id</code> field in the <a href="#items">item</a> but it&rsquo;s not fully
+implemented yet, we recommend to rely on <code class="prettyprint">item_update_orders_indents</code>
+for project reordering and indenting.</p>
 
 <h3 id="command-arguments">Command arguments</h3>
 
@@ -2962,7 +2980,8 @@ to history), recurring task is moved forward (due date is updated).</p>
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Label1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
   </span><span class="s2">"item_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_favorite"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <h3 id="properties">Properties</h3>
@@ -2992,6 +3011,10 @@ to history), recurring task is moved forward (due date is updated).</p>
 <tr>
 <td>is_deleted <em>Integer</em></td>
 <td>Whether the label is marked as deleted (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
+</tr>
+<tr>
+<td>is_favorite <em>Integer</em></td>
+<td>Whether the label is favorite (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
 </tr>
 </tbody></table>
 
@@ -3038,6 +3061,11 @@ to history), recurring task is moved forward (due date is updated).</p>
 <td>item_order <em>Integer</em></td>
 <td>No</td>
 <td>Label’s order in the label list (a number, where the smallest value should place the label at the top).</td>
+</tr>
+<tr>
+<td>is_favorite <em>Integer</em></td>
+<td>No</td>
+<td>Whether the label is favorite (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
 </tr>
 </tbody></table>
 
@@ -3089,6 +3117,11 @@ to history), recurring task is moved forward (due date is updated).</p>
 <td>item_order <em>Integer</em></td>
 <td>No</td>
 <td>Label’s order in the label list.</td>
+</tr>
+<tr>
+<td>is_favorite <em>Integer</em></td>
+<td>No</td>
+<td>Whether the label is favorite (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
 </tr>
 </tbody></table>
 
@@ -3776,7 +3809,8 @@ the reference.</p>
   </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"priority 1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
   </span><span class="s2">"item_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_favorite"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <h3 id="properties">Properties</h3>
@@ -3810,6 +3844,10 @@ the reference.</p>
 <tr>
 <td>is_deleted <em>Integer</em></td>
 <td>Whether the filter is marked as deleted (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
+</tr>
+<tr>
+<td>is_favorite <em>Integer</em></td>
+<td>Whether the filter is favorite (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
 </tr>
 </tbody></table>
 
@@ -3862,6 +3900,11 @@ the reference.</p>
 <td>item_order <em>Integer</em></td>
 <td>No</td>
 <td>Filter’s order in the filter list (the smallest value should place the filter at the top).</td>
+</tr>
+<tr>
+<td>is_favorite <em>Integer</em></td>
+<td>No</td>
+<td>Whether the filter is favorite (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
 </tr>
 </tbody></table>
 
@@ -3918,6 +3961,11 @@ the reference.</p>
 <td>item_order <em>Integer</em></td>
 <td>No</td>
 <td>Filter’s order in the filter list (where the smallest value should place the filter at the top).</td>
+</tr>
+<tr>
+<td>is_favorite <em>Integer</em></td>
+<td>No</td>
+<td>Whether the filter is favorite (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
 </tr>
 </tbody></table>
 
