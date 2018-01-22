@@ -359,7 +359,11 @@ $ curl https://todoist.com/api/v7/sync \
 >>> api.commit()
 ```
 
-Update the orders and indents of multiple items at once.
+Update the orders and indents of multiple items at once. You will
+notice the `parent_id` field in the [item](#items) but it's not fully
+implemented yet, we recommend to rely on `item_update_orders_indents`
+for project reordering and indenting.
+
 
 ### Command arguments
 
