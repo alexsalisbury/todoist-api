@@ -1212,12 +1212,9 @@ and <code class="prettyprint">Client Secret</code> which are needed for the OAut
 <h3 id="step-1-the-authorization-request">Step 1: The authorization request</h3>
 
 <blockquote>
-<p>An example of redirecting a user to the authorization URL:</p>
+<p>An example of the URL to the authorization endpoint:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl <span class="s2">"https://todoist.com/oauth/authorize"</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s2">"client_id=0123456789abcdef"</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s2">"scope=data:read,data:delete"</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s2">"state=secretstring"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>https://todoist.com/oauth/authorize?client_id<span class="o">=</span>0123456789abcdef&amp;scope<span class="o">=</span>data:read,data:delete&amp;state<span class="o">=</span>secretstring
 </code></pre></div>
 <p>Redirect users to the authorization URL at the endpoint
 <code class="prettyprint">https://todoist.com/oauth/authorize</code>, with the specified request parameters.</p>
