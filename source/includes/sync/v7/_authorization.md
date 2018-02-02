@@ -23,13 +23,10 @@ This procedure is comprised of 3 steps, which will be described below.
 
 ### Step 1: The authorization request
 
-> An example of redirecting a user to the authorization URL:
+> An example of the URL to the authorization endpoint:
 
 ```shell
-$ curl "https://todoist.com/oauth/authorize" \
-    -d "client_id=0123456789abcdef" \
-    -d "scope=data:read,data:delete" \
-    -d "state=secretstring"
+https://todoist.com/oauth/authorize?client_id=0123456789abcdef&scope=data:read,data:delete&state=secretstring
 ```
 
 Redirect users to the authorization URL at the endpoint
