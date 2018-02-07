@@ -251,8 +251,7 @@ $ curl "https://beta.todoist.com/API/v8/tasks/1234" \
 
 ```python
 import requests
-requests.get("https://beta.todoist.com/API/v8/tasks/1234", headers={"Authorization": "Bearer %s" % your_token}
-).json()
+requests.get("https://beta.todoist.com/API/v8/tasks/1234", headers={"Authorization": "Bearer %s" % your_token}).json()
 
 {
     "comment_count": 0,
