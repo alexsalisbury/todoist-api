@@ -376,7 +376,7 @@ curl -X DELETE "https://beta.todoist.com/API/v8/tasks/1234" \
 
 ```python
 import requests
-requests.delete("https://beta.todoist.com/API/v8/tasks/1234",headers={"Authorization": "Bearer %s" % your_token})
+requests.delete("https://beta.todoist.com/API/v8/tasks/1234", headers={"Authorization": "Bearer %s" % your_token})
 ```
 
 Deletes a task and returns an empty body with a HTTP status 204.
