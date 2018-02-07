@@ -30,7 +30,7 @@
 | name _String_            | Project name                                                       |
 | order _Integer_          | Project position in the list of projects/Project order (read-only) |
 | indent _Integer_         | Value from 1 to 4 for the Project indentation level (read-only)    |
-| comment*count \_Integer* | Number of project comments                                         |
+| comment_count _Integer_ | Number of project comments                                         |
 
 ## Get all projects
 
@@ -54,9 +54,8 @@ $ curl -X GET \
 
 ```python
 import requests
-requests.get(
-    'https://beta.todoist.com/API/v8/projects',
-    headers={'Authorization': 'Bearer %s' % your_token}
+requests.get("https://beta.todoist.com/API/v8/projects",
+    headers={"Authorization": "Bearer %s" % your_token}
 ).json()
 
 [
@@ -95,8 +94,7 @@ $ curl "https://beta.todoist.com/API/v8/projects" \
 
 ```python
 import uuid, requests, json
-requests.post(
-    "https://beta.todoist.com/API/v8/projects",
+requests.post("https://beta.todoist.com/API/v8/projects",
     data=json.dumps({"name": "Movies to watch"}),
     headers={
         "Content-Type": "application/json",
@@ -141,8 +139,7 @@ $ curl "https://beta.todoist.com/API/v8/projects/1234” \
 
 ```python
 import uuid, requests, json
-requests.get(
-    "https://beta.todoist.com/API/v8/projects/1234",
+requests.get("https://beta.todoist.com/API/v8/projects/1234",
     headers={
         "Authorization": "Bearer %s" % your_token
     }
@@ -174,8 +171,7 @@ $ curl "https://beta.todoist.com/API/v8/projects/1234" \
 
 ```python
 import uuid, requests, json
-requests.post(
-    "https://beta.todoist.com/API/v8/projects/1234",
+requests.post("https://beta.todoist.com/API/v8/projects/1234",
     data=json.dumps({"name": "Movies to review"}),
     headers={
         "Content-Type": "application/json",
@@ -205,8 +201,7 @@ $ curl -X DELETE "https://beta.todoist.com/API/v8/projects/1234" \
 
 ```python
 import requests, json
-requests.delete(
-    "https://beta.todoist.com/API/v8/projects/2176857441",
+requests.delete("https://beta.todoist.com/API/v8/projects/2176857441",
     headers={"Authorization": "Bearer %s" % your_token}
 )
 ```

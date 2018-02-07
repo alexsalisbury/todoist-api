@@ -56,18 +56,18 @@
 
 ### Properties
 
-| Property                      | Description                                                |
-| ----------------------------- | ---------------------------------------------------------- |
-| id _Integer_                  | Task id                                                    |
+| Property                       | Description                                                |
+| ------------------------------ | ---------------------------------------------------------- |
+| id _Integer_                   | Task id                                                    |
 | project_id _Integer_          | Task's project id (read-only)                              |
-| content _String_              | Task content                                               |
-| completed _Boolean_           | Flag to mark completed tasks                               |
+| content _String_               | Task content                                               |
+| completed _Boolean_            | Flag to mark completed tasks                               |
 | label_ids _Array of Integers_ | Array of label ids, associated with a task                 |
-| order _Integer_               | Position in the project (read-only)                        |
-| indent _Integer_              | Task indentation level from 1 to 5 (read-only)             |
-| priority _Integer_            | Task priority from 1 (normal, default value) to 4 (urgent) |
-| due _Object_                  | object representing task due date/time (described below)   |
-| url _String_                  | URL to access this task in Todoist web interface           |
+| order _Integer_                | Position in the project (read-only)                        |
+| indent _Integer_               | Task indentation level from 1 to 5 (read-only)             |
+| priority _Integer_             | Task priority from 1 (normal, default value) to 4 (urgent) |
+| due _Object_                   | object representing task due date/time (described below)   |
+| url _String_                   | URL to access this task in Todoist web interface           |
 | comment_count _Integer_       | Number of task comments                                    |
 
 ### Due object
@@ -105,8 +105,7 @@ $ curl -X GET \
 
 ```python
 import requests
-requests.get(
-    "https://beta.todoist.com/API/v8/tasks",
+requests.get("https://beta.todoist.com/API/v8/tasks",
     params={"project_id": 123},
     headers={"Authorization": "Bearer %s" % your_token}
 ).json()
@@ -130,12 +129,12 @@ Returns a JSON-encoded array containing all user tasks
 
 ### Parameters
 
-| Parameter            | Required | Description                                                                                    |
-| -------------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| Parameter             | Required | Description                                                                                    |
+| --------------------- | -------- | ---------------------------------------------------------------------------------------------- |
 | project_id _Integer_ | No       | Filter tasks by project id                                                                     |
 | label_id _Integer_   | No       | Filter tasks by label                                                                          |
-| filter _String_      | No       | Filter by any [supported filter](https://support.todoist.com/hc/en-us/articles/205248842)      |
-| lang _String_        | No       | IETF language tag defining what language filter is written in, if differs from default English |
+| filter _String_       | No       | Filter by any [supported filter](https://support.todoist.com/hc/en-us/articles/205248842)      |
+| lang _String_         | No       | IETF language tag defining what language filter is written in, if differs from default English |
 
 Note that **filters are premium-only feature**, if used for non-premium users,
 server would return 402 Payment Required.
@@ -172,8 +171,7 @@ $ curl "https://beta.todoist.com/API/v8/tasks" \
 
 ```python
 import uuid, requests, json
-requests.post(
-    "https://beta.todoist.com/API/v8/tasks",
+requests.post("https://beta.todoist.com/API/v8/tasks",
     data=json.dumps({"content": "Appointment with Maria",
                      "due_string": "tomorrow at 12:00",
                      "due_lang": "en",
@@ -207,13 +205,13 @@ Creates a new task and returns the JSON object according for it.
 
 ### JSON body parameters
 
-| Parameter                     | Required | Description                                                                                                                                   |
-| ----------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| content _String_              | Yes      | Task content                                                                                                                                  |
+| Parameter                      | Required | Description                                                                                                                                   |
+| ------------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| content _String_               | Yes      | Task content                                                                                                                                  |
 | project_id _Integer_          | No       | Task project id. If not set, task is put to user's Inbox                                                                                      |
-| order _Integer_               | No       | Non-zero integer value used by clients to sort tasks inside project                                                                           |
+| order _Integer_                | No       | Non-zero integer value used by clients to sort tasks inside project                                                                           |
 | label_ids _Array of Integers_ | No       | Ids of labels associated with the task                                                                                                        |
-| priority _Integer_            | No       | Task priority from 1 (normal) to 4 (urgent)                                                                                                   |
+| priority _Integer_             | No       | Task priority from 1 (normal) to 4 (urgent)                                                                                                   |
 | due_string _String_           | No       | [human-defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time. |
 | due_date _String_             | No       | Specific date in `YYYY-MM-DD` format relative to user’s timezone                                                                              |
 | due_datetime _String_         | No       | specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC                                                       |
@@ -251,8 +249,7 @@ $ curl "https://beta.todoist.com/API/v8/tasks/1234" \
 
 ```python
 import requests
-requests.get(
-    "https://beta.todoist.com/API/v8/tasks/1234",
+requests.get("https://beta.todoist.com/API/v8/tasks/1234",
     headers={
         "Authorization": "Bearer %s" % your_token
     }
@@ -294,8 +291,7 @@ curl "https://beta.todoist.com/API/v8/tasks/1234" \
 
 ```python
 import uuid, requests, json
-requests.post(
-    "https://beta.todoist.com/API/v8/tasks/1234",
+requests.post("https://beta.todoist.com/API/v8/tasks/1234",
     data=json.dumps({"content": "Movies to watch"}),
     headers={
         "Content-Type": "application/json",
@@ -309,16 +305,16 @@ Updates a task and returns an empty body with the HTTP status code 204
 
 ### JSON body parameters
 
-| Parameter                     | Required | Description                                                                                                                                   |
-| ----------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| content _String_              | Yes      | Task content                                                                                                                                  |
-| project_id _Integer_          | No       | Task project id (read-only)                                                                                                                   |
-| label_ids _Array of Integers_ | No       | Ids of labels associated with the task                                                                                                        |
-| priority _Integer_            | No       | Task priority from 1 (normal) to 4 (urgent)                                                                                                   |
-| due_string _String_           | No       | [human-defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time. |
-| due_date _String_             | No       | Specific date in `YYYY-MM-DD` format relative to user’s timezone                                                                              |
-| due_datetime _String_         | No       | specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC                                                       |
-| due_lang _String_             | No       | 2-letter code specifying language in case `due_string` is not written in English                                                              |
+| Parameter                      | Required | Description                                                                                                                                   |
+| ------------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| content _String_               | Yes      | Task content                                                                                                                                  |
+| project*id \_Integer*          | No       | Task project id (read-only)                                                                                                                   |
+| label*ids \_Array of Integers* | No       | Ids of labels associated with the task                                                                                                        |
+| priority _Integer_             | No       | Task priority from 1 (normal) to 4 (urgent)                                                                                                   |
+| due*string \_String*           | No       | [human-defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time. |
+| due*date \_String*             | No       | Specific date in `YYYY-MM-DD` format relative to user’s timezone                                                                              |
+| due*datetime \_String*         | No       | specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC                                                       |
+| due*lang \_String*             | No       | 2-letter code specifying language in case `due_string` is not written in English                                                              |
 
 Please note that only one of the `due_*` fields can be used at
 the same time (`due_lang` is a special case).
@@ -334,8 +330,7 @@ curl -X POST "https://beta.todoist.com/API/v8/tasks/1234/close" \
 
 ```python
 import requests
-requests.post(
-    "https://beta.todoist.com/API/v8/tasks/1234/close",
+requests.post("https://beta.todoist.com/API/v8/tasks/1234/close",
     headers={
         "Authorization": "Bearer %s" % your_token
     })
@@ -358,8 +353,7 @@ curl -X POST "https://beta.todoist.com/API/v8/tasks/1234/reopen" \
 
 ```python
 import requests
-requests.post(
-    "https://beta.todoist.com/API/v8/tasks/1234/reopen",
+requests.post("https://beta.todoist.com/API/v8/tasks/1234/reopen",
     headers={
         "Authorization": "Bearer %s" % your_token
     })
@@ -389,8 +383,7 @@ curl -X DELETE "https://beta.todoist.com/API/v8/tasks/1234" \
 
 ```python
 import requests
-requests.delete(
-    "https://beta.todoist.com/API/v8/tasks/1234",
+requests.delete("https://beta.todoist.com/API/v8/tasks/1234",
     headers={
         "Authorization": "Bearer %s" % your_token
     })

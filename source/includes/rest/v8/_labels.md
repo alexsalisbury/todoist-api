@@ -45,8 +45,7 @@ $ curl "https://beta.todoist.com/API/v8/labels" \
 
 ```python
 import requests
-requests.get(
-    "https://beta.todoist.com/API/v8/labels",
+requests.get("https://beta.todoist.com/API/v8/labels",
     headers={"Authorization": "Bearer %s" % your_token}
 ).json()
 
@@ -124,8 +123,7 @@ $ curl "https://beta.todoist.com/API/v8/labels/1234" \
 
 ```python
 import requests
-requests.get(
-    "https://beta.todoist.com/API/v8/labels/1234",
+requests.get("https://beta.todoist.com/API/v8/labels/1234",
     headers={"Authorization": "Bearer %s" % your_token}
 ).json()
 
@@ -183,8 +181,7 @@ curl -X DELETE "https://beta.todoist.com/API/v8/labels/1234" \
 
 ```python
 import requests
-requests.delete(
-    "https://beta.todoist.com/API/v8/labels/1234",
+requests.delete("https://beta.todoist.com/API/v8/labels/1234",
     headers={"Authorization": "Bearer %s" % your_token}
 )
 ```

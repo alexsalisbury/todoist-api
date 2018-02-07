@@ -36,14 +36,14 @@
 
 ### Properties
 
-| Property             | Description                                                                                         |
-| -------------------- | --------------------------------------------------------------------------------------------------- |
-| id _Integer_         | Comment id                                                                                          |
-| task_id _Integer_    | Comment's task id (for task comments).                                                              |
-| project_id _Integer_ | Comment's project id (for project comments)                                                         |
-| posted _String_      | Date and time when comment was added, [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC |
-| content _String_     | Comment content                                                                                     |
-| attachment _Object_  | Attachment file (optional)                                                                          |
+| Property              | Description                                                                                         |
+| --------------------- | --------------------------------------------------------------------------------------------------- |
+| id _Integer_          | Comment id                                                                                          |
+| task*id \_Integer*    | Comment's task id (for task comments).                                                              |
+| project*id \_Integer* | Comment's project id (for project comments)                                                         |
+| posted _String_       | Date and time when comment was added, [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC |
+| content _String_      | Comment content                                                                                     |
+| attachment _Object_   | Attachment file (optional)                                                                          |
 
 The optional attachment attribute describes object with attachment
 metadata. Format of this object depends on kind of attachment it describes,
@@ -75,8 +75,7 @@ $ curl "https://beta.todoist.com/API/v8/comments?task_id=2345" \
 
 ```python
 import requests
-requests.get(
-    "https://beta.todoist.com/API/v8/comments",
+requests.get("https://beta.todoist.com/API/v8/comments",
     params={"task_id": 2345},
     headers={
         "Authorization": "Bearer %s" % your_token
@@ -105,10 +104,10 @@ required.
 
 ### Parameters
 
-| Parameter            | Required              | Description                               |
-| -------------------- | --------------------- | ----------------------------------------- |
-| project_id _Integer_ | Yes (or `task_id`)    | Id of the project used to filter comments |
-| task_id _Integer_    | Yes (or `project_id`) | Id of the task used to filter comments    |
+| Parameter             | Required              | Description                               |
+| --------------------- | --------------------- | ----------------------------------------- |
+| project*id \_Integer* | Yes (or `task_id`)    | Id of the project used to filter comments |
+| task*id \_Integer*    | Yes (or `project_id`) | Id of the task used to filter comments    |
 
 **Note**: You **must** use at least one of them
 
@@ -189,12 +188,12 @@ Creates a new comment on a project or task and returns its object
 
 ### JSON body parameters
 
-| Parameter            | Required              | Description                                 |
-| -------------------- | --------------------- | ------------------------------------------- |
-| task_id _Integer_    | Yes (or `project_id`) | Comment's task id (for task comments).      |
-| project_id _Integer_ | Yes (or `task_id`)    | Comment's project id (for project comments) |
-| content _String_     | Yes                   | Comment content                             |
-| attachment _Object_  | No                    | Object for attachment object                |
+| Parameter             | Required              | Description                                 |
+| --------------------- | --------------------- | ------------------------------------------- |
+| task*id \_Integer*    | Yes (or `project_id`) | Comment's task id (for task comments).      |
+| project*id \_Integer* | Yes (or `task_id`)    | Comment's project id (for project comments) |
+| content _String_      | Yes                   | Comment content                             |
+| attachment _Object_   | No                    | Object for attachment object                |
 
 ## Get a comment
 
@@ -220,8 +219,7 @@ $ curl "https://beta.todoist.com/API/v8/comments/1234" \
 
 ```python
 import requests
-requests.get(
-    "https://beta.todoist.com/API/v8/comments/1234",
+requests.get("https://beta.todoist.com/API/v8/comments/1234",
     headers={
         "Authorization": "Bearer %s" % your_token
     }
@@ -287,8 +285,7 @@ curl -X DELETE "https://beta.todoist.com/API/v8/comments/1234" \
 
 ```python
 import requests
-requests.delete(
-    "https://beta.todoist.com/API/v8/comments/1234",
+requests.delete("https://beta.todoist.com/API/v8/comments/1234",
     headers={"Authorization": "Bearer %s" % your_token}
 )
 ```
