@@ -162,8 +162,7 @@ requests.post(
         "attachment": {
             "resource_type":
             "file",
-            "file_url":
-            "https://s3.amazonaws.com/domorebetter/Todoist+Setup+Guide.pdf",
+            "file_url":"https://s3.amazonaws.com/domorebetter/Todoist+Setup+Guide.pdf",
             "file_type":
             "application/pdf",
             "file_name":
