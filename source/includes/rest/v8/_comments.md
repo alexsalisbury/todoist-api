@@ -252,7 +252,7 @@ Returns a comment by id
 > Update a comment
 
 ```shell
-curl "https://beta.todoist.com/API/v8/comments/1234" \
+$ curl "https://beta.todoist.com/API/v8/comments/1234" \
     -X POST \
     --data '{"content": "Goodbye world"}' \
     -H "Content-Type: application/json" \
@@ -287,7 +287,7 @@ Updates a comment and returns an empty body with a HTTP status code 204
 > Delete a comment
 
 ```shell
-curl -X DELETE "https://beta.todoist.com/API/v8/comments/1234" \
+$ curl -X DELETE "https://beta.todoist.com/API/v8/comments/1234" \
     -H "Authorization: Bearer $token”
 ```
 
