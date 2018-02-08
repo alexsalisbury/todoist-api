@@ -45,7 +45,12 @@ $ curl "https://beta.todoist.com/API/v8/labels" \
 
 ```python
 import requests
-requests.get("https://beta.todoist.com/API/v8/labels", headers={"Authorization": "Bearer %s" % your_token}).json()
+requests.get(
+    "https://beta.todoist.com/API/v8/labels",
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    }).json()
+
 
 [
     {
@@ -79,14 +84,17 @@ curl "https://beta.todoist.com/API/v8/labels" \
 
 ```python
 import requests
-requests.post("https://beta.todoist.com/API/v8/labels",
-    data=json.dumps({"name": "Movies to watch"}),
+requests.post(
+    "https://beta.todoist.com/API/v8/labels",
+    data=json.dumps({
+        "name": "Movies to watch"
+    }),
     headers={
         "Content-Type": "application/json",
         "X-Request-Id": str(uuid.uuid4()),
         "Authorization": "Bearer %s" % your_token
-    }
-).json()
+    }).json()
+
 
 {
   "id": 1234,
@@ -121,7 +129,12 @@ $ curl "https://beta.todoist.com/API/v8/labels/1234" \
 
 ```python
 import requests
-requests.get("https://beta.todoist.com/API/v8/labels/1234", headers={"Authorization": "Bearer %s" % your_token}).json()
+requests.get(
+    "https://beta.todoist.com/API/v8/labels/1234",
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    }).json()
+
 
 {
     "id": 1234,
@@ -147,14 +160,17 @@ curl "https://beta.todoist.com/API/v8/labels/1234" \
 
 ```python
 import requests
-requests.post("https://beta.todoist.com/API/v8/labels/1234",
-    data=json.dumps({"name": "Project Z"}),
+requests.post(
+    "https://beta.todoist.com/API/v8/labels/1234",
+    data=json.dumps({
+        "name": "Project Z"
+    }),
     headers={
         "Content-Type": "application/json",
         "X-Request-Id": str(uuid.uuid4()),
         "Authorization": "Bearer %s" % your_token
-    }
-)
+    })
+
 ```
 
 Updates a label and returns an empty body with a HTTP status code 204.
@@ -177,7 +193,12 @@ curl -X DELETE "https://beta.todoist.com/API/v8/labels/1234" \
 
 ```python
 import requests
-requests.delete("https://beta.todoist.com/API/v8/labels/1234", headers={"Authorization": "Bearer %s" % your_token})
+requests.delete(
+    "https://beta.todoist.com/API/v8/labels/1234",
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    })
+
 ```
 
 Deletes a label and returns an empty body with a HTTP status code 204.

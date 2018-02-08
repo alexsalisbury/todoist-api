@@ -106,10 +106,15 @@ $ curl -X GET \
 
 ```python
 import requests
-requests.get("https://beta.todoist.com/API/v8/tasks",
-    params={"project_id": 123},
-    headers={"Authorization": "Bearer %s" % your_token}
-).json()
+requests.get(
+    "https://beta.todoist.com/API/v8/tasks",
+    params={
+        "project_id": 123
+    },
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    }).json()
+
 
 [
     {
@@ -173,17 +178,20 @@ $ curl "https://beta.todoist.com/API/v8/tasks" \
 
 ```python
 import uuid, requests, json
-requests.post("https://beta.todoist.com/API/v8/tasks",
-    data=json.dumps({"content": "Appointment with Maria",
-                     "due_string": "tomorrow at 12:00",
-                     "due_lang": "en",
-                     "priority": 4}),
+requests.post(
+    "https://beta.todoist.com/API/v8/tasks",
+    data=json.dumps({
+        "content": "Appointment with Maria",
+        "due_string": "tomorrow at 12:00",
+        "due_lang": "en",
+        "priority": 4
+    }),
     headers={
         "Content-Type": "application/json",
         "X-Request-Id": str(uuid.uuid4()),
         "Authorization": "Bearer %s" % your_token
-    }
-).json()
+    }).json()
+
 
 {
     "comment_count": 0,
@@ -251,7 +259,12 @@ $ curl "https://beta.todoist.com/API/v8/tasks/1234" \
 
 ```python
 import requests
-requests.get("https://beta.todoist.com/API/v8/tasks/1234", headers={"Authorization": "Bearer %s" % your_token}).json()
+requests.get(
+    "https://beta.todoist.com/API/v8/tasks/1234",
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    }).json()
+
 
 {
     "comment_count": 0,
@@ -289,14 +302,17 @@ curl "https://beta.todoist.com/API/v8/tasks/1234" \
 
 ```python
 import uuid, requests, json
-requests.post("https://beta.todoist.com/API/v8/tasks/1234",
-    data=json.dumps({"content": "Movies to watch"}),
+requests.post(
+    "https://beta.todoist.com/API/v8/tasks/1234",
+    data=json.dumps({
+        "content": "Movies to watch"
+    }),
     headers={
         "Content-Type": "application/json",
         "X-Request-Id": str(uuid.uuid4()),
         "Authorization": "Bearer %s" % your_token
-    }
-)
+    })
+
 ```
 
 Updates a task and returns an empty body with the HTTP status code 204
@@ -329,7 +345,12 @@ curl -X POST "https://beta.todoist.com/API/v8/tasks/1234/close" \
 
 ```python
 import requests
-requests.post("https://beta.todoist.com/API/v8/tasks/1234/close", headers={"Authorization": "Bearer %s" % your_token})
+requests.post(
+    "https://beta.todoist.com/API/v8/tasks/1234/close",
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    })
+
 ```
 
 Closes a task and returns an empty body with a HTTP status code 204.
@@ -349,7 +370,12 @@ curl -X POST "https://beta.todoist.com/API/v8/tasks/1234/reopen" \
 
 ```python
 import requests
-requests.post("https://beta.todoist.com/API/v8/tasks/1234/reopen", headers={"Authorization": "Bearer %s" % your_token})
+requests.post(
+    "https://beta.todoist.com/API/v8/tasks/1234/reopen",
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    })
+
 ```
 
 Reopens a task and returns an empty body with a HTTP status code 204.
@@ -376,7 +402,12 @@ curl -X DELETE "https://beta.todoist.com/API/v8/tasks/1234" \
 
 ```python
 import requests
-requests.delete("https://beta.todoist.com/API/v8/tasks/1234", headers={"Authorization": "Bearer %s" % your_token})
+requests.delete(
+    "https://beta.todoist.com/API/v8/tasks/1234",
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    })
+
 ```
 
 Deletes a task and returns an empty body with a HTTP status 204.

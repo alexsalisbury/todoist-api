@@ -55,7 +55,12 @@ $ curl -X GET \
 
 ```python
 import requests
-requests.get("https://beta.todoist.com/API/v8/projects", headers={"Authorization": "Bearer %s" % your_token}).json()
+requests.get(
+    "https://beta.todoist.com/API/v8/projects",
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    }).json()
+
 
 [
     {
@@ -93,14 +98,17 @@ $ curl "https://beta.todoist.com/API/v8/projects" \
 
 ```python
 import uuid, requests, json
-requests.post("https://beta.todoist.com/API/v8/projects",
-    data=json.dumps({"name": "Movies to watch"}),
+requests.post(
+    "https://beta.todoist.com/API/v8/projects",
+    data=json.dumps({
+        "name": "Movies to watch"
+    }),
     headers={
         "Content-Type": "application/json",
         "X-Request-Id": str(uuid.uuid4()),
         "Authorization": "Bearer %s" % your_token
-    }
-).json()
+    }).json()
+
 
 {
     "id": 1234,
@@ -139,7 +147,12 @@ $ curl "https://beta.todoist.com/API/v8/projects/1234” \
 
 ```python
 import uuid, requests, json
-requests.get("https://beta.todoist.com/API/v8/projects/1234", headers={"Authorization": "Bearer %s" % your_token})
+requests.get(
+    "https://beta.todoist.com/API/v8/projects/1234",
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    })
+
 
 {
     "id": 1234,
@@ -167,14 +180,17 @@ $ curl "https://beta.todoist.com/API/v8/projects/1234" \
 
 ```python
 import uuid, requests, json
-requests.post("https://beta.todoist.com/API/v8/projects/1234",
-    data=json.dumps({"name": "Movies to review"}),
+requests.post(
+    "https://beta.todoist.com/API/v8/projects/1234",
+    data=json.dumps({
+        "name": "Movies to review"
+    }),
     headers={
         "Content-Type": "application/json",
         "X-Request-Id": str(uuid.uuid4()),
         "Authorization": "Bearer %s" % your_token
-    }
-)
+    })
+
 ```
 
 Updates the project for the given id and returns HTTP status code 204
@@ -198,7 +214,11 @@ $ curl -X DELETE "https://beta.todoist.com/API/v8/projects/1234" \
 
 ```python
 import requests, json
-requests.delete("https://beta.todoist.com/API/v8/projects/2176857441", headers={"Authorization": "Bearer %s" % your_token})
+requests.delete(
+    "https://beta.todoist.com/API/v8/projects/2176857441",
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    })
 ```
 
 Deletes a project and returns an empty response.

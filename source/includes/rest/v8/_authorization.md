@@ -17,8 +17,11 @@ $ curl -X GET \
 ```
 
 ```python
-import requests
-requests.get("https://beta.todoist.com/API/v8/projects", headers={"Authorization': 'Bearer %s" % your_token}).json()
+import requests  
+requests.get(
+    "https://beta.todoist.com/API/v8/projects",
+    headers={"Authorization': 'Bearer %s" % your_token}).json()
+
 
 [{u'comment_count': 0, u'id': 1234, u'name': u'Inbox'}]
 ```
