@@ -34,19 +34,19 @@
 }
 ```
 
-### Properties 
+### Properties
 
 Property | Description
 ----------|------------
-id *Integer* | Comment id
+id *Integer* | Comment id.
 task_id *Integer* | Comment's task id (for task comments).
-project_id *Integer* | Comment's project id (for project comments)
-posted *String* | Date and time when comment was added, [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC
-content *String* | Comment content
-attachment *Object* | Attachment file (optional)
+project_id *Integer* | Comment's project id (for project comments).
+posted *String* | Date and time when comment was added, [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC.
+content *String* | Comment content.
+attachment *Object* | Attachment file (optional).
 
 The optional attachment attribute describes object with attachment
-metadata. Format of this object depends on kind of attachment it describes,
+metadata. Format of this object depends on the kind of attachment it describes,
 see [sync API documentation for format details](https://developer.todoist.com/sync/v7#uploads).
 
 ## Get all comments
@@ -108,10 +108,10 @@ required.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-project_id *Integer* | Yes (or `task_id`)  | Id of the project used to filter comments
-task_id *Integer* | Yes (or `project_id`)  | Id of the task used to filter comments
+project_id *Integer* | Yes (or `task_id`)  | Id of the project used to filter comments.
+task_id *Integer* | Yes (or `project_id`)  | Id of the task used to filter comments.
 
-**Note**: You **must** use at least one of them
+**Note**: You **must** use at least one of them.
 
 ## Create a new comment
 
@@ -189,16 +189,16 @@ requests.post(
 }
 ```
 
-Creates a new comment on a project or task and returns its object
+Creates a new comment on a project or task and returns its object.
 
 ### JSON body parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
 task_id *Integer* | Yes (or `project_id`) | Comment's task id (for task comments).
-project_id *Integer* | Yes (or `task_id`) | Comment's project id (for project comments)
-content *String* | Yes | Comment content
-attachment *Object* | No | Object for attachment object
+project_id *Integer* | Yes (or `task_id`) | Comment's project id (for project comments).
+content *String* | Yes | Comment content.
+attachment *Object* | No | Object for attachment object.
 
 ## Get a comment
 
@@ -224,12 +224,7 @@ $ curl "https://beta.todoist.com/API/v8/comments/1234" \
 
 ```python
 import requests
-requests.get(
-    "https://beta.todoist.com/API/v8/comments/1234",
-    headers={
-        "Authorization": "Bearer %s" % your_token
-    }).json()
-
+requests.get("https://beta.todoist.com/API/v8/comments/1234", headers={"Authorization": "Bearer %s" % your_token}).json()
 
 {
     "id": 1234,
@@ -274,13 +269,13 @@ requests.post(
     })
 ```
 
-Updates a comment and returns an empty body with a HTTP status code 204
+Updates a comment and returns an empty body with a HTTP status code 204.
 
 ### JSON body parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
-content *String* | Yes | New content for the comment
+content *String* | Yes | New content for the comment.
 
 ## Delete a comment
 
@@ -293,11 +288,7 @@ $ curl -X DELETE "https://beta.todoist.com/API/v8/comments/1234" \
 
 ```python
 import requests
-requests.delete(
-    "https://beta.todoist.com/API/v8/comments/1234",
-    headers={
-        "Authorization": "Bearer %s" % your_token
-    })
+requests.delete("https://beta.todoist.com/API/v8/comments/1234", headers={"Authorization": "Bearer %s" % your_token})
 ```
 
-Deletes a comment and returns an empty body with a HTTP status code 204
+Deletes a comment and returns an empty body with a HTTP status code 204.

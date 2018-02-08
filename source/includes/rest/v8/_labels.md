@@ -22,9 +22,9 @@
 
 Property | Description
 ----------|------------
-id *Integer* | Label id
-name *String* | Label name
-order *Integer* | Number used by clients to sort list of labels
+id *Integer* | Label id.
+name *String* | Label name.
+order *Integer* | Number used by clients to sort list of labels.
 
 ## Get all labels
 
@@ -45,12 +45,7 @@ $ curl "https://beta.todoist.com/API/v8/labels" \
 
 ```python
 import requests
-requests.get(
-    "https://beta.todoist.com/API/v8/labels",
-    headers={
-        "Authorization": "Bearer %s" % your_token
-    }).json()
-
+requests.get("https://beta.todoist.com/API/v8/labels", headers={"Authorization": "Bearer %s" % your_token}).json()
 
 [
     {
@@ -109,8 +104,8 @@ Creates a new label and returns its object as JSON.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-name *String* | Yes | Name of the label
-order *Integer* | No | Label order
+name *String* | Yes | Name of the label.
+order *Integer* | No | Label order.
 
 ## Get a label
 
@@ -129,12 +124,7 @@ $ curl "https://beta.todoist.com/API/v8/labels/1234" \
 
 ```python
 import requests
-requests.get(
-    "https://beta.todoist.com/API/v8/labels/1234",
-    headers={
-        "Authorization": "Bearer %s" % your_token
-    }).json()
-
+requests.get("https://beta.todoist.com/API/v8/labels/1234", headers={"Authorization": "Bearer %s" % your_token}).json()
 
 {
     "id": 1234,
@@ -179,8 +169,8 @@ Updates a label and returns an empty body with a HTTP status code 204.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-name *String* | No | New name of the label
-order *Integer* | No | Number that is used by clients to sort list of labels
+name *String* | No | New name of the label.
+order *Integer* | No | Number that is used by clients to sort list of labels.
 
 ## Delete a label
 
@@ -193,11 +183,7 @@ $ curl -X DELETE "https://beta.todoist.com/API/v8/labels/1234" \
 
 ```python
 import requests
-requests.delete(
-    "https://beta.todoist.com/API/v8/labels/1234",
-    headers={
-        "Authorization": "Bearer %s" % your_token
-    })
+requests.delete("https://beta.todoist.com/API/v8/labels/1234", headers={"Authorization": "Bearer %s" % your_token})
 
 ```
 

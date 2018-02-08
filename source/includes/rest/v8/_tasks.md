@@ -58,26 +58,26 @@
 
 Property | Description
 ----------|------------
-id *Integer* | Task id
-project_id *Integer* | Task's project id (read-only)
-content *String* | Task content
-completed *Boolean* | Flag to mark completed tasks
-label_ids *Array of Integers* | Array of label ids, associated with a task
-order *Integer* | Position in the project (read-only)
-indent *Integer* | Task indentation level from 1 to 5 (read-only)
-priority *Integer* | Task priority from 1 (normal, default value) to 4 (urgent)
-due *Object* | object representing task due date/time (described below)
-url *String* | URL to access this task in Todoist web interface
-comment_count *Integer* | Number of task comments
+id *Integer* | Task id.
+project_id *Integer* | Task's project id (read-only).
+content *String* | Task content.
+completed *Boolean* | Flag to mark completed tasks.
+label_ids *Array of Integers* | Array of label ids, associated with a task.
+order *Integer* | Position in the project (read-only).
+indent *Integer* | Task indentation level from 1 to 5 (read-only).
+priority *Integer* | Task priority from 1 (normal, default value) to 4 (urgent).
+due *Object* | object representing task due date/time (described below).
+url *String* | URL to access this task in Todoist web interface.
+comment_count *Integer* | Number of task comments.
 
 ### Due object
 
 Parameter | Required | Description
 --------- | -------- | -----------
-string *String* | Yes | Human defined date in arbitrary format
-date *String* | Yes | Date in format `YYYY-MM-DD` corrected to user's timezone
-datetime *String* | No | Only returned if exact due time set (i.e. it's not a whole-day task), date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC;
-timezone *String* | No | only returned if exact due time set, user's timezone definition either in tzdata-compatible format ("Europe/Berlin") or as a string specifying east of UTC offset as "UTC±HH:MM" (i.e. "UTC-01:00");
+string *String* | Yes | Human defined date in arbitrary format.
+date *String* | Yes | Date in format `YYYY-MM-DD` corrected to user's timezone.
+datetime *String* | No | Only returned if exact due time set (i.e. it's not a whole-day task), date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC.
+timezone *String* | No | Only returned if exact due time set, user's timezone definition either in tzdata-compatible format ("Europe/Berlin") or as a string specifying east of UTC offset as "UTC±HH:MM" (i.e. "UTC-01:00").
 
 ## Get tasks
 
@@ -130,16 +130,16 @@ requests.get(
 ]
 ```
 
-Returns a JSON-encoded array containing all user tasks
+Returns a JSON-encoded array containing all user tasks.
 
 ### Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
-project_id *Integer* | No | Filter tasks by project id
-label_id *Integer* | No | Filter tasks by label
-filter *String* | No | Filter by any [supported filter](https://support.todoist.com/hc/en-us/articles/205248842)
-lang *String* | No | IETF language tag defining what language filter is written in, if differs from default English
+project_id *Integer* | No | Filter tasks by project id.
+label_id *Integer* | No | Filter tasks by label.
+filter *String* | No | Filter by any [supported filter](https://support.todoist.com/hc/en-us/articles/205248842).
+lang *String* | No | IETF language tag defining what language filter is written in, if differs from default English.
 
 Note that **filters are premium-only feature**, if used for non-premium users,
 server would return 402 Payment Required.
@@ -215,15 +215,15 @@ Creates a new task and returns the JSON object according for it.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-content *String* | Yes | Task content
-project_id *Integer* | No | Task project id. If not set, task is put to user's Inbox
-order *Integer* | No | Non-zero integer value used by clients to sort tasks inside project
-label_ids *Array of Integers* | No | Ids of labels associated with the task
-priority *Integer* | No | Task priority from 1 (normal) to 4 (urgent)
+content *String* | Yes | Task content.
+project_id *Integer* | No | Task project id. If not set, task is put to user's Inbox.
+order *Integer* | No | Non-zero integer value used by clients to sort tasks inside project.
+label_ids *Array of Integers* | No | Ids of labels associated with the task.
+priority *Integer* | No | Task priority from 1 (normal) to 4 (urgent).
 due_string *String* | No | [human-defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time.
-due_date *String* | No | Specific date in `YYYY-MM-DD` format relative to user’s timezone
-due_datetime *String* | No | specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC
-due_lang *String* | No | 2-letter code specifying language in case `due_string` is not written in English
+due_date *String* | No | Specific date in `YYYY-MM-DD` format relative to user’s timezone.
+due_datetime *String* | No | Specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC.
+due_lang *String* | No | 2-letter code specifying language in case `due_string` is not written in English.
 
 Please note that only one of the `due_*` fields can be used at
 the same time (`due_lang` is a special case).
@@ -312,20 +312,20 @@ requests.post(
     })
 ```
 
-Updates a task and returns an empty body with the HTTP status code 204
+Updates a task and returns an empty body with the HTTP status code 204.
 
 ### JSON body parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
-content *String* | Yes | Task content
-project_id *Integer* | No | Task project id (read-only)
-label_ids *Array of Integers* | No | Ids of labels associated with the task
-priority *Integer* | No | Task priority from 1 (normal) to 4 (urgent)
+content *String* | Yes | Task content.
+project_id *Integer* | No | Task project id (read-only).
+label_ids *Array of Integers* | No | Ids of labels associated with the task.
+priority *Integer* | No | Task priority from 1 (normal) to 4 (urgent).
 due_string *String* | No | [human-defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time.
-due_date *String* | No | Specific date in `YYYY-MM-DD` format relative to user’s timezone
-due_datetime *String* | No | specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC
-due_lang *String* | No | 2-letter code specifying language in case `due_string` is not written in English
+due_date *String* | No | Specific date in `YYYY-MM-DD` format relative to user’s timezone.
+due_datetime *String* | No | Specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC.
+due_lang *String* | No | 2-letter code specifying language in case `due_string` is not written in English.
 
 Please note that only one of the `due_*` fields can be used at
 the same time (`due_lang` is a special case).
@@ -342,18 +342,14 @@ $ curl -X POST "https://beta.todoist.com/API/v8/tasks/1234/close" \
 
 ```python
 import requests
-requests.post(
-    "https://beta.todoist.com/API/v8/tasks/1234/close",
-    headers={
-        "Authorization": "Bearer %s" % your_token
-    })
+requests.post("https://beta.todoist.com/API/v8/tasks/1234/close", headers={"Authorization": "Bearer %s" % your_token})
 ```
 
 Closes a task and returns an empty body with a HTTP status code 204.
 
 The command does exactly what official clients do when you close a task. Regular
 tasks are completed and moved to history, subtasks are checked (marked as done,
-but not moved to history), recurring task is moved forward (due date is updated).
+but not moved to history), recurring tasks are moved forward (due date is updated).
 
 ## Reopen a task
 
@@ -366,19 +362,15 @@ $ curl -X POST "https://beta.todoist.com/API/v8/tasks/1234/reopen" \
 
 ```python
 import requests
-requests.post(
-    "https://beta.todoist.com/API/v8/tasks/1234/reopen",
-    headers={
-        "Authorization": "Bearer %s" % your_token
-    })
+requests.post("https://beta.todoist.com/API/v8/tasks/1234/reopen", headers={"Authorization": "Bearer %s" % your_token})
 ```
 
 Reopens a task and returns an empty body with a HTTP status code 204.
 
-This command reopens a previously closed task. Works both with checked tasks in
+This command reopens a previously closed task. Works both with checked tasks in the
 user's workspace and tasks moved to history. The behaviour varies for different
 types of tasks (the command follows the behaviour of official clients when tasks
-are uncompleted or extracted from the history)
+are uncompleted or extracted from the history).
 
 * Regular tasks are extracted from the history and added back to the user
   workspace as normal unchecked tasks (without their subtasks though).
@@ -397,11 +389,7 @@ $ curl -X DELETE "https://beta.todoist.com/API/v8/tasks/1234" \
 
 ```python
 import requests
-requests.delete(
-    "https://beta.todoist.com/API/v8/tasks/1234",
-    headers={
-        "Authorization": "Bearer %s" % your_token
-    })
+requests.delete("https://beta.todoist.com/API/v8/tasks/1234", headers={"Authorization": "Bearer %s" % your_token})
 ```
 
 Deletes a task and returns an empty body with a HTTP status 204.
