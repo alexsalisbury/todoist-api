@@ -34,30 +34,30 @@ Redirect users to the authorization URL at the endpoint
 
 Here follow the required parameters:
 
-| Name               | Description                                                                                                                                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| client_id _String_ | The unique Client ID of the Todoist application that you registered.                                                                              |
-| scope _String_     | A comma separated list of permissions that you would like the users to grant to your application. See below a table with more details about this. |
-| state _String_     | A unique and unguessable string. It is used to protect you against cross-site request forgery attacks.                                            |
+Name | Description
+---- | -----------
+client_id *String* | The unique Client ID of the Todoist application that you registered.
+scope *String* | A comma separated list of permissions that you would like the users to grant to your application. See below a table with more details about this.
+state *String* | A unique and unguessable string. It is used to protect you against cross-site request forgery attacks.
 
 Here are the scope parameters mentioned before:
 
-| Name            | Description                                                                                                                                                          |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| task:add        | Grants permission to add tasks to the Inbox project (the application cannot read tasks data). This is only used by the helper method of [adding an item](#add-item). |
-| data:read       | Grants read-only access to application data, including tasks, projects, labels, and filters.                                                                         |
-| data:read_write | Grants read and write access to application data, including tasks, projects, labels, and filters. This scope includes `task:add` and `data:read` scopes.             |
-| data:delete     | Grants permission to delete application data, including tasks, labels, and filters.                                                                                  |
-| project:delete  | Grants permission to delete projects.                                                                                                                                |
+Name | Description
+---- | -----------
+task:add | Grants permission to add tasks to the Inbox project (the application cannot read tasks data). This is only used by the helper method of [adding an item](#add-item).
+data:read | Grants read-only access to application data, including tasks, projects, labels, and filters.
+data:read_write | Grants read and write access to application data, including tasks, projects, labels, and filters. This scope includes `task:add` and `data:read` scopes.
+data:delete | Grants permission to delete application data, including tasks, labels, and filters.
+project:delete | Grants permission to delete projects.
 
 And here are some common errors that you may encounter:
 
-| Error                               | Description                                                                                                                                                                                                                                                      |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| User Rejected Authorization Request | When the user denies your authorization request, Todoist will redirect the user to the configured redirect URI with the `error` parameter: `http://example.com?error=access_denied`.                                                                             |
-| Redirect URI Not Configured         | This JSON error will be returned to the requester (your user's browser) if redirect URI is not configured in the App Management Console.                                                                                                                         |
-| Invalid Application Status          | When your application exceeds the maximum token limit or when your application is being suspended due to abuse, Todoist will redirect the user to the configured redirect URI with the `error` parameter: `http://example.com?error=invalid_application_status`. |
-| Invalid Scope                       | When the `scope` parameter is invalid, Todoist will redirect the user to the configured redirect URI with `error` parameter: `http://example.com?error=invalid_scope`.                                                                                           |
+Error | Description
+----- | -----------
+User Rejected Authorization Request | When the user denies your authorization request, Todoist will redirect the user to the configured redirect URI with the `error` parameter: `http://example.com?error=access_denied`.
+Redirect URI Not Configured | This JSON error will be returned to the requester (your user's browser) if redirect URI is not configured in the App Management Console.
+Invalid Application Status | When your application exceeds the maximum token limit or when your application is being suspended due to abuse, Todoist will redirect the user to the configured redirect URI with the `error` parameter: `http://example.com?error=invalid_application_status`.
+Invalid Scope | When the `scope` parameter is invalid, Todoist will redirect the user to the configured redirect URI with `error` parameter: `http://example.com?error=invalid_scope`.
 
 ### Step 2: The redirection to your application site
 
@@ -67,7 +67,7 @@ will come with two query parameters attached: `code` and `state`.
 
 The `code` parameter contains the authorization code that you will use to
 exchange for an access token. The `state` parameter should match the `state`
-parameter that you supplied in the previous step. If the `state` is unmatched,
+parameter that you supplied in the previous step.  If the `state` is unmatched,
 your request has been compromised by other parties, and the process should be
 aborted.
 
@@ -99,19 +99,20 @@ by doing a `POST` request to the following endpoint:
 
 Here follow the required parameters:
 
-| Name                   | Description                                                              |
-| ---------------------- | ------------------------------------------------------------------------ |
-| client_id _String_     | The unique Client ID of the Todoist application that you registered.     |
-| client_secret _String_ | The unique Client Secret of the Todoist application that you registered. |
-| code _String_          | The unique string code that you obtained in the previous step.           |
+Name | Description
+---- | -----------
+client_id *String* | The unique Client ID of the Todoist application that you registered.
+client_secret *String* | The unique Client Secret of the Todoist application that you registered.
+code *String* | The unique string code that you obtained in the previous step.
 
 And here are some common errors that you may encounter (all the error responses
 will be in JSON format):
 
-| Error                              | Description                                                                                                                           |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Bad Authorization Code Error       | Occurs when the `code` parameter does not match the code that is given in the redirect request: `{"error": "bad_authorization_code"}` |
-| Incorrect Client Credentials Error | Occurs when the `client_id` or `client_secret` parameters are incorrect: `{"error": "incorrect_application_credentials"}`             |
+Error | Description
+----- | -----------
+Bad Authorization Code Error | Occurs when the `code` parameter does not match the code that is given in the redirect request: `{"error": "bad_authorization_code"}`
+Incorrect Client Credentials Error | Occurs when the `client_id` or `client_secret` parameters are incorrect: `{"error": "incorrect_application_credentials"}`
+
 
 ## Revoke Access Tokens
 
@@ -120,21 +121,23 @@ POST) to the following endpoint:
 
 `https://todoist.com/api/access_tokens/revoke`
 
+
 ```shell
-$ curl -X POST https://todoist.com/api/access_tokens/revoke \
+curl -X POST https://todoist.com/api/access_tokens/revoke \
     -H "Content-Type: application/json" \
     -d '{"client_id":"xyz", "client_secret":"xyz", "access_token":"xyz"}'
 ```
 
 ### Parameters:
 
-| Name                   | Required | Description                                                              |
-| ---------------------- | -------- | ------------------------------------------------------------------------ |
-| client_id _String_     | Yes      | The unique Client ID of the Todoist application that you registered.     |
-| client_secret _String_ | Yes      | The unique Client Secret of the Todoist application that you registered. |
-| access_token _String_  | Yes      | Access token obtained from the OAuth authentication                      |
+Name | Required | Description
+---- | -------- | -----------
+client_id *String* | Yes | The unique Client ID of the Todoist application that you registered.
+client_secret *String* | Yes | The unique Client Secret of the Todoist application that you registered.
+access_token *String* | Yes | Access token obtained from the OAuth authentication
 
 Upon successful request, a HTTP 204 response will be returned.
+
 
 ## Migrate Personal Tokens to OAuth Tokens
 
@@ -148,7 +151,7 @@ Here is the migration API endpoint (HTTP POST, with JSON request parameters):
 `https://todoist.com/api/access_tokens/migrate_personal_token`
 
 ```shell
-$ curl -X POST https://todoist.com/api/access_tokens/migrate_personal_token \
+curl -X POST https://todoist.com/api/access_tokens/migrate_personal_token \
     -H "Content-Type: application/json" \
     -d '{"client_id":"xyz", "client_secret":"xyz", "personal_token":"xyz", "scope": "data:read"}'
 
@@ -157,17 +160,18 @@ $ curl -X POST https://todoist.com/api/access_tokens/migrate_personal_token \
 
 ### Parameters:
 
-| Name                    | Required | Description                                                                                                                                     |
-| ----------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| client_id _String_      | Yes      | The unique Client ID of the Todoist application that you registered.                                                                            |
-| client_secret _String_  | Yes      | The unique Client Secret of the Todoist application that you registered.                                                                        |
-| personal_token _String_ | Yes      | Token obtained from the email/password authentication                                                                                           |
-| scope _String_          | Yes      | Scopes of the OAuth token. Please refer to the [OAuth](https://developer.todoist.com/#oauth) section for the detailed list of available scopes. |
+Name | Required | Description
+---- | -------- | -----------
+client_id *String* | Yes | The unique Client ID of the Todoist application that you registered.
+client_secret *String* | Yes | The unique Client Secret of the Todoist application that you registered.
+personal_token *String* | Yes | Token obtained from the email/password authentication
+scope *String* | Yes | Scopes of the OAuth token. Please refer to the [OAuth](https://developer.todoist.com/#oauth) section for the detailed list of available scopes.
 
 Upon succesful request, a HTTP 200 response will be returned with a new OAuth
 token in JSON format:
 
 `{"access_token": "....", "token_type": "Bearer"}`
+
 
 ## Cross Origin Resource Sharing
 
@@ -186,6 +190,7 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Credentials: false
 Access-Control-Allow-Origin: *
 ```
+
 
 ```python
 >>> import requests
