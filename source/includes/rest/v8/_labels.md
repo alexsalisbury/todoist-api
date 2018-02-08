@@ -68,7 +68,7 @@ Returns a JSON-encoded array containing all user labels
 > Create a new label
 
 ```shell
-curl "https://beta.todoist.com/API/v8/labels" \
+$ curl "https://beta.todoist.com/API/v8/labels" \
     -X POST \
     --data '{"name": "Movies to watch"}' \
     -H "Content-Type: application/json" \
@@ -150,7 +150,7 @@ Returns a label by id
 > Update a label
 
 ```shell
-curl "https://beta.todoist.com/API/v8/labels/1234" \
+$ curl "https://beta.todoist.com/API/v8/labels/1234" \
     -X POST \
     --data '{"name": "Project Y"}' \
     -H "Content-Type: application/json" \
@@ -187,7 +187,7 @@ order *Integer* | No | Number that is used by clients to sort list of labels
 > Delete a label
 
 ```shell
-curl -X DELETE "https://beta.todoist.com/API/v8/labels/1234" \
+$ curl -X DELETE "https://beta.todoist.com/API/v8/labels/1234" \
     -H "Authorization: Bearer $token”
 ```
 
