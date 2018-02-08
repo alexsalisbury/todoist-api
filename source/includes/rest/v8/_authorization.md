@@ -3,7 +3,9 @@
 > Authenticated request and response examples
 
 ```shell
-$ curl "https://beta.todoist.com/API/v8/projects?token=$token"
+$ curl -X GET \
+  https://beta.todoist.com/API/v8/projects \
+  -H "Authorization: Bearer $token"
 
 [
     {
@@ -15,16 +17,14 @@ $ curl "https://beta.todoist.com/API/v8/projects?token=$token"
 ```
 
 ```python
-import requests
-requests.get('https://beta.todoist.com/API/v8/projects',
-    query_string={'token': your_token)}
-).json()
+import requests  
+requests.get("https://beta.todoist.com/API/v8/projects", headers={"Authorization': 'Bearer %s" % your_token}).json()
 
 [{u'comment_count': 0, u'id': 1234, u'name': u'Inbox'}]
 ```
 
 API endpoints accept GET arguments as `url-encoded` values. Every endpoint
-requires a `token` query string parameter that holds the
+requires an [authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) with the appropriate `Bearer $token` that holds the
 [Todoist personal API token](https://todoist.com/Users/viewPrefs?page=integrations) or
 [OAuth API token](https://developer.todoist.com/sync/v7/#oauth).
 

@@ -148,5 +148,3 @@ Upon succesful request, a HTTP 200 response will be returned with a new OAuth to
 ```shell
 {"access_token": "....", "token_type": "Bearer"}
 ```
-
-

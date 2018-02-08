@@ -38,24 +38,24 @@
 
 Property | Description
 ----------|------------
-id *Integer* | Comment id
+id *Integer* | Comment id.
 task_id *Integer* | Comment's task id (for task comments).
-project_id *Integer* | Comment's project id (for project comments)
-posted *String* | Date and time when comment was added, [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC
-content *String* | Comment content
-attachment *Object* | Attachment file (optional)
+project_id *Integer* | Comment's project id (for project comments).
+posted *String* | Date and time when comment was added, [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC.
+content *String* | Comment content.
+attachment *Object* | Attachment file (optional).
 
 The optional attachment attribute describes object with attachment
-metadata. Format of this object depends on kind of attachment it describes,
+metadata. Format of this object depends on the kind of attachment it describes,
 see [sync API documentation for format details](https://developer.todoist.com/sync/v7#uploads).
-
 
 ## Get all comments
 
 > Get all comments
 
 ```shell
-curl "https://beta.todoist.com/API/v8/comments?task_id=2345&token=$token"
+$ curl "https://beta.todoist.com/API/v8/comments?task_id=2345" \
+  -H "Authorization: Bearer $token”
 
 [
     {
@@ -71,12 +71,18 @@ curl "https://beta.todoist.com/API/v8/comments?task_id=2345&token=$token"
         }
     }
 ]
-
 ```
 
 ```python
 import requests
-requests.get("https://beta.todoist.com/API/v8/comments", params={"token": token, "task_id": 2345}).json()
+requests.get(
+    "https://beta.todoist.com/API/v8/comments",
+    params={
+        "task_id": 2345
+    },
+    headers={
+        "Authorization": "Bearer %s" % your_token
+    }).json()
 
 [
     {
@@ -102,11 +108,10 @@ required.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-project_id *Integer* | Yes (or `task_id`)  | Id of the project used to filter comments
-task_id *Integer* | Yes (or `project_id`)  | Id of the task used to filter comments
+project_id *Integer* | Yes (or `task_id`)  | Id of the project used to filter comments.
+task_id *Integer* | Yes (or `project_id`)  | Id of the task used to filter comments.
 
-**Note**: You **must** use at least one of them
-
+**Note**: You **must** use at least one of them.
 
 ## Create a new comment
 
@@ -126,11 +131,12 @@ $ cat > /tmp/note.json
 }
 ^C
 
-$ curl "https://beta.todoist.com/API/v8/comments?token=$token" \
+$ curl "https://beta.todoist.com/API/v8/comments" \
     -X POST \
     --data @/tmp/note.json \
     -H "Content-Type: application/json" \
-    -H "X-Request-Id: $(uuidgen)"
+    -H "X-Request-Id: $(uuidgen)" \
+    -H "Authorization: Bearer $token”
 
 {
     "id": 123,
@@ -148,23 +154,26 @@ $ curl "https://beta.todoist.com/API/v8/comments?token=$token" \
 
 ```python
 import requests
-requests.post("https://beta.todoist.com/API/v8/comments",
-    params={"token": token},
+requests.post(
+    "https://beta.todoist.com/API/v8/comments",
     data=json.dumps({
         "task_id": 2248549994,
         "content": "Hello world",
         "attachment": {
-            "resource_type": "file",
-            "file_url": "https://s3.amazonaws.com/domorebetter/Todoist+Setup+Guide.pdf",
-            "file_type": "application/pdf",
-            "file_name": "File.pdf"
+            "resource_type":
+            "file",
+            "file_url":"https://s3.amazonaws.com/domorebetter/Todoist+Setup+Guide.pdf",
+            "file_type":
+            "application/pdf",
+            "file_name":
+            "File.pdf"
         }
     }),
     headers={
         "Content-Type": "application/json",
         "X-Request-Id": str(uuid.uuid4()),
-    }
-).json()
+        "Authorization": "Bearer %s" % your_token
+    }).json()
 
 {
     "id": 123,
@@ -180,24 +189,24 @@ requests.post("https://beta.todoist.com/API/v8/comments",
 }
 ```
 
-Creates a new comment on a project or task and returns its object
+Creates a new comment on a project or task and returns its object.
 
 ### JSON body parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
 task_id *Integer* | Yes (or `project_id`) | Comment's task id (for task comments).
-project_id *Integer* | Yes (or `task_id`) | Comment's project id (for project comments)
-content *String* | Yes | Comment content
-attachment *Object* | No | Object for attachment object
-
+project_id *Integer* | Yes (or `task_id`) | Comment's project id (for project comments).
+content *String* | Yes | Comment content.
+attachment *Object* | No | Object for attachment object.
 
 ## Get a comment
 
 > Get a comment
 
 ```shell
-curl "https://beta.todoist.com/API/v8/comments/1234?token=$token"
+$ curl "https://beta.todoist.com/API/v8/comments/1234" \
+  -H "Authorization: Bearer $token”
 
 {
     "id": 1234,
@@ -215,7 +224,7 @@ curl "https://beta.todoist.com/API/v8/comments/1234?token=$token"
 
 ```python
 import requests
-requests.get("https://beta.todoist.com/API/v8/comments/1234", params={"token": token}).json()
+requests.get("https://beta.todoist.com/API/v8/comments/1234", headers={"Authorization": "Bearer %s" % your_token}).json()
 
 {
     "id": 1234,
@@ -233,51 +242,53 @@ requests.get("https://beta.todoist.com/API/v8/comments/1234", params={"token": t
 
 Returns a comment by id
 
-
 ## Update a comment
 
 > Update a comment
 
 ```shell
-curl "https://beta.todoist.com/API/v8/comments/1234?token=$token" \
+$ curl "https://beta.todoist.com/API/v8/comments/1234" \
     -X POST \
     --data '{"content": "Goodbye world"}' \
     -H "Content-Type: application/json" \
-    -H "X-Request-Id: $(uuidgen)"
+    -H "X-Request-Id: $(uuidgen)" \
+    -H "Authorization: Bearer $token”
 ```
 
 ```python
 import requests
-requests.post("https://beta.todoist.com/API/v8/comments/1234",
-    params={"token": token},
-    data=json.dumps({"content": "Goodbye world"}),
+requests.post(
+    "https://beta.todoist.com/API/v8/comments/1234",
+    data=json.dumps({
+        "content": "Goodbye world"
+    }),
     headers={
         "Content-Type": "application/json",
         "X-Request-Id": str(uuid.uuid4()),
-    }
-)
+        "Authorization": "Bearer %s" % your_token
+    })
 ```
 
-Updates a comment and returns an empty body with a HTTP status code 204
+Updates a comment and returns an empty body with a HTTP status code 204.
 
 ### JSON body parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
-content *String* | Yes | New content for the comment
-
+content *String* | Yes | New content for the comment.
 
 ## Delete a comment
 
 > Delete a comment
 
 ```shell
-curl -X DELETE "https://beta.todoist.com/API/v8/comments/1234?token=$token"
+$ curl -X DELETE "https://beta.todoist.com/API/v8/comments/1234" \
+    -H "Authorization: Bearer $token”
 ```
 
 ```python
 import requests
-requests.delete("https://beta.todoist.com/API/v8/comments/1234", params={"token": token})
+requests.delete("https://beta.todoist.com/API/v8/comments/1234", headers={"Authorization": "Bearer %s" % your_token})
 ```
 
-Deletes a comment and returns an empty body with a HTTP status code 204
+Deletes a comment and returns an empty body with a HTTP status code 204.
