@@ -228,9 +228,6 @@ due_lang *String* | No | 2-letter code specifying language in case `due_string` 
 Please note that only one of the `due_*` fields can be used at
 the same time (`due_lang` is a special case).
 
-Please note that only one of the `due_*` fields can be used at
-the same time (`due_lang` is a special case).
-
 ## Get a task
 
 > Get a task

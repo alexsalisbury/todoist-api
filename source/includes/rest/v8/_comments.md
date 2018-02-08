@@ -34,7 +34,7 @@
 }
 ```
 
-### Properties
+### Properties 
 
 Property | Description
 ----------|------------
