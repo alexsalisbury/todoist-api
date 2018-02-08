@@ -29,8 +29,8 @@ Property | Description
 id *Integer* | Project id
 name *String* | Project name
 order *Integer* | Project position in the list of projects/Project order (read-only)
-indent _Integer_ | Value from 1 to 4 for the Project indentation level (read-only)
-comment_count _Integer_ | Number of project comments
+indent *Integer* | Value from 1 to 4 for the Project indentation level (read-only)
+comment_count *Integer* | Number of project comments
 
 
 ## Get all projects
