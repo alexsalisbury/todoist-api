@@ -220,7 +220,7 @@ project_id *Integer* | No | Task project id. If not set, task is put to user's I
 order *Integer* | No | Non-zero integer value used by clients to sort tasks inside project.
 label_ids *Array of Integers* | No | Ids of labels associated with the task.
 priority *Integer* | No | Task priority from 1 (normal) to 4 (urgent).
-due_string *String* | No | [human-defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time.
+due_string *String* | No | [Human defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time.
 due_date *String* | No | Specific date in `YYYY-MM-DD` format relative to user’s timezone.
 due_datetime *String* | No | Specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC.
 due_lang *String* | No | 2-letter code specifying language in case `due_string` is not written in English.
@@ -257,11 +257,7 @@ $ curl "https://beta.todoist.com/API/v8/tasks/1234" \
 
 ```python
 import requests
-requests.get(
-    "https://beta.todoist.com/API/v8/tasks/1234",
-    headers={
-        "Authorization": "Bearer %s" % your_token
-    }).json()
+requests.get("https://beta.todoist.com/API/v8/tasks/1234",headers={"Authorization": "Bearer %s" % your_token}).json()
 
 
 {
@@ -322,7 +318,7 @@ content *String* | Yes | Task content.
 project_id *Integer* | No | Task project id (read-only).
 label_ids *Array of Integers* | No | Ids of labels associated with the task.
 priority *Integer* | No | Task priority from 1 (normal) to 4 (urgent).
-due_string *String* | No | [human-defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time.
+due_string *String* | No | [Human defined](https://todoist.com/Help/DatesTimes) task due date (ex.: "next Monday", "Tomorrow"). Value is set using local (not UTC) time.
 due_date *String* | No | Specific date in `YYYY-MM-DD` format relative to user’s timezone.
 due_datetime *String* | No | Specific date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC.
 due_lang *String* | No | 2-letter code specifying language in case `due_string` is not written in English.
