@@ -167,7 +167,7 @@ client_secret *String* | Yes | The unique Client Secret of the Todoist applicati
 personal_token *String* | Yes | Token obtained from the email/password authentication
 scope *String* | Yes | Scopes of the OAuth token. Please refer to the [OAuth](https://developer.todoist.com/#oauth) section for the detailed list of available scopes.
 
-Upon succesful request, a HTTP 200 response will be returned with a new OAuth
+Upon successful request, a HTTP 200 response will be returned with a new OAuth
 token in JSON format:
 
 `{"access_token": "....", "token_type": "Bearer"}`
