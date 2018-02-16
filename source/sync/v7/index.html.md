@@ -29,6 +29,8 @@ includes:
   - sync/v7/emails
   - sync/v7/urlschemes
   - sync/v7/webhooks
+  - sync/v7/batch
+  - sync/v7/limits
   - sync/v7/changelog
   - sync/v7/brand
 
