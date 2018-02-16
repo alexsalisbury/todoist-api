@@ -8327,6 +8327,63 @@ notification request.</strong></p>
 <p>A response other than HTTP 200 would be considered as failed delivery, and the
 notification would be delivered again.</p>
 
+          <h1 id="batching-commands">Batching commands</h1>
+
+<blockquote>
+<p>Batching multiple commands</p>
+</blockquote>
+
+<p>When working with the Sync API, changes can be <strong>batched</strong> into one commit. In our example, we&rsquo;re batching the creation of a Shopping List project with three different items.</p>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">todoist.api</span> <span class="kn">import</span> <span class="n">TodoistAPI</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">TodoistAPI</span><span class="p">(</span><span class="s">'0123456789abcdef0123456789abcdef01234567'</span><span class="p">)</span>
+
+<span class="n">shopping_list</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">'Shopping List'</span><span class="p">)</span>
+<span class="n">item_one</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">'Bananas'</span><span class="p">,</span> <span class="n">shopping_list</span><span class="p">[</span><span class="s">'id'</span><span class="p">])</span>
+<span class="n">item_two</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">'Apples'</span><span class="p">,</span> <span class="n">shopping_list</span><span class="p">[</span><span class="s">'id'</span><span class="p">])</span>
+<span class="n">item_three</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">'Oranges'</span><span class="p">,</span> <span class="n">shopping_list</span><span class="p">[</span><span class="s">'id'</span><span class="p">])</span>
+
+<span class="n">api</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">shopping_list</span><span class="p">,</span> <span class="n">item_one</span><span class="p">,</span> <span class="n">item_two</span><span class="p">,</span> <span class="n">item_three</span><span class="p">)</span>
+</code></pre></div>
+<p>As we’ve committed the changes all at once, we’re significantly reducing the amount of network calls that have to be made, as well as ensuring we’re not running into any rate limiting issues.</p>
+
+<p>We’re able to batch up to 100 commands per request and when combined with the 50 requests per minute, this gives us a total of 5,000 requests per minute when maximally batched.</p>
+
+          <h1 id="limits">Limits</h1>
+
+<p>There is currently a 1MiB http request body limit on POST requests. The exception to this rule is any of the <em>upload</em> endpoints which have a limit of 100 MiB.</p>
+
+<p>Upload endpoints are for POST requests pointed at paths such as <code class="prettyprint">/upload</code> and <code class="prettyprint">/uploads/add</code>.</p>
+
+<h3 id="processing-timeouts">Processing Timeouts</h3>
+
+<p>There are processing timeouts associated with each endpoint and these vary depending on the type of action being performed.</p>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Uploads</td>
+<td>5 minutes</td>
+</tr>
+<tr>
+<td>Standard Request</td>
+<td>15 seconds</td>
+</tr>
+</tbody></table>
+
+<h3 id="headers">Headers</h3>
+
+<p>Total size of HTTP headers cannot exceed 65 KiB. </p>
+
+<h3 id="requests-per-minute">Requests per Minute</h3>
+
+<p>You can make a total of 50 requests per minute with the Sync API. This can be further increased when commands are batched where possible as up to 100 batched commands can be sent per minute, giving us 5000 commands in this instance.</p>
+
           <h1 id="changes">Changes</h1>
 
 <p>In this section we document all the changes between the two different versions
