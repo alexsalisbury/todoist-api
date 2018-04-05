@@ -217,7 +217,7 @@ self.__precacheManifest = [
   },
   {
     "url": "sync/v7/index.html",
-    "revision": "c977a3ee544b9aecb0687c157ca532dc"
+    "revision": "b22e8e4da464d3557d0cc3d48024abd2"
   },
   {
     "url": "v1/index.html",
