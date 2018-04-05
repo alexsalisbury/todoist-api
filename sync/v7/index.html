@@ -304,11 +304,13 @@ developer life easier.</p>
 
 <p>In this section we will do some common things, that many of our users ask for
 help on accomplishing them. We will mostly use the <code class="prettyprint">sync</code> call, which is
-described in detailed at the <a href="#sync">Sync</a> section, but for now you can just
-consider it just an endpoint, and you will soon figure some of the things it can
+described in detail at the <a href="#sync">Sync</a> section. For now this can be
+considered as just an endpoint, and you will soon figure some of the things it can
 do, just by having a look at some examples.</p>
 
 <h2 id="get-all-projects">Get all projects</h2>
+
+<p>First, let&rsquo;s see how we can get all projects a user has. </p>
 
 <blockquote>
 <p>The example of how we get all projects:</p>
@@ -356,8 +358,6 @@ do, just by having a look at some examples.</p>
   <span class="p">})</span>
 <span class="p">]</span>
 </code></pre></div>
-<p>First, let&rsquo;s see how we can get all projects a user has.</p>
-
 <h3 id="using-curl">Using curl</h3>
 
 <p>We send a request to the <code class="prettyprint">sync</code> endpoint, and then specify the following
@@ -377,13 +377,12 @@ set <code class="prettyprint">resource_types=&#39;[&quot;projects&quot;]&#39;</c
 <p>In the results we get back, we notice the following data:</p>
 
 <ul>
-<li>All the user&rsquo;s projects, which in in this case it&rsquo;s only the <code class="prettyprint">Inbox</code> project.</li>
+<li>All the user&rsquo;s projects, which in this case it&rsquo;s only the <code class="prettyprint">Inbox</code> project.</li>
 <li>A special flag <code class="prettyprint">full_sync</code> which is set to <code class="prettyprint">true</code> here, and denotes we did a
 full sync.</li>
 <li>A new <code class="prettyprint">sync_token</code> which we can use later on, in order to do incremental
 syncs.</li>
-<li>The <code class="prettyprint">temp_id_mapping</code> object which will be explained later on, and which it&rsquo;s
-empty now.</li>
+<li>An empty <code class="prettyprint">temp_id_mapping</code> object which we&rsquo;ll look at later on.</li>
 </ul>
 
 <h3 id="using-the-python-library">Using the Python library</h3>
@@ -393,10 +392,12 @@ empty now.</li>
 API <code class="prettyprint">token</code>, that is <code class="prettyprint">0123456789abcdef0123456789abcdef01234567</code>.</p>
 
 <p>After that we can just do a sync by calling <code class="prettyprint">api.sync()</code>, and we can access the
-user&rsquo;s projects through the <code class="prettyprint">api.state</code> object, so for projects that is
+user&rsquo;s projects through the <code class="prettyprint">api.state</code> object, so for <code class="prettyprint">projects</code> that is:
 <code class="prettyprint">api.state[&#39;projects&#39;]</code>.</p>
 
 <h2 id="add-a-new-project">Add a new project</h2>
+
+<p>Let&rsquo;s create a new project, and observe the result of our action.</p>
 
 <blockquote>
 <p>The example of how we create a new project:</p>
@@ -449,8 +450,6 @@ user&rsquo;s projects through the <code class="prettyprint">api.state</code> obj
   <span class="s">'name'</span><span class="p">:</span> <span class="s">'Project1'</span><span class="p">,</span>
   <span class="s">'shared'</span><span class="p">:</span> <span class="bp">False</span><span class="p">})</span>
 </code></pre></div>
-<p>Let&rsquo;s create a new project, and observe the result of our action.</p>
-
 <h3 id="using-curl">Using curl</h3>
 
 <p>We use the <code class="prettyprint">sync</code> call, and then specify the following arguments:</p>
@@ -461,7 +460,7 @@ user&rsquo;s projects through the <code class="prettyprint">api.state</code> obj
 <li>The sync token that we received on the reply of our previous request, and
 which denotes that we want an incremental sync, so we set
 <code class="prettyprint">sync_token=&quot;aLGJg_2qwBE_kE3j9_Gn6uoKQtvQeyjm7UEz_aVwF8KdriDxw7e_InFZK61h&quot;</code>.</li>
-<li>That we want to get back only the <code class="prettyprint">projects</code>, and not any other data, so we
+<li>That we want to get back only the <code class="prettyprint">projects</code> and not any other data, so we
 set <code class="prettyprint">resource_types=&#39;[&quot;projects&quot;]&#39;</code>.</li>
 <li>We send a single <code class="prettyprint">project_add</code> command that will create a new project, and we
 specify as the only argument to that command the <code class="prettyprint">name</code> of the project which
@@ -506,6 +505,8 @@ getting back the new project&rsquo;s properties.</p>
 <p>Finally we print the new <code class="prettyprint">project1</code> object.</p>
 
 <h2 id="add-two-new-tasks">Add two new tasks</h2>
+
+<p>Let&rsquo;s create two new tasks in one go, and observe the result of our action.</p>
 
 <blockquote>
 <p>The example of how we create two new tasks:</p>
@@ -645,8 +646,6 @@ getting back the new project&rsquo;s properties.</p>
   <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Let&rsquo;s create two new tasks in one go, and observe the result of our action.</p>
-
 <h3 id="using-curl">Using curl</h3>
 
 <p>We use the <code class="prettyprint">sync</code> call, and then specify the following arguments:</p>
@@ -693,6 +692,9 @@ and so both item objects are populated with the properties these new tasks have.
 <p>Finally we print the new <code class="prettyprint">task1</code> and <code class="prettyprint">task2</code> objects.</p>
 
 <h2 id="update-the-content-and-due-date-of-a-task">Update the content and due date of a task</h2>
+
+<p>Let&rsquo;s update the content and due date of the first task we created in the
+previous step.</p>
 
 <blockquote>
 <p>The example of how we update the content and due date of a task:</p>
@@ -770,9 +772,6 @@ and so both item objects are populated with the properties these new tasks have.
   <span class="s">'user_id'</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">})</span>
 </code></pre></div>
-<p>Let&rsquo;s update the content and due date of the first task we created in the
-previous step.</p>
-
 <h3 id="using-curl">Using curl</h3>
 
 <p>We use the <code class="prettyprint">sync</code> call, and then specify the following arguments:</p>
@@ -813,6 +812,9 @@ properties of the task.</p>
 updated.</p>
 
 <h2 id="complete-a-task-and-delete-another-task">Complete a task and delete another task</h2>
+
+<p>Let&rsquo;s complete the task we updated in the previous step, and delete the task we
+created earlier.</p>
 
 <blockquote>
 <p>The example of how we complete a task an delete another task:</p>
@@ -944,9 +946,6 @@ updated.</p>
   <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Let&rsquo;s complete the task we updated in the previous step, and delete the task we
-created earlier.</p>
-
 <h3 id="using-curl">Using curl</h3>
 
 <p>We use the <code class="prettyprint">sync</code> call, and then specify the following arguments:</p>
@@ -989,6 +988,9 @@ stored from earlier, and also the <code class="prettyprint">delete()</code> meth
 <code class="prettyprint">checked=1</code> and <code class="prettyprint">is_deleted=1</code> properties have been set accordingly.</p>
 
 <h2 id="add-a-new-task-with-a-note-and-a-reminder">Add a new task with a note and a reminder</h2>
+
+<p>Let&rsquo;s create a new task, add a new comment, and also set a
+reminder based on its due date.</p>
 
 <blockquote>
 <p>The example of how we create a new task with a note and a reminder:</p>
@@ -1142,9 +1144,6 @@ stored from earlier, and also the <code class="prettyprint">delete()</code> meth
   <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Let&rsquo;s create a new task, but with add to it a new comment, and also set a
-reminder based on its due date.</p>
-
 <h3 id="using-curl">Using curl</h3>
 
 <p>We use the <code class="prettyprint">sync</code> call, and then specify the following arguments:</p>
