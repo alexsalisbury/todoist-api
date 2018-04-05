@@ -1,0 +1,32 @@
+{
+  "name": "t-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "bundle exec middleman",
+    "dev:docker": "docker-compose up",
+    "build:source": "./deploy.sh --source-only",
+    "build:all": "./deploy.sh --source-only && npm run gen-sw",
+    "deploy:push": "./deploy.sh --push-only",
+    "deploy": "npm run build:source && npm run gen-sw && npm run deploy:push",
+    "gen-sw": "workbox generateSW workbox-config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doist/todoist-api.git"
+  },
+  "keywords": [],
+  "author": "Paul Halliday",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Doist/todoist-api/issues"
+  },
+  "homepage": "https://github.com/Doist/todoist-api#readme",
+  "devDependencies": {
+    "workbox-build": "3.0.1"
+  }
+}

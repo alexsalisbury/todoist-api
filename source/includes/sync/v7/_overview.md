@@ -4,7 +4,7 @@ This is the official documentation for Todoist Sync API. A reference to the
 functionality our public API provides, with detailed description of each API
 endpoint, its parameters, and examples.
 
-## Summary of contents
+## Summary of contents 
 
 In the [Getting started](#getting-started) section we will try to
 present to you the Todoist API, in the simplest possible way, by using

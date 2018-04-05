@@ -64,5 +64,19 @@ under the License.
     # avoid changing the Javascript from slate template
     %>
     <div id="toc"></div>
+
+    <%# <script>
+      if('serviceWorker' in navigator) {
+        console.log('ServiceWorker supported');
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then(function() {
+              console.log('Registered')
+            }, function() {
+              console.error('Failed to register');
+            })
+          });
+      }
+    </script> %>
   </body>
 </html>
