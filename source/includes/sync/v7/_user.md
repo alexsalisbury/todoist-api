@@ -77,7 +77,7 @@ completed_today *Integer* | The number of completed tasks for today.
 karma *Integer* | The user's karma score.
 karma_trend *String* | The user's karma trend (for example `up`).
 is_premium *String* | Whether the user has a Premium subscription (a `true` or `false` value).
-premium_until *String* | The date when the user's Premium subscription ends (`null` if not a Premium user).
+premium_until *String* | The date when the user's Premium subscription ends (`null` if not a Premium user). This should be used for informational purposes only as this does not include the grace period upon expiration. As a result, avoid using this to determine whether someone has premium and use `is_premium` instead.
 is_biz_admin *String* | Whether the user is a business account administrator (a `true` or `false` value).
 business_account_id *Integer* | The id of the user's business account.
 image_id *String* | The id of the user's avatar.
