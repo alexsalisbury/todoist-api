@@ -2,11 +2,12 @@
 
 In this section we will do some common things, that many of our users ask for
 help on accomplishing them. We will mostly use the `sync` call, which is
-described in detailed at the [Sync](#sync) section, but for now you can just
-consider it just an endpoint, and you will soon figure some of the things it can
+described in detail at the [Sync](#sync) section. For now this can be
+considered as just an endpoint, and you will soon figure some of the things it can
 do, just by having a look at some examples.
-
 ## Get all projects
+
+First, let's see how we can get all projects a user has. 
 
 > The example of how we get all projects:
 
@@ -58,8 +59,6 @@ $ curl https://todoist.com/api/v7/sync \
 ]
 ```
 
-First, let's see how we can get all projects a user has.
-
 ### Using curl
 
 We send a request to the `sync` endpoint, and then specify the following
@@ -76,13 +75,12 @@ arguments:
 
 In the results we get back, we notice the following data:
 
-+ All the user's projects, which in in this case it's only the `Inbox` project.
++ All the user's projects, which in this case it's only the `Inbox` project.
 + A special flag `full_sync` which is set to `true` here, and denotes we did a
   full sync.
 + A new `sync_token` which we can use later on, in order to do incremental
   syncs.
-+ The `temp_id_mapping` object which will be explained later on, and which it's
-  empty now.
++ An empty `temp_id_mapping` object which we'll look at later on.
 
 ### Using the Python library
 
@@ -91,10 +89,12 @@ We need to import the `TodoistAPI` class from the `todoist` module, create a
 API `token`, that is `0123456789abcdef0123456789abcdef01234567`.
 
 After that we can just do a sync by calling `api.sync()`, and we can access the
-user's projects through the `api.state` object, so for projects that is
+user's projects through the `api.state` object, so for `projects` that is:
 `api.state['projects']`.
 
 ## Add a new project
+
+Let's create a new project, and observe the result of our action.
 
 > The example of how we create a new project:
 
@@ -151,8 +151,6 @@ Project({
   'shared': False})
 ```
 
-Let's create a new project, and observe the result of our action.
-
 ### Using curl
 
 We use the `sync` call, and then specify the following arguments:
@@ -162,7 +160,7 @@ We use the `sync` call, and then specify the following arguments:
 + The sync token that we received on the reply of our previous request, and
   which denotes that we want an incremental sync, so we set
   `sync_token="aLGJg_2qwBE_kE3j9_Gn6uoKQtvQeyjm7UEz_aVwF8KdriDxw7e_InFZK61h"`.
-+ That we want to get back only the `projects`, and not any other data, so we
++ That we want to get back only the `projects` and not any other data, so we
   set `resource_types='["projects"]'`.
 + We send a single `project_add` command that will create a new project, and we
   specify as the only argument to that command the `name` of the project which
@@ -203,7 +201,9 @@ getting back the new project's properties.
 
 Finally we print the new `project1` object.
 
-## Add two new tasks
+## Add two new tasks 
+
+Let's create two new tasks in one go, and observe the result of our action.
 
 > The example of how we create two new tasks:
 
@@ -346,9 +346,6 @@ $ curl https://todoist.com/api/v7/sync \
   })
 )
 ```
-
-Let's create two new tasks in one go, and observe the result of our action.
-
 ### Using curl
 
 We use the `sync` call, and then specify the following arguments:
@@ -389,8 +386,10 @@ In order to actually add the tasks on the server, we do an `api.commit()` call,
 and so both item objects are populated with the properties these new tasks have.
 
 Finally we print the new `task1` and `task2` objects.
-
 ## Update the content and due date of a task
+
+Let's update the content and due date of the first task we created in the
+previous step.
 
 > The example of how we update the content and due date of a task:
 
@@ -471,10 +470,6 @@ Item({
   'user_id': 1
 })
 ```
-
-Let's update the content and due date of the first task we created in the
-previous step.
-
 ### Using curl
 
 We use the `sync` call, and then specify the following arguments:
@@ -511,6 +506,9 @@ Finally we print the `task1` object, which has now its properties automatically
 updated.
 
 ## Complete a task and delete another task
+
+Let's complete the task we updated in the previous step, and delete the task we
+created earlier.
 
 > The example of how we complete a task an delete another task:
 
@@ -645,10 +643,6 @@ $ curl https://todoist.com/api/v7/sync \
   })
 )
 ```
-
-Let's complete the task we updated in the previous step, and delete the task we
-created earlier.
-
 ### Using curl
 
 We use the `sync` call, and then specify the following arguments:
@@ -687,6 +681,9 @@ Finally we print the `task1` and `task2` objects, and we can observe that their
 `checked=1` and `is_deleted=1` properties have been set accordingly.
 
 ## Add a new task with a note and a reminder
+
+Let's create a new task, add a new comment, and also set a
+reminder based on its due date.
 
 > The example of how we create a new task with a note and a reminder:
 
@@ -846,10 +843,6 @@ print(task3, comment3, reminder3)
   })
 )
 ```
-
-Let's create a new task, but with add to it a new comment, and also set a
-reminder based on its due date.
-
 ### Using curl
 
 We use the `sync` call, and then specify the following arguments:
