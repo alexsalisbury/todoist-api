@@ -5600,7 +5600,7 @@ timezone. Typically a user object will have the following properties:</p>
 </tr>
 <tr>
 <td>premium_until <em>String</em></td>
-<td>The date when the user&rsquo;s Premium subscription ends (<code class="prettyprint">null</code> if not a Premium user).</td>
+<td>The date when the user&rsquo;s Premium subscription ends (<code class="prettyprint">null</code> if not a Premium user). This should be used for informational purposes only as this does not include the grace period upon expiration. As a result, avoid using this to determine whether someone has premium and use <code class="prettyprint">is_premium</code> instead.</td>
 </tr>
 <tr>
 <td>is_biz_admin <em>String</em></td>
