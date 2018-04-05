@@ -1,0 +1,107 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "name": "Todoist Developer Documentation",
+    "scope": "/",
+    "display": "fullscreen",
+    "start_url": ".",
+    "short_name": "TodoistDeveloper",
+    "theme_color": "#E44332",
+    "description": "The official documentation for Todoist.",
+    "orientation": "any",
+    "background_color": "#fff",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/images/pwa/b64762b1-26ae-ab59-07c5-3be77734cff6.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/a8f38588-93be-a99e-f639-f68fb4260481.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/64457c87-df49-6ea5-a2e0-23a807307243.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/1364802f-ef4c-0366-b202-1d2ab114eaeb.webPlatform.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/3bfcadef-9306-2494-d6e9-dee1a6cb141a.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/56d834b3-3754-4550-dc07-3c5d39dbf8bd.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/9bd4b9cf-67bf-3aea-1a65-6449eaa80168.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/b641545f-3ef9-8b37-4e45-84fb0fd48891.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/56d1e561-d25a-aecc-6ba3-9df18c1bb5f1.webPlatform.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/e226c59f-fb9f-f714-a362-7f0b7bda67c2.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/1f8952c9-f896-ace9-eb06-74203d072c03.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/014ae34d-2dc2-346b-34b5-72de98404292.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/a2f12521-6597-1e65-f556-fe9b34191fdf.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/4a1be7d5-57b3-8106-0009-5e95f31d45f8.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/627461c8-1796-5272-dcf4-b9eca3e3d03f.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/ff30eb37-fdff-fe38-5b65-30aeec54c9d4.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/53e07ec2-7690-32d5-5f72-b81f938c4f69.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/9cfb9169-234d-dda6-6bb0-b0ef4c8ea7fc.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ]
+}
