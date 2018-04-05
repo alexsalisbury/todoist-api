@@ -6276,5 +6276,16 @@ it would be re-delivered after 15 mins, and each notification would be re-delive
       </div>
     </div>
 
+    <script>
+      if('serviceWorker' in navigator) {
+        console.log('ServiceWorker supported');
+        navigator.serviceWorker.register('/sw.js')
+          .then(function() {
+            console.log('Registered')
+          }, function() {
+            console.error('Failed to register');
+          })
+      }
+    </script>
   </body>
 </html>

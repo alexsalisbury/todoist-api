@@ -1676,5 +1676,16 @@ information about the use of the Todoist brand, please contact
       </div>
     </div>
 
+    <script>
+      if('serviceWorker' in navigator) {
+        console.log('ServiceWorker supported');
+        navigator.serviceWorker.register('/sw.js')
+          .then(function() {
+            console.log('Registered')
+          }, function() {
+            console.error('Failed to register');
+          })
+      }
+    </script>
   </body>
 </html>
