@@ -9,7 +9,7 @@ $ curl https://todoist.com/api/v7/completed/get_stats \
     -d token=0123456789abcdef0123456789abcdef01234567
 
 {
-  "karma_last_update": 50.0,
+  "karma_last_update": 50,
   "karma_trend": "up",
   "days_items": [
     { "date": "2014-11-03",
