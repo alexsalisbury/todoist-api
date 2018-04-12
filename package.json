@@ -1,7 +1,7 @@
 {
-  "name": "t-api",
+  "name": "todoist-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Todoist Developer API Documentation",
   "main": "index.js",
   "directories": {
     "lib": "lib"
