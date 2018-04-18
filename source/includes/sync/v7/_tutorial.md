@@ -43,6 +43,7 @@ $ curl https://todoist.com/api/v7/sync \
 >>> api = TodoistAPI('0123456789abcdef0123456789abcdef01234567')
 >>> api.sync()
 >>> print(api.state['projects'])
+
 [
   Project({
     'collapsed': 0,
@@ -91,6 +92,55 @@ API `token`, that is `0123456789abcdef0123456789abcdef01234567`.
 After that we can just do a sync by calling `api.sync()`, and we can access the
 user's projects through the `api.state` object, so for `projects` that is:
 `api.state['projects']`.
+
+## Excluding resource types
+
+We've seen how we can _get_ items selecting them with `resource_types`, but at the same time we can also _exclude_ items. This can be done by adding a `-` before the name of the item you want to exclude.
+
+For example, if we were making a request for everything but `notes` and `labels`, it'd look like this: `resource_types=["all", "-notes", "-labels"]`.
+
+> An example of how to exclude projects from our query:
+
+```shell
+$ curl https://todoist.com/api/v7/sync \
+    -d token=0123456789abcdef0123456789abcdef01234567 \
+    -d sync_token=* \
+    -d resource_types='["all", "-projects"]'
+
+{
+    "filters": [],
+    "temp_id_mapping": {},
+    "labels": [],
+    "locations": [],
+    "project_notes": [],
+    "user": {},
+    "full_sync": true,
+    "sync_token": "V-ZiRSIcXY5VUWzxCfWNClj81Qatg6hhrczNHIvROQKEpr7ARxU7cX09hENmXu1FF8w6qCY0_7ZjQ64k4pLWrvjVvjgKcY3e7LLapln-NLVJifE",
+    "day_orders": {},
+    "collaborators": [],
+    "day_orders_timestamp": "1523557037.93",
+    "live_notifications_last_read_id": 1192062233,
+    "items": [],
+    "notes": [],
+    "reminders": [],
+    "live_notifications": [],
+    "collaborator_states": []
+```
+
+### Using curl
+
+Similar to our previous example, we're sending a request to the `sync` endpoint with the following arguments:
+
+* The user's API token, which is set to `token=0123456789abcdef0123456789abcdef01234567`. You can find out your token from the Todoist Web app, at `Todoist Settings -> Account -> API token`.
+* A special sync token, which denotes that we want a full sync, in contrast to an incremental sync, which is done with the * symbol, so we set `sync_token=*`.
+* The use of `resource_types='["all", "-projects"]'` allows us to specify that we want everything _but_ projects.
+
+We then get back the following results:
+
++ All of the resource items _except_ `projects`.
++ A special flag `full_sync` which is set to `true` here, and denotes we did a full sync.
++ A new `sync_token` which we can use later on, in order to do incremental syncs.
++ An empty `temp_id_mapping` object which we'll look at later on.
 
 ## Add a new project
 
@@ -182,7 +232,7 @@ In the results we get back, we notice the following data:
   should be used whenever possible, the former can be also utilized on a
   temporary basis.
 + The `sync_status` object which tells us whether our command with UUID
-  `e23db5ec-2f73-478a-a008-1cb4178d2fd1` was succesful, or in case of error what
+  `e23db5ec-2f73-478a-a008-1cb4178d2fd1` was successful, or in case of error what
   exactly was the problem.
 + The special flag `full_sync` which is set to `false` here, and denotes we did
   an incremental sync.
@@ -291,7 +341,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ```python
 >>> project1 = api.projects.add('Project1')
->>> taks1 = api.items.add('Task1', project1['id'])
+>>> task1 = api.items.add('Task1', project1['id'])
 >>> task2 = api.items.add('Task2', project1['id'])
 >>> api.commit()
 >>> print(task1, task2)
