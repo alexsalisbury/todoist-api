@@ -343,6 +343,7 @@ do, just by having a look at some examples.</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span> <span class="o">=</span> <span class="n">TodoistAPI</span><span class="p">(</span><span class="s">'0123456789abcdef0123456789abcdef01234567'</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">sync</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s">'projects'</span><span class="p">])</span>
+
 <span class="p">[</span>
   <span class="n">Project</span><span class="p">({</span>
     <span class="s">'collapsed'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -394,6 +395,58 @@ API <code class="prettyprint">token</code>, that is <code class="prettyprint">01
 <p>After that we can just do a sync by calling <code class="prettyprint">api.sync()</code>, and we can access the
 user&rsquo;s projects through the <code class="prettyprint">api.state</code> object, so for <code class="prettyprint">projects</code> that is:
 <code class="prettyprint">api.state[&#39;projects&#39;]</code>.</p>
+
+<h2 id="excluding-resource-types">Excluding resource types</h2>
+
+<p>We&rsquo;ve seen how we can <em>get</em> items selecting them with <code class="prettyprint">resource_types</code>, but at the same time we can also <em>exclude</em> items. This can be done by adding a <code class="prettyprint">-</code> before the name of the item you want to exclude.</p>
+
+<p>For example, if we were making a request for everything but <code class="prettyprint">notes</code> and <code class="prettyprint">labels</code>, it&rsquo;d look like this: <code class="prettyprint">resource_types=[&quot;all&quot;, &quot;-notes&quot;, &quot;-labels&quot;]</code>.</p>
+
+<blockquote>
+<p>An example of how to exclude projects from our query:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl https://todoist.com/api/v7/sync <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">token</span><span class="o">=</span>0123456789abcdef0123456789abcdef01234567 <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">sync_token</span><span class="o">=</span><span class="k">*</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">resource_types</span><span class="o">=</span><span class="s1">'["all", "-projects"]'</span>
+
+<span class="o">{</span>
+    <span class="s2">"filters"</span>: <span class="o">[]</span>,
+    <span class="s2">"temp_id_mapping"</span>: <span class="o">{}</span>,
+    <span class="s2">"labels"</span>: <span class="o">[]</span>,
+    <span class="s2">"locations"</span>: <span class="o">[]</span>,
+    <span class="s2">"project_notes"</span>: <span class="o">[]</span>,
+    <span class="s2">"user"</span>: <span class="o">{}</span>,
+    <span class="s2">"full_sync"</span>: <span class="nb">true</span>,
+    <span class="s2">"sync_token"</span>: <span class="s2">"V-ZiRSIcXY5VUWzxCfWNClj81Qatg6hhrczNHIvROQKEpr7ARxU7cX09hENmXu1FF8w6qCY0_7ZjQ64k4pLWrvjVvjgKcY3e7LLapln-NLVJifE"</span>,
+    <span class="s2">"day_orders"</span>: <span class="o">{}</span>,
+    <span class="s2">"collaborators"</span>: <span class="o">[]</span>,
+    <span class="s2">"day_orders_timestamp"</span>: <span class="s2">"1523557037.93"</span>,
+    <span class="s2">"live_notifications_last_read_id"</span>: 1192062233,
+    <span class="s2">"items"</span>: <span class="o">[]</span>,
+    <span class="s2">"notes"</span>: <span class="o">[]</span>,
+    <span class="s2">"reminders"</span>: <span class="o">[]</span>,
+    <span class="s2">"live_notifications"</span>: <span class="o">[]</span>,
+    <span class="s2">"collaborator_states"</span>: <span class="o">[]</span>
+</code></pre></div>
+<h3 id="using-curl">Using curl</h3>
+
+<p>Similar to our previous example, we&rsquo;re sending a request to the <code class="prettyprint">sync</code> endpoint with the following arguments:</p>
+
+<ul>
+<li>The user&rsquo;s API token, which is set to <code class="prettyprint">token=0123456789abcdef0123456789abcdef01234567</code>. You can find out your token from the Todoist Web app, at <code class="prettyprint">Todoist Settings -&gt; Account -&gt; API token</code>.</li>
+<li>A special sync token, which denotes that we want a full sync, in contrast to an incremental sync, which is done with the * symbol, so we set <code class="prettyprint">sync_token=*</code>.</li>
+<li>The use of <code class="prettyprint">resource_types=&#39;[&quot;all&quot;, &quot;-projects&quot;]&#39;</code> allows us to specify that we want everything <em>but</em> projects.</li>
+</ul>
+
+<p>We then get back the following results:</p>
+
+<ul>
+<li>All of the resource items <em>except</em> <code class="prettyprint">projects</code>.</li>
+<li>A special flag <code class="prettyprint">full_sync</code> which is set to <code class="prettyprint">true</code> here, and denotes we did a full sync.</li>
+<li>A new <code class="prettyprint">sync_token</code> which we can use later on, in order to do incremental syncs.</li>
+<li>An empty <code class="prettyprint">temp_id_mapping</code> object which we&rsquo;ll look at later on.</li>
+</ul>
 
 <h2 id="add-a-new-project">Add a new project</h2>
 
@@ -484,7 +537,7 @@ we can use both of these IDs to refer to that project, and while the latter
 should be used whenever possible, the former can be also utilized on a
 temporary basis.</li>
 <li>The <code class="prettyprint">sync_status</code> object which tells us whether our command with UUID
-<code class="prettyprint">e23db5ec-2f73-478a-a008-1cb4178d2fd1</code> was succesful, or in case of error what
+<code class="prettyprint">e23db5ec-2f73-478a-a008-1cb4178d2fd1</code> was successful, or in case of error what
 exactly was the problem.</li>
 <li>The special flag <code class="prettyprint">full_sync</code> which is set to <code class="prettyprint">false</code> here, and denotes we did
 an incremental sync.</li>
@@ -591,7 +644,7 @@ getting back the new project&rsquo;s properties.</p>
   <span class="s2">"full_sync"</span> : <span class="nb">false</span>
 <span class="o">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">project1</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">'Project1'</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">taks1</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">'Task1'</span><span class="p">,</span> <span class="n">project1</span><span class="p">[</span><span class="s">'id'</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">task1</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">'Task1'</span><span class="p">,</span> <span class="n">project1</span><span class="p">[</span><span class="s">'id'</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">task2</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">'Task2'</span><span class="p">,</span> <span class="n">project1</span><span class="p">[</span><span class="s">'id'</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">task1</span><span class="p">,</span> <span class="n">task2</span><span class="p">)</span>
@@ -1594,7 +1647,7 @@ parameters:</p>
 <tr>
 <td>resource_types <em>JSON array of strings</em></td>
 <td>Yes</td>
-<td>Used to specify what resources to fetch from the server.  It should be a JSON-encoded array of strings. Here is a list of available resource types: <code class="prettyprint">labels</code>, <code class="prettyprint">projects</code>,<code class="prettyprint">items</code>, <code class="prettyprint">notes</code>, <code class="prettyprint">filters</code>, <code class="prettyprint">reminders</code>, <code class="prettyprint">locations</code>, <code class="prettyprint">user</code>, <code class="prettyprint">live_notifications</code>, <code class="prettyprint">collaborators</code>, <code class="prettyprint">notification_settings</code>. You may use <code class="prettyprint">all</code> to include all the resource types.</td>
+<td>Used to specify what resources to fetch from the server.  It should be a JSON-encoded array of strings. Here is a list of available resource types: <code class="prettyprint">labels</code>, <code class="prettyprint">projects</code>,<code class="prettyprint">items</code>, <code class="prettyprint">notes</code>, <code class="prettyprint">filters</code>, <code class="prettyprint">reminders</code>, <code class="prettyprint">locations</code>, <code class="prettyprint">user</code>, <code class="prettyprint">live_notifications</code>, <code class="prettyprint">collaborators</code>, <code class="prettyprint">notification_settings</code>. You may use <code class="prettyprint">all</code> to include all the resource types. Resources can also be excluded by prefixing a <code class="prettyprint">-</code> prior to the name, for example, <code class="prettyprint">&#39;-projects&#39;</code>.</td>
 </tr>
 </tbody></table>
 
