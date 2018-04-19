@@ -108,23 +108,24 @@ $ curl https://todoist.com/api/v7/sync \
     -d resource_types='["all", "-projects"]'
 
 {
-    "filters": [],
-    "temp_id_mapping": {},
-    "labels": [],
-    "locations": [],
-    "project_notes": [],
-    "user": {},
-    "full_sync": true,
-    "sync_token": "V-ZiRSIcXY5VUWzxCfWNClj81Qatg6hhrczNHIvROQKEpr7ARxU7cX09hENmXu1FF8w6qCY0_7ZjQ64k4pLWrvjVvjgKcY3e7LLapln-NLVJifE",
-    "day_orders": {},
-    "collaborators": [],
-    "day_orders_timestamp": "1523557037.93",
-    "live_notifications_last_read_id": 1192062233,
-    "items": [],
-    "notes": [],
-    "reminders": [],
-    "live_notifications": [],
-    "collaborator_states": []
+  "filters": [],
+  "temp_id_mapping": {},
+  "labels": [],
+  "locations": [],
+  "project_notes": [],
+  "user": {},
+  "full_sync": true,
+  "sync_token": "V-ZiRSIcXY5VUWzxCfWNClj81Qatg6hhrczNHIvROQKEpr7ARxU7cX09hENmXu1FF8w6qCY0_7ZjQ64k4pLWrvjVvjgKcY3e7LLapln-NLVJifE",
+  "day_orders": {},
+  "collaborators": [],
+  "day_orders_timestamp": "1523557037.93",
+  "live_notifications_last_read_id": 1192062233,
+  "items": [],
+  "notes": [],
+  "reminders": [],
+  "live_notifications": [],
+  "collaborator_states": []
+}
 ```
 
 ### Using curl
@@ -182,6 +183,7 @@ $ curl https://todoist.com/api/v7/sync \
    },
    "sync_token" : "VRyFHr0Qo3Hr--pzINyT6nax4vW7X2YG5RQlw3lB-6eYOPbSZVJepa62EVhO",
    "full_sync" : false
+   ]
 }
 ```
 
