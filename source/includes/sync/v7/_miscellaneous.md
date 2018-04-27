@@ -28,13 +28,13 @@ $ curl https://todoist.com/api/v7/completed/get_stats \
   "completed_count": 0,
   "karma_update_reasons": [
     { "positive_karma_reasons": [4],
-      "new_karma": 50.0,
-      "negative_karma": 0.0,
-      "positive_karma": 50.0,
+      "new_karma": 50,
+      "negative_karma": 0,
+      "positive_karma": 50,
       "negative_karma_reasons": [],
       "time": "Mon 20 Oct 2014 12:06:52"}
   ],
-  "karma": 50.0,
+  "karma": 50,
   "week_items": [
     { "date": "2014-11-03\/2014-11-09",
       "items": [
