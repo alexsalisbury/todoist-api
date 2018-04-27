@@ -403,7 +403,7 @@ content *String* | Yes | The text of the task.
 project_id *Integer* | No | The id of the project to add the task to, while the default is the user's `Inbox` project.
 date_string *String* | No | The date of the task, added in free form text, for example it can be `every day @ 10` (or `null` or an empty string to unset). Look at our reference to see [which formats are supported](https://todoist.com/Help/DatesTimes).
 priority *Integer* | No | The priority of the task (a number between `1` and `4`, `4` for very urgent and `1` for natural). <br>**Note**: Keep in mind that `very urgent` is the priority 1 on clients. So, `p1` will return `4` in the API.
-indent *Integer* | No | The indent of the task (between `1` and `4`, where `1` is top-level).
+indent *Integer* | No | The indent of the task (between `1` and `5`, where `1` is top-level).
 item_order *Integer* | No | The order of the task inside a project (where the smallest value would place the task at the top).
 labels *Array of Integer* | No | The task's labels (a list of label ids such as `[2324,2525]`).
 assigned_by_uid *Integer* | No | The id of the user who assigns the current task. This makes sense for shared projects only. Accepts `0` or any user id from the list of project collaborators. If this value is unset or invalid, it will automatically be set up to your uid.
