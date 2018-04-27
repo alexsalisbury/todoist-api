@@ -411,24 +411,23 @@ user&rsquo;s projects through the <code class="prettyprint">api.state</code> obj
     <span class="nt">-d</span> <span class="nv">resource_types</span><span class="o">=</span><span class="s1">'["all", "-projects"]'</span>
 
 <span class="o">{</span>
-  <span class="s2">"filters"</span>: <span class="o">[]</span>,
-  <span class="s2">"temp_id_mapping"</span>: <span class="o">{}</span>,
-  <span class="s2">"labels"</span>: <span class="o">[]</span>,
-  <span class="s2">"locations"</span>: <span class="o">[]</span>,
-  <span class="s2">"project_notes"</span>: <span class="o">[]</span>,
-  <span class="s2">"user"</span>: <span class="o">{}</span>,
-  <span class="s2">"full_sync"</span>: <span class="nb">true</span>,
-  <span class="s2">"sync_token"</span>: <span class="s2">"V-ZiRSIcXY5VUWzxCfWNClj81Qatg6hhrczNHIvROQKEpr7ARxU7cX09hENmXu1FF8w6qCY0_7ZjQ64k4pLWrvjVvjgKcY3e7LLapln-NLVJifE"</span>,
-  <span class="s2">"day_orders"</span>: <span class="o">{}</span>,
-  <span class="s2">"collaborators"</span>: <span class="o">[]</span>,
-  <span class="s2">"day_orders_timestamp"</span>: <span class="s2">"1523557037.93"</span>,
-  <span class="s2">"live_notifications_last_read_id"</span>: 1192062233,
-  <span class="s2">"items"</span>: <span class="o">[]</span>,
-  <span class="s2">"notes"</span>: <span class="o">[]</span>,
-  <span class="s2">"reminders"</span>: <span class="o">[]</span>,
-  <span class="s2">"live_notifications"</span>: <span class="o">[]</span>,
-  <span class="s2">"collaborator_states"</span>: <span class="o">[]</span>
-<span class="o">}</span>
+    <span class="s2">"filters"</span>: <span class="o">[]</span>,
+    <span class="s2">"temp_id_mapping"</span>: <span class="o">{}</span>,
+    <span class="s2">"labels"</span>: <span class="o">[]</span>,
+    <span class="s2">"locations"</span>: <span class="o">[]</span>,
+    <span class="s2">"project_notes"</span>: <span class="o">[]</span>,
+    <span class="s2">"user"</span>: <span class="o">{}</span>,
+    <span class="s2">"full_sync"</span>: <span class="nb">true</span>,
+    <span class="s2">"sync_token"</span>: <span class="s2">"V-ZiRSIcXY5VUWzxCfWNClj81Qatg6hhrczNHIvROQKEpr7ARxU7cX09hENmXu1FF8w6qCY0_7ZjQ64k4pLWrvjVvjgKcY3e7LLapln-NLVJifE"</span>,
+    <span class="s2">"day_orders"</span>: <span class="o">{}</span>,
+    <span class="s2">"collaborators"</span>: <span class="o">[]</span>,
+    <span class="s2">"day_orders_timestamp"</span>: <span class="s2">"1523557037.93"</span>,
+    <span class="s2">"live_notifications_last_read_id"</span>: 1192062233,
+    <span class="s2">"items"</span>: <span class="o">[]</span>,
+    <span class="s2">"notes"</span>: <span class="o">[]</span>,
+    <span class="s2">"reminders"</span>: <span class="o">[]</span>,
+    <span class="s2">"live_notifications"</span>: <span class="o">[]</span>,
+    <span class="s2">"collaborator_states"</span>: <span class="o">[]</span>
 </code></pre></div>
 <h3 id="using-curl">Using curl</h3>
 
@@ -489,7 +488,6 @@ user&rsquo;s projects through the <code class="prettyprint">api.state</code> obj
    <span class="o">}</span>,
    <span class="s2">"sync_token"</span> : <span class="s2">"VRyFHr0Qo3Hr--pzINyT6nax4vW7X2YG5RQlw3lB-6eYOPbSZVJepa62EVhO"</span>,
    <span class="s2">"full_sync"</span> : <span class="nb">false</span>
-   <span class="o">]</span>
 <span class="o">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">project1</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">'Project1'</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
