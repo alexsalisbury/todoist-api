@@ -332,7 +332,7 @@ JSON-encoded representation of one or more objects.</p>
     <span class="o">}</span>
 <span class="o">]</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>  
-<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/projects"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization': 'Bearer </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">your_token</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://beta.todoist.com/API/v8/projects"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">your_token</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 <span class="p">[{</span><span class="s">u'comment_count'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span> <span class="s">u'name'</span><span class="p">:</span> <span class="s">u'Inbox'</span><span class="p">}]</span>
 </code></pre></div>
