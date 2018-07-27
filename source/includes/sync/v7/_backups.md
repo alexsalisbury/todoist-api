@@ -17,8 +17,8 @@ $ curl https://todoist.com/api/v7/backups/get \
 
 [
   {
-    "version": "2016-01-13 02:03",
-    "url": "https://s3.amazonaws.com/user_backups.todoist.com/..."
+    "version": "2018-07-13 02:03",
+    "url": "https://downloads.todoist.com/12345678901234567890123456789012.zip"
   },
     ...
 ]
@@ -30,9 +30,21 @@ $ curl https://todoist.com/api/v7/backups/get \
 >>> api.backups.get()
 [
   {
-    'version': '2016-01-13 02:03',
-    'url': 'https://s3.amazonaws.com/user_backups.todoist.com/...'
+    'version': '2018-07-13 02:03',
+    'url': 'https://downloads.todoist.com/12345678901234567890123456789012.zip'
   },
   ...
 ]
+```
+
+## Download the backup
+
+[Get backups](#get-backups) will retrieve a list of downloadable files for the
+user related to the token being used. To download one of the files returned,
+you have to **use the token as a header**.
+
+
+```shell
+$ curl -L -H "Authorization: Bearer 0123456789abcdef0123456789abcdef01234567" \
+    https://downloads.todoist.com/12345678901234567890123456789012.zip > /tmp/todoist-backup.zip
 ```
