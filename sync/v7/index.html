@@ -7804,8 +7804,8 @@ be returned with a list of backup archives in JSON format:</p>
 <h2 id="download-the-backup">Download the backup</h2>
 
 <p><a href="#get-backups">Get backups</a> will retrieve a list of downloadable files for the
-user related to the token being used. To download the file, you have to <strong>use
-the token as a header</strong>.</p>
+user related to the token being used. To download one of the files returned,
+you have to <strong>use the token as a header</strong>.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl <span class="nt">-L</span> <span class="nt">-H</span> <span class="s2">"Authorization: Bearer 0123456789abcdef0123456789abcdef01234567"</span> <span class="se">\</span>
     https://downloads.todoist.com/12345678901234567890123456789012.zip <span class="o">&gt;</span> /tmp/todoist-backup.zip
 </code></pre></div>
