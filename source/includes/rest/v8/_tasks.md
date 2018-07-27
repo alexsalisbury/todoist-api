@@ -314,7 +314,7 @@ Updates a task and returns an empty body with the HTTP status code 204.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-content *String* | Yes | Task content.
+content *String* | No | Task content.
 project_id *Integer* | No | Task project id (read-only).
 label_ids *Array of Integers* | No | Ids of labels associated with the task.
 priority *Integer* | No | Task priority from 1 (normal) to 4 (urgent).
