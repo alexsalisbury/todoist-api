@@ -7785,8 +7785,8 @@ be returned with a list of backup archives in JSON format:</p>
 
 <span class="o">[</span>
   <span class="o">{</span>
-    <span class="s2">"version"</span>: <span class="s2">"2016-01-13 02:03"</span>,
-    <span class="s2">"url"</span>: <span class="s2">"https://s3.amazonaws.com/user_backups.todoist.com/..."</span>
+    <span class="s2">"version"</span>: <span class="s2">"2018-07-13 02:03"</span>,
+    <span class="s2">"url"</span>: <span class="s2">"https://downloads.todoist.com/12345678901234567890123456789012.zip"</span>
   <span class="o">}</span>,
     ...
 <span class="o">]</span>
@@ -7795,11 +7795,19 @@ be returned with a list of backup archives in JSON format:</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">backups</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 <span class="p">[</span>
   <span class="p">{</span>
-    <span class="s">'version'</span><span class="p">:</span> <span class="s">'2016-01-13 02:03'</span><span class="p">,</span>
-    <span class="s">'url'</span><span class="p">:</span> <span class="s">'https://s3.amazonaws.com/user_backups.todoist.com/...'</span>
+    <span class="s">'version'</span><span class="p">:</span> <span class="s">'2018-07-13 02:03'</span><span class="p">,</span>
+    <span class="s">'url'</span><span class="p">:</span> <span class="s">'https://downloads.todoist.com/12345678901234567890123456789012.zip'</span>
   <span class="p">},</span>
   <span class="o">...</span>
 <span class="p">]</span>
+</code></pre></div>
+<h2 id="download-the-backup">Download the backup</h2>
+
+<p><a href="#get-backups">Get backups</a> will retrieve a list of downloadable files for the
+user related to the token being used. To download the file, you have to <strong>use
+the token as a header</strong>.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl <span class="nt">-L</span> <span class="nt">-H</span> <span class="s2">"Authorization: Bearer 0123456789abcdef0123456789abcdef01234567"</span> <span class="se">\</span>
+    https://downloads.todoist.com/12345678901234567890123456789012.zip <span class="o">&gt;</span> /tmp/todoist-backup.zip
 </code></pre></div>
           <h1 id="emails">Emails</h1>
 
