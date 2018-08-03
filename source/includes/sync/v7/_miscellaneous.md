@@ -417,7 +417,7 @@ auto_reminder *Boolean* | No | When this option is enabled, the default reminder
 
 ```shell
 $ curl https://todoist.com/api/v7/items/get \
-    -d token=0123456789abcdef0123456789abcdef01234567
+    -d token=0123456789abcdef0123456789abcdef01234567 \
     -d item_id=466
 
 {
