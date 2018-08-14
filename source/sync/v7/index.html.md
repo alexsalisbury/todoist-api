@@ -15,6 +15,7 @@ includes:
   - sync/v7/items
   - sync/v7/labels
   - sync/v7/notes
+  - sync/v7/projectnotes
   - sync/v7/uploads
   - sync/v7/filters
   - sync/v7/reminders

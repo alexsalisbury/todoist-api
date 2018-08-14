@@ -1,14 +1,10 @@
-# Notes
+# Project Notes
 
-> An example task note object
+> An example project note object
 
 ```json
 {
-  "id": 17299568,
-  "posted_uid": 1855589,
-  "project_id": 128501470,
-  "item_id": 33548400,
-  "content": "Note",
+  "content": "Hello 2",
   "file_attachment": {
     "file_type": "text/plain",
     "file_name": "File1.txt",
@@ -16,15 +12,19 @@
     "file_url": "https://example.com/File1.txt",
     "upload_state": "completed"
   },
-  "uids_to_notify": null,
-  "is_deleted": 0,
+  "id": 2310972895,
   "is_archived": 0,
-  "posted": "Wed 01 Oct 2014 14:54:55 +0000",
+  "is_deleted": 0,
+  "posted": "Tue 14 Aug 2018 10:56:50 +0000",
+  "posted_uid": 16017653,
+  "project_id": 2191777224,
+  "reactions": null,
+  "uids_to_notify": [13432367],
   "reactions": {"❤️": [14781321], "👍": [14781321, 12213313]}
 }
 ```
 
-*Notes are only available for Todoist Premium users.*
+*Project Notes are only available for Todoist Premium users.*
 
 ### Properties
 
@@ -32,7 +32,6 @@ Property | Description
 -------- | -----------
 id *Integer* | The id of the note.
 posted_uid *Integer* | The id of the user that posted the note.
-item_id *Integer* | The item which the note is part of.
 project_id *Integer* | The project which the note is part of.
 content *String* | The content of the note.
 file_attachment *Object* | A file attached to the note (see more details about attachments later on).
@@ -85,18 +84,19 @@ the reference.
 
 ## Add a note
 
-> An example of adding a note:
+> An example of adding a project note:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+curl https://todoist.com/api/v7/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
-    -d commands='[{"type": "note_add", "temp_id": "59fe4461-287b-4b00-bacc-ee771137a732", "uuid": "e1005f08-acd6-4172-bab1-4338f8616e49", "args": {"item_id": 33548400, "content": "Note1"}}]'
+    -d commands='[{"type": "note_add", "temp_id": "59fe4461-287b-4b00-bacc-ee771137a732", "uuid": "e1005f08-acd6-4172-bab1-4338f8616e49", "args": {"project_id": 2191777224, "content": "Note1"}}]'
+
 
 # or adding a note with a file attached:
 
 $ curl https://todoist.com/api/v7/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
-    -d commands='[{"type": "note_add", "temp_id": "6149e689-1a54-48d6-a8c2-0ee5425554a9", "uuid": "554a65e9-56d9-478e-b35b-520c419e37d9", "args": {"item_id": 33548400, "content": "Note1", "file_attachment": {"file_type":"image\/gif","file_name":"image.gif","image":"https:\/\/domain\/image.gif","file_url":"https:\/\/domain\/image.gif","image_width":90,"image_height":76,"file_size":7962}}}]'
+    -d commands='[{"type": "note_add", "temp_id": "6149e689-1a54-48d6-a8c2-0ee5425554a9", "uuid": "554a65e9-56d9-478e-b35b-520c419e37d9", "args": {"project_id": 2191777224, "content": "Note1", "file_attachment": {"file_type":"image\/gif","file_name":"image.gif","image":"https:\/\/domain\/image.gif","file_url":"https:\/\/domain\/image.gif","image_width":90,"image_height":76,"file_size":7962}}}]'
 
 {
   ...
@@ -109,18 +109,16 @@ $ curl https://todoist.com/api/v7/sync \
 ```python
 >>> import todoist
 >>> api = todoist.TodoistAPI('0123456789abcdef0123456789abcdef01234567')
->>> note = api.notes.add(33548400, 'Note1')
+>>> note = api.project_notes.add(128501682, 'Note1')
 >>> api.commit()
 ```
 
-### Command arguments
-
 Argument | Required | Description
 --------- | -------- | -----------
-item_id *Integer* | Yes | The item which the note is part of (a unique number or temp id).
-content *String* | Yes | The content of the note (a string value).
+project_id *Integer or String (temp_id)* | Yes | The project which the note is part of.
+content *String* | Yes | The content of the note.
 file_attachment *Object* | No | A file attached to the note (see more details about attachments above, and learn how to upload a file in the [Uploads section](#uploads)).
-uids_to_notify *Array of Integer* | No | A list of user ids to notify.
+
 
 ## Update a note
 
@@ -141,7 +139,7 @@ $ curl https://todoist.com/api/v7/sync \
 ```python
 >>> import todoist
 >>> api = todoist.TodoistAPI('0123456789abcdef0123456789abcdef01234567')
->>> note = api.notes.get_by_id(17299568)
+>>> note = api.project_notes.get_by_id(17299568)
 >>> note.update(content='UpdatedNote1')
 >>> api.commit()
 ```
@@ -161,7 +159,7 @@ file_attachment *Object* | No | A file attached to the note (see more details ab
 ```shell
 $ curl https://todoist.com/api/v7/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
-    -d commands='[{"type": "note_delete", "uuid": "8d666fda-73c3-4677-8b04-5d223632c24f", "args": {"id": 17299568, "item_id": 33548400}}]'
+    -d commands='[{"type": "note_delete", "uuid": "8a38f9c5-2cd0-4da5-87c1-26d617b354e0", "args": {"id": 2311081457}}]'
 { ...
   "sync_status": {"8d666fda-73c3-4677-8b04-5d223632c24f": "ok"},
   ... }
@@ -170,7 +168,7 @@ $ curl https://todoist.com/api/v7/sync \
 ```python
 >>> import todoist
 >>> api = todoist.TodoistAPI('0123456789abcdef0123456789abcdef01234567')
->>> note = api.notes.get_by_id(17299568)
+>>> note = api.project_notes.get_by_id(17299568)
 >>> note.delete()
 >>> api.commit()
 ```
