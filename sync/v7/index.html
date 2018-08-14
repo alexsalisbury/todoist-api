@@ -3274,7 +3274,8 @@ for project reordering and indenting.</p>
   </span><span class="s2">"uids_to_notify"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"is_archived"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"posted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed 01 Oct 2014 14:54:55 +0000"</span><span class="w">
+  </span><span class="s2">"posted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed 01 Oct 2014 14:54:55 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"❤️"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">14781321</span><span class="p">],</span><span class="w"> </span><span class="s2">"👍"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">14781321</span><span class="p">,</span><span class="w"> </span><span class="mi">12213313</span><span class="p">]}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p><em>Notes are only available for Todoist Premium users.</em></p>
@@ -3326,6 +3327,10 @@ for project reordering and indenting.</p>
 <tr>
 <td>posted <em>String</em></td>
 <td>The date when the note was posted.</td>
+</tr>
+<tr>
+<td>reactions <em>Object</em></td>
+<td>List of emoji reactions and corresponding user ids.</td>
 </tr>
 </tbody></table>
 
@@ -3460,52 +3465,6 @@ the reference.</p>
 </tr>
 </tbody></table>
 
-<h2 id="add-a-project-note">Add a project note</h2>
-
-<blockquote>
-<p>An example of adding a project note:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl https://todoist.com/api/v7/sync <span class="se">\</span>
-    <span class="nt">-d</span> <span class="nv">token</span><span class="o">=</span>0123456789abcdef0123456789abcdef01234567 <span class="se">\</span>
-    <span class="nt">-d</span> <span class="nv">commands</span><span class="o">=</span><span class="s1">'[{"type": "note_add", "temp_id": "95653826-fc43-47b3-86c8-c11f90fe7aba", "uuid": "f5d12bd9-d14d-4529-b223-9cd7d593119e", "args": {"project_id": 128501682, "content": "Note1"}}]'</span>
-
-<span class="o">{</span>
-  ...
-  <span class="s2">"sync_status"</span>: <span class="o">{</span><span class="s2">"f5d12bd9-d14d-4529-b223-9cd7d593119e"</span>: <span class="s2">"ok"</span><span class="o">}</span>,
-  <span class="s2">"temp_id_mapping"</span>: <span class="o">{</span><span class="s2">"95653826-fc43-47b3-86c8-c11f90fe7aba"</span>: 17299568<span class="o">}</span>,
-  ...
-<span class="o">}</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">todoist</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">api</span> <span class="o">=</span> <span class="n">todoist</span><span class="o">.</span><span class="n">TodoistAPI</span><span class="p">(</span><span class="s">'0123456789abcdef0123456789abcdef01234567'</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">note</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">notes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">128501682</span><span class="p">,</span> <span class="s">'Note1'</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-</code></pre></div>
-<h3 id="command-arguments">Command arguments</h3>
-
-<table><thead>
-<tr>
-<th>Argument</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>project_id <em>Integer or String (temp_id)</em></td>
-<td>Yes</td>
-<td>The project which the note is part of.</td>
-</tr>
-<tr>
-<td>content <em>String</em></td>
-<td>Yes</td>
-<td>The content of the note.</td>
-</tr>
-<tr>
-<td>file_attachment <em>Object</em></td>
-<td>No</td>
-<td>A file attached to the note (see more details about attachments above, and learn how to upload a file in the <a href="#uploads">Uploads section</a>).</td>
-</tr>
-</tbody></table>
-
 <h2 id="update-a-note">Update a note</h2>
 
 <blockquote>
@@ -3522,7 +3481,7 @@ the reference.</p>
 <span class="o">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">todoist</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span> <span class="o">=</span> <span class="n">todoist</span><span class="o">.</span><span class="n">TodoistAPI</span><span class="p">(</span><span class="s">'0123456789abcdef0123456789abcdef01234567'</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">note</span> <span class="n">api</span><span class="o">.</span><span class="n">notes</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="mi">17299568</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">note</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">notes</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="mi">17299568</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">note</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s">'UpdatedNote1'</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </code></pre></div>
@@ -3566,6 +3525,287 @@ the reference.</p>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">todoist</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span> <span class="o">=</span> <span class="n">todoist</span><span class="o">.</span><span class="n">TodoistAPI</span><span class="p">(</span><span class="s">'0123456789abcdef0123456789abcdef01234567'</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">note</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">notes</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="mi">17299568</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">note</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="command-arguments">Command arguments</h3>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <em>Integer or String (temp_id)</em></td>
+<td>Yes</td>
+<td>The id of the note.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="project-notes">Project Notes</h1>
+
+<blockquote>
+<p>An example project note object</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello 2"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"file_attachment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/plain"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File1.txt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/File1.txt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"upload_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2310972895</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_archived"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"posted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue 14 Aug 2018 10:56:50 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"posted_uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">16017653</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2191777224</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reactions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"uids_to_notify"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">13432367</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"reactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"❤️"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">14781321</span><span class="p">],</span><span class="w"> </span><span class="s2">"👍"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">14781321</span><span class="p">,</span><span class="w"> </span><span class="mi">12213313</span><span class="p">]}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><em>Project Notes are only available for Todoist Premium users.</em></p>
+
+<h3 id="properties">Properties</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <em>Integer</em></td>
+<td>The id of the note.</td>
+</tr>
+<tr>
+<td>posted_uid <em>Integer</em></td>
+<td>The id of the user that posted the note.</td>
+</tr>
+<tr>
+<td>project_id <em>Integer</em></td>
+<td>The project which the note is part of.</td>
+</tr>
+<tr>
+<td>content <em>String</em></td>
+<td>The content of the note.</td>
+</tr>
+<tr>
+<td>file_attachment <em>Object</em></td>
+<td>A file attached to the note (see more details about attachments later on).</td>
+</tr>
+<tr>
+<td>uids_to_notify <em>Array of Integer</em></td>
+<td>A list of user ids to notify.</td>
+</tr>
+<tr>
+<td>is_deleted <em>Integer</em></td>
+<td>Whether the note is marked as deleted (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
+</tr>
+<tr>
+<td>is_archived <em>Integer</em></td>
+<td>Whether the note is marked as archived (where <code class="prettyprint">1</code> is true and <code class="prettyprint">0</code> is false).</td>
+</tr>
+<tr>
+<td>posted <em>String</em></td>
+<td>The date when the note was posted.</td>
+</tr>
+<tr>
+<td>reactions <em>Object</em></td>
+<td>List of emoji reactions and corresponding user ids.</td>
+</tr>
+</tbody></table>
+
+<h3 id="file-attachments">File attachments</h3>
+
+<p>A file attachment is represented as a JSON object. The file attachment may point
+to a document previously uploaded by the <code class="prettyprint">uploads/add</code> API call, or by any
+external resource.</p>
+
+<h3 id="base-file-properties">Base file properties</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file_name <em>String</em></td>
+<td>The name of the file.</td>
+</tr>
+<tr>
+<td>file_size <em>Integer</em></td>
+<td>The size of the file in bytes.</td>
+</tr>
+<tr>
+<td>file_type <em>String</em></td>
+<td>MIME type (for example <code class="prettyprint">text/plain</code> or <code class="prettyprint">image/png</code>).</td>
+</tr>
+<tr>
+<td>file_url <em>String</em></td>
+<td>The URL where the file is located. Note that we don&rsquo;t cache the remote content on our servers and stream or expose files directly from third party resources. In particular this means that you should avoid providing links to non-encrypted (plain HTTP) resources, as exposing this files in Todoist may issue a browser warning.</td>
+</tr>
+<tr>
+<td>upload_state <em>String</em></td>
+<td>Upload completion state (for example <code class="prettyprint">pending</code> or <code class="prettyprint">completed</code>).</td>
+</tr>
+</tbody></table>
+
+<h3 id="image-file-properties">Image file properties</h3>
+
+<p>If you upload an image, you may provide thumbnail paths to ensure Todoist
+handles them appropriately. Valid thumbnail information is a JSON array with
+URL, width in pixels, height in pixels. Ex.:
+[&ldquo;http://example.com/img.jpg&rdquo;,400,300]. &ldquo;Canonical&rdquo; thumbnails (ones we create
+by <code class="prettyprint">uploads/add</code> API call) have the following sizes: <code class="prettyprint">96x96</code>, <code class="prettyprint">288x288</code>,
+<code class="prettyprint">528x528</code>.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tn_l <em>List</em></td>
+<td>Large thumbnail (a list that contains the URL, the width and the height of the thumbnail).</td>
+</tr>
+<tr>
+<td>tn_m <em>List</em></td>
+<td>Medium thumbnail (a list that contains the URL, the width and the height of the thumbnail).</td>
+</tr>
+<tr>
+<td>tn_s <em>List</em></td>
+<td>Small thumbnail (a list that contains the URL, the width and the height of the thumbnail).</td>
+</tr>
+</tbody></table>
+
+<h3 id="audio-file-properties">Audio file properties</h3>
+
+<p>If you upload an audio file, you may provide an extra attribute <code class="prettyprint">file_duration</code>
+(duration of the audio file in seconds, which takes an integer value). In the
+web interface the file is rendered with a <code class="prettyprint">&lt;audio&gt;</code> tag, so you should make sure
+it&rsquo;s supported in current web browsers. See
+<a href="https://developer.mozilla.org/en-US/docs/HTML/Supported_media_formats">supported media formats</a> for
+the reference.</p>
+
+<h2 id="add-a-note">Add a note</h2>
+
+<blockquote>
+<p>An example of adding a project note:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://todoist.com/api/v7/sync <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">token</span><span class="o">=</span>0123456789abcdef0123456789abcdef01234567 <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">commands</span><span class="o">=</span><span class="s1">'[{"type": "note_add", "temp_id": "59fe4461-287b-4b00-bacc-ee771137a732", "uuid": "e1005f08-acd6-4172-bab1-4338f8616e49", "args": {"project_id": 2191777224, "content": "Note1"}}]'</span>
+
+
+<span class="c"># or adding a note with a file attached:</span>
+
+<span class="nv">$ </span>curl https://todoist.com/api/v7/sync <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">token</span><span class="o">=</span>0123456789abcdef0123456789abcdef01234567 <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">commands</span><span class="o">=</span><span class="s1">'[{"type": "note_add", "temp_id": "6149e689-1a54-48d6-a8c2-0ee5425554a9", "uuid": "554a65e9-56d9-478e-b35b-520c419e37d9", "args": {"project_id": 2191777224, "content": "Note1", "file_attachment": {"file_type":"image\/gif","file_name":"image.gif","image":"https:\/\/domain\/image.gif","file_url":"https:\/\/domain\/image.gif","image_width":90,"image_height":76,"file_size":7962}}}]'</span>
+
+<span class="o">{</span>
+  ...
+  <span class="s2">"sync_status"</span>: <span class="o">{</span><span class="s2">"e1005f08-acd6-4172-bab1-4338f8616e49"</span>: <span class="s2">"ok"</span><span class="o">}</span>,
+  <span class="s2">"temp_id_mapping"</span>: <span class="o">{</span><span class="s2">"59fe4461-287b-4b00-bacc-ee771137a732"</span>: 17299568<span class="o">}</span>,
+  ...
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">todoist</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">api</span> <span class="o">=</span> <span class="n">todoist</span><span class="o">.</span><span class="n">TodoistAPI</span><span class="p">(</span><span class="s">'0123456789abcdef0123456789abcdef01234567'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">note</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">project_notes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">128501682</span><span class="p">,</span> <span class="s">'Note1'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id <em>Integer or String (temp_id)</em></td>
+<td>Yes</td>
+<td>The project which the note is part of.</td>
+</tr>
+<tr>
+<td>content <em>String</em></td>
+<td>Yes</td>
+<td>The content of the note.</td>
+</tr>
+<tr>
+<td>file_attachment <em>Object</em></td>
+<td>No</td>
+<td>A file attached to the note (see more details about attachments above, and learn how to upload a file in the <a href="#uploads">Uploads section</a>).</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-a-note">Update a note</h2>
+
+<blockquote>
+<p>An example of updating a note:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl https://todoist.com/api/v7/sync <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">token</span><span class="o">=</span>0123456789abcdef0123456789abcdef01234567 <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">commands</span><span class="o">=</span><span class="s1">'[{"type": "note_update", "uuid": "8a38f9c5-2cd0-4da5-87c1-26d617b354e0", "args": {"id": 17299568, "content": "UpdatedNote1"}}]'</span>
+
+<span class="o">{</span>
+  ...
+  <span class="s2">"sync_status"</span>: <span class="o">{</span><span class="s2">"8a38f9c5-2cd0-4da5-87c1-26d617b354e0"</span>: <span class="s2">"ok"</span><span class="o">}</span>,
+  ...
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">todoist</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">api</span> <span class="o">=</span> <span class="n">todoist</span><span class="o">.</span><span class="n">TodoistAPI</span><span class="p">(</span><span class="s">'0123456789abcdef0123456789abcdef01234567'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">note</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">project_notes</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="mi">17299568</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">note</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s">'UpdatedNote1'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="command-arguments">Command arguments</h3>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <em>Integer or String (temp_id)</em></td>
+<td>Yes</td>
+<td>The id of the note.</td>
+</tr>
+<tr>
+<td>content <em>String</em></td>
+<td>Yes</td>
+<td>The content of the note.</td>
+</tr>
+<tr>
+<td>file_attachment <em>Object</em></td>
+<td>No</td>
+<td>A file attached to the note (see more details about attachments above, and learn how to upload a file in the <a href="#uploads">Uploads section</a>).</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-a-note">Delete a note</h2>
+
+<blockquote>
+<p>An example of deleting a note:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl https://todoist.com/api/v7/sync <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">token</span><span class="o">=</span>0123456789abcdef0123456789abcdef01234567 <span class="se">\</span>
+    <span class="nt">-d</span> <span class="nv">commands</span><span class="o">=</span><span class="s1">'[{"type": "note_delete", "uuid": "8a38f9c5-2cd0-4da5-87c1-26d617b354e0", "args": {"id": 2311081457}}]'</span>
+<span class="o">{</span> ...
+  <span class="s2">"sync_status"</span>: <span class="o">{</span><span class="s2">"8d666fda-73c3-4677-8b04-5d223632c24f"</span>: <span class="s2">"ok"</span><span class="o">}</span>,
+  ... <span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">todoist</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">api</span> <span class="o">=</span> <span class="n">todoist</span><span class="o">.</span><span class="n">TodoistAPI</span><span class="p">(</span><span class="s">'0123456789abcdef0123456789abcdef01234567'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">note</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">project_notes</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="mi">17299568</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">note</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </code></pre></div>
