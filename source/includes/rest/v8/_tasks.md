@@ -79,9 +79,9 @@ date *String* | Yes | Date in format `YYYY-MM-DD` corrected to user's timezone.
 datetime *String* | No | Only returned if exact due time set (i.e. it's not a whole-day task), date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format in UTC.
 timezone *String* | No | Only returned if exact due time set, user's timezone definition either in tzdata-compatible format ("Europe/Berlin") or as a string specifying east of UTC offset as "UTC±HH:MM" (i.e. "UTC-01:00").
 
-## Get tasks
+## Get active tasks
 
-> Get tasks
+> Get active tasks
 
 ```shell
 $ curl -X GET \
@@ -130,7 +130,7 @@ requests.get(
 ]
 ```
 
-Returns a JSON-encoded array containing all user tasks.
+Returns a JSON-encoded array containing all user active tasks.
 
 ### Parameters
 
