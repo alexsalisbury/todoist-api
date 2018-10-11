@@ -228,9 +228,9 @@ due_lang *String* | No | 2-letter code specifying language in case `due_string` 
 Please note that only one of the `due_*` fields can be used at
 the same time (`due_lang` is a special case).
 
-## Get a task
+## Get an active task
 
-> Get a task
+> Get an active task
 
 ```shell
 $ curl "https://beta.todoist.com/API/v8/tasks/1234" \
@@ -279,7 +279,7 @@ requests.get("https://beta.todoist.com/API/v8/tasks/1234",headers={"Authorizatio
 }
 ```
 
-Returns a task by id
+Returns an active (non-completed) task by id
 
 ## Update a task
 
