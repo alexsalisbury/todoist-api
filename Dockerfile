@@ -1,6 +1,6 @@
 FROM ruby:2.4-onbuild
 MAINTAINER PotHix <willian@doist.com>
-VOLUME /usr/src/app/source
+VOLUME /usr/src/app/
 EXPOSE 4567
 
 RUN apt-get update -qq && apt-get install -y nodejs \
