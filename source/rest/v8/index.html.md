@@ -13,6 +13,7 @@ includes:
   - rest/v8/tasks
   - rest/v8/comments
   - rest/v8/labels
+  - rest/v8/limits
   - rest/v8/brand
 
 search: false
