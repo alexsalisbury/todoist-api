@@ -911,10 +911,10 @@ server would return 402 Payment Required.</p>
 <p>Please note that only one of the <code class="prettyprint">due_*</code> fields can be used at
 the same time (<code class="prettyprint">due_lang</code> is a special case).</p>
 
-<h2 id="get-a-task">Get a task</h2>
+<h2 id="get-an-active-task">Get an active task</h2>
 
 <blockquote>
-<p>Get a task</p>
+<p>Get an active task</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>curl <span class="s2">"https://beta.todoist.com/API/v8/tasks/1234"</span> <span class="se">\</span>
     <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$token</span><span class="s2">"</span>
@@ -958,7 +958,7 @@ the same time (<code class="prettyprint">due_lang</code> is a special case).</p>
     <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://todoist.com/showTask?id=123"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Returns a task by id</p>
+<p>Returns an active (non-completed) task by id</p>
 
 <h2 id="update-a-task">Update a task</h2>
 
