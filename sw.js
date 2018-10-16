@@ -197,7 +197,7 @@ self.__precacheManifest = [
   },
   {
     "url": "rest/v8/index.html",
-    "revision": "be942bb51b95b649150ebbc901a93c06"
+    "revision": "e048016f8082ca5bc4ba59695725a2b8"
   },
   {
     "url": "stylesheets/print.css",
