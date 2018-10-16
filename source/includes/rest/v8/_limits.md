@@ -22,7 +22,7 @@ Total size of HTTP headers cannot exceed 65 KiB.
 
 ### Requests per Minute
 
-You can make a total of 50 requests per minute per user when using the Sync
+You can make a total of 50 requests per minute per user when using the REST
 API. This can be further increased when commands are batched where it's
 possible to use up to 100 batched commands can per request, giving us 5000
 commands in this instance.
