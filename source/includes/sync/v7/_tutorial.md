@@ -5,9 +5,10 @@ help on accomplishing them. We will mostly use the `sync` call, which is
 described in detail at the [Sync](#sync) section. For now this can be
 considered as just an endpoint, and you will soon figure some of the things it can
 do, just by having a look at some examples.
+
 ## Get all projects
 
-First, let's see how we can get all projects a user has. 
+First, let's see how we can get all projects a user has.
 
 > The example of how we get all projects:
 
@@ -67,7 +68,7 @@ arguments:
 
 + The user's API token, which here is set to
   `token=0123456789abcdef0123456789abcdef01234567`.  You can find out your token
-  from the Todoist Web app, at `Todoist Settings -> Account -> API token`.
+  from the Todoist Web app, at `Todoist Settings -> Integrations -> API token`.
 + A special sync token, which denotes that we want a full sync, in contrast to
   an incremental sync, which is denoted with the `*` symbol, so we set
   `sync_token=*`.
@@ -253,7 +254,7 @@ getting back the new project's properties.
 
 Finally we print the new `project1` object.
 
-## Add two new tasks 
+## Add two new tasks
 
 Let's create two new tasks in one go, and observe the result of our action.
 
