@@ -7,6 +7,7 @@ RUN bundle config --global frozen 1
 WORKDIR /usr/src/app/
 VOLUME /usr/src/app/
 EXPOSE 4567
+EXPOSE 35729
 
 RUN apk --update --no-cache add g++ musl-dev make nodejs bash
 

@@ -33,7 +33,7 @@ end
 activate :relative_assets
 set :relative_links, true
 
-activate :livereload
+activate :livereload, no_swf: true, host: '0.0.0.0', port: '35729', js_host: '127.0.0.1'
 
 # Build Configuration
 configure :build do
