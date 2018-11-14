@@ -222,7 +222,7 @@ $ curl https://todoist.com/api/v8/completed/get_all \
       "task_id": 33511505,
       "note_count": 0,
       "project_id": 128501470,
-      "completed_date": "Tue 17 Feb 2015 15:40:41 +0000",
+      "completed_date": "2015-02-17T15:40:41Z",
       "id": 33511505
     }
   ],
@@ -250,7 +250,7 @@ $ curl https://todoist.com/api/v8/completed/get_all \
     { 'user_id': 1855589,
       'task_id': 33511505,
       'note_count': 0,
-      'completed_date': 'Tue 17 Feb 2015 15:40:41 +0000',
+      'completed_date': '2015-02-17T15:40:41Z',
       'content': 'Item1',
       'meta_data': None,
       'project_id': 128501470,
@@ -345,7 +345,7 @@ $ curl https://todoist.com/api/v8/items/add \
   "labels": [],
   "sync_id": null,
   "in_history": 0,
-  "date_added": "Wed 18 Feb 2015 11:09:11 +0000",
+  "date_added": "2015-02-18T11:09:11Z",
   "indent": 1,
   "children": null,
   "content": "Task1",
@@ -376,7 +376,7 @@ $ curl https://todoist.com/api/v8/items/add \
   'id': 33548400,
   'priority': 4,
   'user_id': 1855589,
-  'date_added': 'Wed 18 Feb 2015 11:09:11 +0000',
+  'date_added': '2015-02-18T11:09:11Z',
   'children': None,
   'content': 'Task1',
   'item_order': 1,
@@ -440,7 +440,7 @@ $ curl https://todoist.com/api/v8/items/get \
     "labels": [],
     "sync_id": null,
     "in_history": 0,
-    "date_added": "Tue 22 Mar 2016 16:00:00 +0000",
+    "date_added": "2016-03-22T16:00:00Z",
     "checked": 0,
     "date_lang": "en",
     "id": 466,
@@ -466,7 +466,7 @@ $ curl https://todoist.com/api/v8/items/get \
       "item_id": 466,
       "project_id": 1,
       "id": 36,
-      "posted": "Wed 18 May 2016 16:45:00 +0000"
+      "posted": "2016-05-18T16:45:00Z"
     },
     {
       "is_deleted": 0,
@@ -478,7 +478,7 @@ $ curl https://todoist.com/api/v8/items/get \
       "item_id": 466,
       "project_id": 1,
       "id": 37,
-      "posted": "Wed 18 May 2016 16:45:00 +0000"
+      "posted": "2016-05-18T16:45:00Z"
     },
     {
       "is_deleted": 0,
@@ -490,7 +490,7 @@ $ curl https://todoist.com/api/v8/items/get \
       "item_id": 466,
       "project_id": 1,
       "id": 38,
-      "posted": "Wed 18 May 2016 16:45:00 +0000"
+      "posted": "2016-05-18T16:45:00Z"
     }
   ]
 }
@@ -520,7 +520,7 @@ $ curl https://todoist.com/api/v8/items/get \
     'labels': [],
     'sync_id': null,
     'in_history': 0,
-    'date_added': 'Tue 22 Mar 2016 16:00:00 +0000',
+    'date_added': '2016-03-22T16:00:00Z',
     'checked': 0,
     'date_lang': 'en',
     'id': 466,
@@ -546,7 +546,7 @@ $ curl https://todoist.com/api/v8/items/get \
       'item_id': 466,
       'project_id': 1,
       'id': 36,
-      'posted': 'Wed 18 May 2016 16:45:00 +0000'
+      'posted': '2016-05-18T16:45:00Z'
     },
     {
       'is_deleted': 0,
@@ -558,7 +558,7 @@ $ curl https://todoist.com/api/v8/items/get \
       'item_id': 466,
       'project_id': 1,
       'id': 37,
-      'posted': 'Wed 18 May 2016 16:45:00 +0000'
+      'posted': '2016-05-18T16:45:00Z'
     },
     {
       'is_deleted': 0,
@@ -570,7 +570,7 @@ $ curl https://todoist.com/api/v8/items/get \
       'item_id': 466,
       'project_id': 1,
       'id': 38,
-      'posted': 'Wed 18 May 2016 16:45:00 +0000'
+      'posted': '2016-05-18T16:45:00Z'
     }
   ]
 }
@@ -624,7 +624,7 @@ $ curl https://todoist.com/api/v8/projects/get \
       "uids_to_notify": null,
       "project_id": 128501682,
       "id": 17299568,
-      "posted": "Wed 18 May 2016 16:45:00 +0000"
+      "posted": "2016-05-18T16:45:00Z"
     },
   ]
 }
@@ -656,7 +656,7 @@ $ curl https://todoist.com/api/v8/projects/get \
       'uids_to_notify': null,
       'project_id': 128501682,
       'id': 17299568,
-      'posted': 'Wed 18 May 2016 16:45:00 +0000'
+      'posted': '2016-05-18T16:45:00Z'
     },
   ]
 }
@@ -706,7 +706,7 @@ $ curl https://todoist.com/api/v8/projects/get_data \
     {
       "is_deleted" : 0,
       "date_string" : "",
-      "date_added" : "Tue 19 Jul 2016 12:50:49 +0000",
+      "date_added" : "2016-07-19T12:50:49Z",
       "item_order" : 1,
       "responsible_uid" : null,
       "due_date" : null,
@@ -752,7 +752,7 @@ $ curl https://todoist.com/api/v8/projects/get_data \
     {
       'is_deleted' : 0,
       'date_string' : '',
-      'date_added' : 'Tue 19 Jul 2016 12:50:49 +0000',
+      'date_added' : '2016-07-19T12:50:49Z',
       'item_order' : 1,
       'responsible_uid' : None,
       'due_date' : None,

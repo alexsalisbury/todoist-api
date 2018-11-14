@@ -19,7 +19,7 @@
   "uids_to_notify": null,
   "is_deleted": 0,
   "is_archived": 0,
-  "posted": "Wed 01 Oct 2014 14:54:55 +0000",
+  "posted": "2014-10-01T14:54:55Z",
   "reactions": {"❤️": [14781321], "👍": [14781321, 12213313]}
 }
 ```

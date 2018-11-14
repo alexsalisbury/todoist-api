@@ -48,7 +48,7 @@ timezone. Typically a user object will have the following properties:
     "restriction" : 3,
     "has_push_reminders": false,
   },
-  "join_date": "Wed 30 Apr 2014 13:24:38 +0000"
+  "join_date": "2014-04-30T13:24:38Z"
 }
 ```
 
@@ -142,7 +142,7 @@ $ curl https://todoist.com/api/v8/user/register \
     "restriction" : 3,
     "has_push_reminders": false,
   },
-  "join_date": "Wed 30 Apr 2014 13:24:38 +0000"
+  "join_date": "2014-04-30T13:24:38Z"
 }
 ```
 
@@ -192,7 +192,7 @@ $ curl https://todoist.com/api/v8/user/register \
     'restriction' : 3,
     'has_push_reminders': false,
   },
-  'join_date': 'Wed 30 Apr 2014 13:24:38 +0000',
+  'join_date': '2014-04-30T13:24:38Z',
 }
 
 ```

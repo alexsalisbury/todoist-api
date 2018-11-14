@@ -25,7 +25,7 @@
   "is_deleted": 0,
   "is_archived": 0,
   "sync_id": null,
-  "date_added": "Fri 26 Sep 2014 08:25:05 +0000"
+  "date_added": "2014-09-26T08:25:05Z"
 }
 ```
 
@@ -39,7 +39,7 @@ project_id *Integer* | Project that the task resides in
 content *String* | The text of the task
 date_string *String* | The date of the task, added in free form text, for example it can be `every day @ 10` (or `null` or an empty string if not set). Look at our reference to see [which formats are supported](https://todoist.com/Help/DatesTimes).
 date_lang *String* | The language of the `date_string` (valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`).
-due_date_utc *String* | The date of the task in the format `Mon 07 Aug 2006 12:34:56 +0000` (or `null` if not set). For all day task (i.e. task due "Today"), the time part will be set as xx:xx:59.
+due_date_utc *String* | The date of the task in the format `2006-08-07T12:34:56Z` (or `null` if not set). For all day task (i.e. task due "Today"), the time part will be set as xx:xx:59.
 priority *Integer* | The priority of the task (a number between `1` and `4`, `4` for very urgent and `1` for natural). <br>**Note**: Keep in mind that `very urgent` is the priority 1 on clients. So, `p1` will return `4` in the API.
 indent *Integer* | The indent of the task (a number between `1` and `5`, where `1` is top-level).
 item_order *Integer* | The order of the task inside a project (the smallest value would place the task at the top).

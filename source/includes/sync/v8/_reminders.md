@@ -11,7 +11,7 @@
   "type": "absolute",
   "date_string": "Oct 6 @ 2pm",
   "date_lang" : "en",
-  "due_date_utc": "Mon 06 Oct 2014 11:00:00 +0000",
+  "due_date_utc": "2014-10-06T11:00:00Z",
   "mm_offset": 180,
   "is_deleted": 0
 }

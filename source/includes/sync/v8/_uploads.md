@@ -118,7 +118,7 @@ $ curl https://todoist.com/api/v8/uploads/get \
         "item_id": 26166xxxxxx,
         "note_id": 6157xxxxxx,
         "project_id": 156996xxxxxx,
-        "uploaded": "Wed 16 Dec 2015 13:18:17 +0000",
+        "uploaded": "2015-12-16T13:18:17Z",
         "user_id": 5713xxxxxx
     },
     {
@@ -131,7 +131,7 @@ $ curl https://todoist.com/api/v8/uploads/get \
         "item_id": 26166xxxxxx,
         "note_id": 6157xxxxxx,
         "project_id": 156996xxxxxx,
-        "uploaded": "Wed 16 Dec 2015 12:08:14 +0000",
+        "uploaded": "2015-12-16T12:08:14Z",
         "user_id": 5713xxxxxx
     }
 ]
@@ -152,7 +152,7 @@ $ curl https://todoist.com/api/v8/uploads/get \
         "item_id": 26166xxxxxx,
         "note_id": 6157xxxxxx,
         "project_id": 156996xxxxxx,
-        "uploaded": "Wed 16 Dec 2015 13:18:17 +0000",
+        "uploaded": "2015-12-16T13:18:17Z",
         "user_id": 5713xxxxxx
     },
     {
@@ -165,7 +165,7 @@ $ curl https://todoist.com/api/v8/uploads/get \
         "item_id": 26166xxxxxx,
         "note_id": 6157xxxxxx,
         "project_id": 156996xxxxxx,
-        "uploaded": "Wed 16 Dec 2015 12:08:14 +0000",
+        "uploaded": "2015-12-16T12:08:14Z",
         "user_id": 5713xxxxxx
     }
 ]

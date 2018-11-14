@@ -15,7 +15,7 @@
   "id": 2310972895,
   "is_archived": 0,
   "is_deleted": 0,
-  "posted": "Tue 14 Aug 2018 10:56:50 +0000",
+  "posted": "2018-08-14T10:56:50Z",
   "posted_uid": 16017653,
   "project_id": 2191777224,
   "reactions": null,

@@ -281,7 +281,7 @@ $ curl https://todoist.com/api/v8/sync \
   "items" : [
     {
        "collapsed" : 0,
-       "date_added" : "Mon 01 Aug 2016 13:19:45 +0000",
+       "date_added" : "2016-08-01T13:19:45Z",
        "item_order" : 2,
        "is_archived" : 0,
        "indent" : 1,
@@ -325,7 +325,7 @@ $ curl https://todoist.com/api/v8/sync \
        "item_order" : 1,
        "is_archived" : 0,
        "collapsed" : 0,
-       "date_added" : "Mon 01 Aug 2016 13:19:45 +0000"
+       "date_added" : "2016-08-01T13:19:45Z"
     }
   ],
   "temp_id_mapping" : {
@@ -355,7 +355,7 @@ $ curl https://todoist.com/api/v8/sync \
     'checked': 0,
     'collapsed': 0,
     'content': 'Task1',
-    'date_added': 'Mon 01 Aug 2016 13:19:45 +0000',
+    'date_added': '2016-08-01T13:19:45Z',
     'date_lang': 'en',
     'date_string': '',
     'day_order': -1,
@@ -379,7 +379,7 @@ $ curl https://todoist.com/api/v8/sync \
     'checked': 0,
     'collapsed': 0,
     'content': 'Task2',
-    'date_added': 'Mon 01 Aug 2016 13:19:45 +0000',
+    'date_added': '2016-08-01T13:19:45Z',
     'date_lang': 'en',
     'date_string': '',
     'day_order': 1,
@@ -470,7 +470,7 @@ $ curl https://todoist.com/api/v8/sync \
       "checked" : 0,
       "priority" : 1,
       "id" : 102835615,
-      "due_date_utc" : "Fri 05 Aug 2016 07:00:00 +0000",
+      "due_date_utc" : "2016-08-05T07:00:00Z",
       "assigned_by_uid" : 1,
       "all_day" : false,
       "day_order" : -1,
@@ -481,7 +481,7 @@ $ curl https://todoist.com/api/v8/sync \
       "user_id" : 1,
       "in_history" : 0,
       "indent" : 1,
-      "date_added" : "Mon 01 Aug 2016 13:19:45 +0000"
+      "date_added" : "2016-08-01T13:19:45Z"
     }
   ],
   "sync_status" : {
@@ -504,11 +504,11 @@ Item({
   'checked': 0,
   'collapsed': 0,
   'content': 'NewTask1',
-  'date_added': 'Mon 01 Aug 2016 13:19:45 +0000',
+  'date_added': '2016-08-01T13:19:45Z',
   'date_lang': 'en',
   'date_string' : '5 Aug 10:00 AM',
   'day_order': -1,
-  'due_date_utc' : 'Fri 05 Aug 2016 07:00:00 +0000',
+  'due_date_utc' : '2016-08-05T07:00:00Z',
   'id': 102835615,
   'in_history': 0,
   'indent': 1,
@@ -582,7 +582,7 @@ $ curl https://todoist.com/api/v8/sync \
 {
   "items" : [
     {
-      "date_added" : "Mon 01 Aug 2016 13:19:45 +0000",
+      "date_added" : "2016-08-01T13:19:45Z",
       "assigned_by_uid" : 1,
       "priority" : 1,
       "user_id" : 1,
@@ -606,7 +606,7 @@ $ curl https://todoist.com/api/v8/sync \
       "is_deleted" : 1
     },
     {
-      "date_added" : "Mon 01 Aug 2016 13:19:45 +0000"
+      "date_added" : "2016-08-01T13:19:45Z"
       "date_string" : "5 Aug 10:00 AM",
       "labels" : [],
       "responsible_uid" : null,
@@ -618,7 +618,7 @@ $ curl https://todoist.com/api/v8/sync \
       "in_history" : 1,
       "collapsed" : 0,
       "item_order" : 32,
-      "due_date_utc" : "Fri 05 Aug 2016 07:00:00 +0000",
+      "due_date_utc" : "2016-08-05T07:00:00Z",
       "project_id" : 176637191,
       "day_order" : 0,
       "checked" : 1,
@@ -652,11 +652,11 @@ $ curl https://todoist.com/api/v8/sync \
     'checked': 1,
     'collapsed': 0,
     'content': 'NewTask1',
-    'date_added' : 'Mon 01 Aug 2016 13:19:45 +0000'
+    'date_added' : '2016-08-01T13:19:45Z'
     'date_lang': 'en',
     'date_string' : '5 Aug 10:00 AM',
     'day_order': 0,
-    'due_date_utc' : 'Fri 05 Aug 2016 07:00:00 +0000',
+    'due_date_utc' : '2016-08-05T07:00:00Z',
     'id': 102835615,
     'in_history': 1,
     'indent': 1,
@@ -676,7 +676,7 @@ $ curl https://todoist.com/api/v8/sync \
     'checked': 0,
     'collapsed': 0,
     'content': 'Task2',
-    'date_added' : 'Mon 01 Aug 2016 13:19:45 +0000',
+    'date_added' : '2016-08-01T13:19:45Z',
     'date_lang': 'en',
     'date_string': '',
     'day_order': 1,
@@ -763,11 +763,11 @@ $ curl https://todoist.com/api/v8/sync \
 {
   "items" : [
     {
-      "date_added" : "Fri 05 Aug 2016 11:47:58 +0000",
+      "date_added" : "2016-08-05T11:47:58Z",
       "all_day" : false,
       "day_order" : 2,
       "user_id" : 1,
-      "due_date_utc" : "Mon 08 Aug 2016 08:00:00 +0000",
+      "due_date_utc" : "2016-08-08T08:00:00Z",
       "project_id" : 176637191,
       "sync_id" : null,
       "responsible_uid" : null,
@@ -796,7 +796,7 @@ $ curl https://todoist.com/api/v8/sync \
       "is_deleted" : 0,
       "is_archived" : 0,
       "id" : 24124658,
-      "posted" : "Fri 05 Aug 2016 11:47:58 +0000",
+      "posted" : "2016-08-05T11:47:58Z",
       "uids_to_notify" : null,
       "item_id" : 103184669
     }
@@ -804,7 +804,7 @@ $ curl https://todoist.com/api/v8/sync \
   "reminders" : [
     {
       "mm_offset" : 180,
-      "due_date_utc" : "Mon 08 Aug 2016 07:45:00 +0000",
+      "due_date_utc" : "2016-08-08T07:45:00Z",
       "date_lang" : "en",
       "notify_uid" : 1,
       "service" : "email",
@@ -852,11 +852,11 @@ print(task3, comment3, reminder3)
     'checked': 0,
     'collapsed': 0,
     'content': 'Task3',
-    'date_added' : 'Fri 05 Aug 2016 11:47:58 +0000',
+    'date_added' : '2016-08-05T11:47:58Z',
     'date_lang': 'en',
     'date_string': '8 Aug 11:00 AM',
     'day_order': -1,
-    'due_date_utc' : 'Mon 08 Aug 2016 08:00:00 +0000',
+    'due_date_utc' : '2016-08-08T08:00:00Z',
     'id' : 103184669,
     'in_history': 0,
     'indent': 1,
@@ -877,7 +877,7 @@ print(task3, comment3, reminder3)
     'is_archived': 0,
     'is_deleted': 0,
     'item_id': 103184669,
-    'posted' : 'Fri 05 Aug 2016 11:47:58 +0000',
+    'posted' : '2016-08-05T11:47:58Z',
     'posted_uid': 1,
     'project_id' : 176637191,
     'uids_to_notify': None
@@ -885,7 +885,7 @@ print(task3, comment3, reminder3)
   Reminder({
     'date_lang': 'en',
     'date_string': '8 Aug 10:45 AM',
-    'due_date_utc': 'Mon 08 Aug 2016 07:45:00 +0000'
+    'due_date_utc': '2016-08-08T07:45:00Z'
     'id' : 29173254,
     'is_deleted': 0,
     'item_id': 103184669,

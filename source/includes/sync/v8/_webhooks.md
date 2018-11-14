@@ -84,7 +84,7 @@ X-Todoist-Hmac-SHA256: UEEq9si3Vf9yRSrLthbpazbb69kP9+CZQ7fXmVyjhPs=
       "has_notifications": 0,
       "indent": 1,
       "checked": 0,
-      "date_added": "Fri 26 Sep 2014 08:25:05 +0000",
+      "date_added": "2014-09-26T08:25:05Z",
       "id": 33511505,
       "content": "Task1",
       "user_id": 1234,
