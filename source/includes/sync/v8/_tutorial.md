@@ -291,13 +291,11 @@ $ curl https://todoist.com/api/v8/sync \
        "responsible_uid" : null,
        "sync_id" : null,
        "checked" : 0,
-       "date_lang" : "en",
        "user_id" : 1,
        "labels" : [],
        "is_deleted" : 0,
-       "date_string" : "",
+       "due" : null,
        "project_id" : 176637191,
-       "due_date_utc" : null,
        "in_history" : 0,
        "content" : "Task2",
        "id" : 102835617,
@@ -309,12 +307,10 @@ $ curl https://todoist.com/api/v8/sync \
        "content" : "Task1",
        "in_history" : 0,
        "is_deleted" : 0,
-       "date_string" : "",
+       "due" : null,
        "project_id" : 176637191,
-       "due_date_utc" : null,
        "checked" : 0,
        "labels" : [],
-       "date_lang" : "en",
        "user_id" : 1,
        "responsible_uid" : null,
        "sync_id" : null,
@@ -356,10 +352,8 @@ $ curl https://todoist.com/api/v8/sync \
     'collapsed': 0,
     'content': 'Task1',
     'date_added': '2016-08-01T13:19:45Z',
-    'date_lang': 'en',
-    'date_string': '',
+    'due': None,
     'day_order': -1,
-    'due_date_utc': None,
     'id': 102835615,
     'in_history': 0,
     'indent': 1,
@@ -380,10 +374,8 @@ $ curl https://todoist.com/api/v8/sync \
     'collapsed': 0,
     'content': 'Task2',
     'date_added': '2016-08-01T13:19:45Z',
-    'date_lang': 'en',
-    'date_string': '',
+    'due': None,
     'day_order': 1,
-    'due_date_utc': None,
     'id': 102835617,
     'in_history': 0,
     'indent': 1,
@@ -454,7 +446,7 @@ $ curl https://todoist.com/api/v8/sync \
     -d commands='[
         { "type": "item_update",
           "uuid": "aca17834-da6f-4605-bde0-bd10be228878",
-          "args": { "id": "102835615", "content": "NewTask1", "date_string": "tomorrow at 10:00" } },
+          "args": { "id": "102835615", "content": "NewTask1", "due": {"string": "tomorrow at 10:00" } } },
       ]'
 
 {
@@ -462,7 +454,6 @@ $ curl https://todoist.com/api/v8/sync \
     {
       "sync_id" : null,
       "project_id" : 176637191,
-      "date_lang" : "en",
       "labels" : [],
       "is_deleted" : 0,
       "is_archived" : 0,
@@ -470,12 +461,17 @@ $ curl https://todoist.com/api/v8/sync \
       "checked" : 0,
       "priority" : 1,
       "id" : 102835615,
-      "due_date_utc" : "2016-08-05T07:00:00Z",
       "assigned_by_uid" : 1,
       "all_day" : false,
       "day_order" : -1,
       "collapsed" : 0,
-      "date_string" : "5 Aug 10:00 AM",
+      "due": {
+        "date": "2016-08-05T07:00:00Z",
+        "timezone": null,
+        "is_recurring": false,
+        "string": "tomorrow at 10:00",
+        "lang": "en"
+      },
       "responsible_uid" : null,
       "content" : "NewTask1",
       "user_id" : 1,
@@ -495,7 +491,7 @@ $ curl https://todoist.com/api/v8/sync \
 
 ```python
 >>> task2 = api.items.add('Task2', project1['id'])
->>> task1.update(content='NewTask1', date_string='tomorrow at 10:00')
+>>> task1.update(content='NewTask1', due={'string': 'tomorrow at 10:00'})
 >>> api.commit()
 >>> print(task1)
 Item({
@@ -505,10 +501,7 @@ Item({
   'collapsed': 0,
   'content': 'NewTask1',
   'date_added': '2016-08-01T13:19:45Z',
-  'date_lang': 'en',
-  'date_string' : '5 Aug 10:00 AM',
   'day_order': -1,
-  'due_date_utc' : '2016-08-05T07:00:00Z',
   'id': 102835615,
   'in_history': 0,
   'indent': 1,
@@ -520,7 +513,14 @@ Item({
   'project_id': 176637191,
   'responsible_uid': None,
   'sync_id': None,
-  'user_id': 1
+  'user_id': 1,
+  'due': {
+    'date': '2016-08-05T07:00:00Z',
+    'timezone': None,
+    'is_recurring': False,
+    'string': 'tomorrow at 10:00',
+    'lang': 'en'
+  }
 })
 ```
 ### Using curl
@@ -533,13 +533,14 @@ We use the `sync` call, and then specify the following arguments:
   set `resource_types='["items"]'`.
 + We send an `item_update` command that will update the task we created earlier,
   so we specify the `id` of the task, its new `content`, and its new due date by
-  setting the `date_string` property.
+  setting the `due` property with a new due date instance.
 + We also need to specify the `uuid` for this command.
 
 In the results we get back, we notice the following:
 
 + The updates to all items since our last sync are returned as part of the
   user's `items` array.
++ The updated item which contains a fully populated due object.
 + The `temp_id_mapping` here is empty since no new object was created.
 + The `sync_status` object which tells us whether our command was successful.
 + The special flag `full_sync` which is set to `false` here, and denotes we did
@@ -550,7 +551,7 @@ In the results we get back, we notice the following:
 
 We call the `update()` call on the `task1` object that we got in the previous
 step, so we call `task1.update()`, and we specify the new `content=NewTask1` and
-`date_string='tomorrow at 10:00` parameters, in order to change these specific
+`due='{'string': 'tomorrow at 10:00'}` parameters, in order to change these specific
 properties of the task.
 
 In order to update the task on the server, we do an `api.commit()` call.
@@ -589,11 +590,10 @@ $ curl https://todoist.com/api/v8/sync \
       "all_day" : false,
       "responsible_uid" : null,
       "labels" : [],
-      "date_string" : "",
       "checked" : 0,
       "day_order" : -1,
       "project_id" : 176637191,
-      "due_date_utc" : null,
+      "due" : null,
       "item_order" : 2,
       "collapsed" : 0,
       "in_history" : 0,
@@ -601,13 +601,11 @@ $ curl https://todoist.com/api/v8/sync \
       "content" : "Task2",
       "sync_id" : null,
       "is_archived" : 0,
-      "date_lang" : "en",
       "id": 102835617,
       "is_deleted" : 1
     },
     {
       "date_added" : "2016-08-01T13:19:45Z"
-      "date_string" : "5 Aug 10:00 AM",
       "labels" : [],
       "responsible_uid" : null,
       "all_day" : false,
@@ -618,13 +616,18 @@ $ curl https://todoist.com/api/v8/sync \
       "in_history" : 1,
       "collapsed" : 0,
       "item_order" : 32,
-      "due_date_utc" : "2016-08-05T07:00:00Z",
+      "due": {
+        "date": "2016-08-05T07:00:00Z",
+        "timezone": null,
+        "is_recurring": false,
+        "string": "tomorrow at 10:00",
+        "lang": "en"
+      },
       "project_id" : 176637191,
       "day_order" : 0,
       "checked" : 1,
       "is_deleted" : 0,
       "id": 102835615,
-      "date_lang" : "en",
       "is_archived" : 0,
       "content" : "NewTask1",
       "sync_id" : null
@@ -653,10 +656,14 @@ $ curl https://todoist.com/api/v8/sync \
     'collapsed': 0,
     'content': 'NewTask1',
     'date_added' : '2016-08-01T13:19:45Z'
-    'date_lang': 'en',
-    'date_string' : '5 Aug 10:00 AM',
     'day_order': 0,
-    'due_date_utc' : '2016-08-05T07:00:00Z',
+    'due': {
+      'date': '2016-08-05T07:00:00Z',
+      'timezone': None,
+      'is_recurring': False,
+      'string': 'tomorrow at 10:00',
+      'lang': 'en'
+    },
     'id': 102835615,
     'in_history': 1,
     'indent': 1,
@@ -677,10 +684,8 @@ $ curl https://todoist.com/api/v8/sync \
     'collapsed': 0,
     'content': 'Task2',
     'date_added' : '2016-08-01T13:19:45Z',
-    'date_lang': 'en',
-    'date_string': '',
     'day_order': 1,
-    'due_date_utc': None,
+    'due': None,
     'id': 102835617,
     'in_history': 0,
     'indent': 1,
@@ -749,7 +754,7 @@ $ curl https://todoist.com/api/v8/sync \
         { "type": "item_add",
           "temp_id": "160070ed-79a9-4e6b-988b-169052e9ef22",
           "uuid": "cf6c3ef7-5579-40c2-87e1-b30a1f3cbefe",
-          "args": { "project_id": "176637191", "content": "Task3", "date_string": "monday 11am"} },
+          "args": { "project_id": "176637191", "content": "Task3", "date": {"string": "monday 11am"} } },
         { "type": "note_add",
           "temp_id": "7f4de51a-3b12-4364-a98b-26f041293eba",
           "uuid": "0d9a0925-067e-47fb-9a86-c0cf359afd9f",
@@ -757,7 +762,7 @@ $ curl https://todoist.com/api/v8/sync \
         { "type": "reminder_add",
           "temp_id": "cda5ffcd-5035-47d9-a683-5dddce096811",
           "uuid": "843a5719-b204-4f6e-9ff3-f55cb9140ba1",
-          "args": { "item_id": "160070ed-79a9-4e6b-988b-169052e9ef22", "date_string": "monday 10:45am"} },
+          "args": { "item_id": "160070ed-79a9-4e6b-988b-169052e9ef22","date": {"string": "monday 10:45am"}} },
       ]'
 
 {
@@ -767,18 +772,22 @@ $ curl https://todoist.com/api/v8/sync \
       "all_day" : false,
       "day_order" : 2,
       "user_id" : 1,
-      "due_date_utc" : "2016-08-08T08:00:00Z",
       "project_id" : 176637191,
       "sync_id" : null,
       "responsible_uid" : null,
       "indent" : 1,
       "content" : "Task3",
-      "date_lang" : "en",
       "collapsed" : 0,
       "in_history" : 0,
       "labels" : [],
       "item_order" : 1,
-      "date_string" : "8 Aug 11:00 AM",
+      "due": {
+        "date": "2016-08-08T11:00:00Z",
+        "timezone": null,
+        "is_recurring": false,
+        "string": "8 Aug 11:00 AM",
+        "lang": "en"
+      },
       "id" : 103184669,
       "checked" : 0,
       "is_archived" : 0,
@@ -804,14 +813,18 @@ $ curl https://todoist.com/api/v8/sync \
   "reminders" : [
     {
       "mm_offset" : 180,
-      "due_date_utc" : "2016-08-08T07:45:00Z",
-      "date_lang" : "en",
       "notify_uid" : 1,
       "service" : "email",
       "is_deleted" : 0,
       "type" : "absolute",
       "id" : 29173254,
-      "date_string" : "8 Aug 10:45 AM",
+      "due": {
+        "date": "2016-08-08T10:45:00Z",
+        "timezone": null,
+        "is_recurring": false,
+        "string": "8 Aug 10:45 AM",
+        "lang": "en"
+      },
       "item_id" : 103184669
     }
   ],
@@ -840,9 +853,9 @@ $ curl https://todoist.com/api/v8/quick/add \
 ```
 
 ```python
->>> task3 = api.items.add('Task3', project1['id'], date_string='Monday 11am')
+>>> task3 = api.items.add('Task3', project1['id'], due={'string': 'Monday 11am'})
 >>> comment3 = api.notes.add(task3['id'], 'Comment3')
->>> reminder3 = api.reminders(task3['id'], date_string='Monday 10:45am')
+>>> reminder3 = api.reminders(task3['id'], due={'string': 'Monday 10:45am'})
 >>> api.commit()
 print(task3, comment3, reminder3)
 (
@@ -852,11 +865,15 @@ print(task3, comment3, reminder3)
     'checked': 0,
     'collapsed': 0,
     'content': 'Task3',
+    'due': {
+      'date': '2016-08-08T11:00:00Z',
+      'timezone': None,
+      'is_recurring': False,
+      'string': '8 Aug 11:00 AM',
+      'lang': 'en'
+    },
     'date_added' : '2016-08-05T11:47:58Z',
-    'date_lang': 'en',
-    'date_string': '8 Aug 11:00 AM',
     'day_order': -1,
-    'due_date_utc' : '2016-08-08T08:00:00Z',
     'id' : 103184669,
     'in_history': 0,
     'indent': 1,
@@ -883,9 +900,13 @@ print(task3, comment3, reminder3)
     'uids_to_notify': None
   }),
   Reminder({
-    'date_lang': 'en',
-    'date_string': '8 Aug 10:45 AM',
-    'due_date_utc': '2016-08-08T07:45:00Z'
+    'due': {
+      'date': '2016-08-08T10:45:00Z',
+      'timezone': None,
+      'is_recurring': False,
+      'string': '8 Aug 10:45 AM',
+      'lang': 'en'
+    },
     'id' : 29173254,
     'is_deleted': 0,
     'item_id': 103184669,
