@@ -19,6 +19,7 @@ includes:
   - sync/v8/uploads
   - sync/v8/filters
   - sync/v8/reminders
+  - sync/v8/due_dates
   - sync/v8/miscellaneous
   - sync/v8/quick
   - sync/v8/user
