@@ -51,16 +51,16 @@ end
 set :port, 4567
 
 # Redirects old API versions to the latest one
-redirect "v1/index.html", to: "/sync/v7/"
-redirect "v2/index.html", to: "/sync/v7/"
-redirect "v3/index.html", to: "/sync/v7/"
-redirect "v4/index.html", to: "/sync/v7/"
-redirect "v5/index.html", to: "/sync/v7/"
-redirect "v6/index.html", to: "/sync/v7/"
-redirect "v7/index.html", to: "/sync/v7/"
+redirect "v1/index.html", to: "/sync/v8/"
+redirect "v2/index.html", to: "/sync/v8/"
+redirect "v3/index.html", to: "/sync/v8/"
+redirect "v4/index.html", to: "/sync/v8/"
+redirect "v5/index.html", to: "/sync/v8/"
+redirect "v6/index.html", to: "/sync/v8/"
+redirect "v7/index.html", to: "/sync/v8/"
 
-redirect "sync/index.html", to: "/sync/v7/"
+redirect "sync/index.html", to: "/sync/v8/"
 redirect "rest/index.html", to: "/rest/v8/"
 redirect "beta/index.html", to: "/rest/v8/"
 
-redirect "index.html", to: "/sync/v7/"
+redirect "index.html", to: "/sync/v8/"
