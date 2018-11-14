@@ -13,7 +13,7 @@ First, let's see how we can get all projects a user has.
 > The example of how we get all projects:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d sync_token=* \
     -d resource_types='["projects"]'
@@ -103,7 +103,7 @@ For example, if we were making a request for everything but `notes` and `labels`
 > An example of how to exclude projects from our query:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d sync_token=* \
     -d resource_types='["all", "-projects"]'
@@ -151,7 +151,7 @@ Let's create a new project, and observe the result of our action.
 > The example of how we create a new project:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d sync_token="aLGJg_2qwBE_kE3j9_Gn6uoKQtvQeyjm7UEz_aVwF8KdriDxw7e_InFZK61h" \
     -d resource_types='["projects"]' \
@@ -261,7 +261,7 @@ Let's create two new tasks in one go, and observe the result of our action.
 > The example of how we create two new tasks:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d sync_token="VRyFHr0Qo3Hr--pzINyT6nax4vW7X2YG5RQlw3lB-6eYOPbSZVJepa62EVhO" \
     -d resource_types='["projects", "items"]' \
@@ -447,7 +447,7 @@ previous step.
 > The example of how we update the content and due date of a task:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d sync_token="Gm7DEx2RBn-mW9xGIJhAPOGRPWSlewfxGm0aY_W6IhThCp_8DDXmPU8ERu8u" \
     -d resource_types='["items"]' \
@@ -566,7 +566,7 @@ created earlier.
 > The example of how we complete a task an delete another task:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d sync_token="Gm7DEx2RBn-mW9xGIJhAPOGRPWSlewfxGm0aY_W6IhThCp_8DDXmPU8ERu8u" \
     -d resource_types='["items"]' \
@@ -741,7 +741,7 @@ reminder based on its due date.
 > The example of how we create a new task with a note and a reminder:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d sync_token="VRyFHr0Qo3Hr--pzINyT6nax4vW7X2YG5RQlw3lB-6eYOPbSZVJepa62EVhO" \
     -d resource_types='["projects", "items"]' \
@@ -832,7 +832,7 @@ $ curl https://todoist.com/api/v7/sync \
 
 ```shell
 # quick/add
-$ curl https://todoist.com/api/v7/quick/add \
+$ curl https://todoist.com/api/v8/quick/add \
     -d token=0123456789abcdef0123456789abcdef01234567
     -d content="Task3 Monday 11am" \
     -d note="Comment3" \

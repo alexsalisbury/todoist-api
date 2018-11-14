@@ -31,7 +31,7 @@ to `true`.
 > An example of sending an invitation:
 
 ```shell
-$ curl https://todoist.com/api/v7/business/users/invite \
+$ curl https://todoist.com/api/v8/business/users/invite \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d email_list='["spam@example.com","egg@example.com"]'
     -d message='Welcome'
@@ -117,7 +117,7 @@ message *String* | No | Additional text which will be included to invitation wel
 > An example of accepting a business invitation with a direct call:
 
 ```shell
-$ curl https://todoist.com/api/v7/business/users/accept_invitation \
+$ curl https://todoist.com/api/v8/business/users/accept_invitation \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d id=1234 \
     -d secret=abcdefghijklmno
@@ -132,7 +132,7 @@ $ curl https://todoist.com/api/v7/business/users/accept_invitation \
 > An example of accepting a business invitation with a Sync API command:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "biz_accept_invitation", "uuid": "48538e47-7a9f-4f3d-927a-463ea997675e", "args": {"invitation_id": 1234,  "invitation_secret": "abcdefghijklmno"}}]'
 
@@ -179,7 +179,7 @@ invitation_secret *String* | Yes | The secret fetched from the live notification
 > An example of rejecting a business invitation with a direct call:
 
 ```shell
-$ curl https://todoist.com/api/v7/business/users/reject_invitation \
+$ curl https://todoist.com/api/v8/business/users/reject_invitation \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d id=1234 \
     -d secret=abcdefghijklmno
@@ -194,7 +194,7 @@ $ curl https://todoist.com/api/v7/business/users/reject_invitation \
 > An example of rejecting a business invitation with a Sync API command:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "biz_reject_invitation", "uuid": "a1b0460a-aab3-4555-9109-779cd0cb0966", "args": {"invitation_id": 1234,  "invitation_secret": "abcdefghijklmno"}}]'
 ```

@@ -5,7 +5,7 @@
 > An example creating an email to an object:
 
 ```shell
-$ curl https://todoist.com/api/v7/emails/get_or_create \
+$ curl https://todoist.com/api/v8/emails/get_or_create \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d obj_type=project \
     -d obj_id=128501411
@@ -38,7 +38,7 @@ obj_id *Integer* | Yes | The object's id.
 > An example disabling an email to an object:
 
 ```shell
-$ curl https://todoist.com/api/v7/emails/disable \
+$ curl https://todoist.com/api/v8/emails/disable \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d obj_type=project \
     -d obj_id=128501411

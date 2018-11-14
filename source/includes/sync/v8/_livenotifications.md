@@ -354,7 +354,7 @@ account_name *String* | Business account (company) name.
 > An example of setting the last known notification:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "live_notifications_set_last_read", "uuid": "588b9ccf-29c0-4837-8bbc-fc858c0c6df8", "args": {"id": 1234}}]'
 
@@ -385,7 +385,7 @@ id *Integer* | Yes | The id of the last known notification (a number or `0` or `
 > An example of marking a notification as read:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "live_notifications_mark_read", "uuid": "588b9ccf-29c0-4837-8bbc-fc858c0c6df8", "args": {"id": 1234}}]'
 
@@ -416,7 +416,7 @@ id *Integer* | Yes |  The id of the notification.
 > An example of marking all notifications as read:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "live_notifications_mark_read_all", "uuid": "588b9ccf-29c0-4837-8bbc-fc858c0c6df8"}]'
 
@@ -442,7 +442,7 @@ Mark all notifications as read.
 > An example of marking a notification as unread:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "live_notifications_mark_unread", "uuid": "588b9ccf-29c0-4837-8bbc-fc858c0c6df8", "args": {"id": 1234}}]'
 

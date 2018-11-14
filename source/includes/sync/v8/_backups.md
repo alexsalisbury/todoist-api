@@ -12,7 +12,7 @@ Settings` -> `Backups`).
 
 
 ```shell
-$ curl https://todoist.com/api/v7/backups/get \
+$ curl https://todoist.com/api/v8/backups/get \
     -d token=0123456789abcdef0123456789abcdef01234567
 
 [

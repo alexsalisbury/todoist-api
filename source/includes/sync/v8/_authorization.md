@@ -182,7 +182,7 @@ Sharing (CORS) for requests from any origin. The header
 > CORS headers example:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -H 'Origin: http://example.com'
 
@@ -194,7 +194,7 @@ Access-Control-Allow-Origin: *
 
 ```python
 >>> import requests
->>> requests.post('https://todoist.com/api/v7/sync',
+>>> requests.post('https://todoist.com/api/v8/sync',
 ...               data={'token': '0123456789abcdef0123456789abcdef01234567'},
 ...               headers={'Origin': 'https://example.com'}).headers
 

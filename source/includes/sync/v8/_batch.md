@@ -5,7 +5,7 @@
 When working with the Sync API, changes can be **batched** into one commit. In our example, we're batching the creation of a Shopping List project with three different items.
 
 ```shell
-curl https://todoist.com/api/v7/sync \
+curl https://todoist.com/api/v8/sync \
   -d token=0123456789abcdef0123456789abcdef01234567 \
   -d commands='[
   {

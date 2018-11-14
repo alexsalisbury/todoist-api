@@ -87,14 +87,14 @@ the reference.
 > An example of adding a project note:
 
 ```shell
-curl https://todoist.com/api/v7/sync \
+curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "note_add", "temp_id": "59fe4461-287b-4b00-bacc-ee771137a732", "uuid": "e1005f08-acd6-4172-bab1-4338f8616e49", "args": {"project_id": 2191777224, "content": "Note1"}}]'
 
 
 # or adding a note with a file attached:
 
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "note_add", "temp_id": "6149e689-1a54-48d6-a8c2-0ee5425554a9", "uuid": "554a65e9-56d9-478e-b35b-520c419e37d9", "args": {"project_id": 2191777224, "content": "Note1", "file_attachment": {"file_type":"image\/gif","file_name":"image.gif","image":"https:\/\/domain\/image.gif","file_url":"https:\/\/domain\/image.gif","image_width":90,"image_height":76,"file_size":7962}}}]'
 
@@ -125,7 +125,7 @@ file_attachment *Object* | No | A file attached to the note (see more details ab
 > An example of updating a note:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "note_update", "uuid": "8a38f9c5-2cd0-4da5-87c1-26d617b354e0", "args": {"id": 17299568, "content": "UpdatedNote1"}}]'
 
@@ -157,7 +157,7 @@ file_attachment *Object* | No | A file attached to the note (see more details ab
 > An example of deleting a note:
 
 ```shell
-$ curl https://todoist.com/api/v7/sync \
+$ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d commands='[{"type": "note_delete", "uuid": "8a38f9c5-2cd0-4da5-87c1-26d617b354e0", "args": {"id": 2311081457}}]'
 { ...

@@ -8,7 +8,7 @@ in [Notes](#notes).
 > On success, an HTTP 200 OK with JSON data of file data is returned:
 
 ```shell
-$ curl https://todoist.com/api/v7/uploads/add \
+$ curl https://todoist.com/api/v8/uploads/add \
     -F token=0123456789abcdef0123456789abcdef01234567 \
     -F file_name=example.jpg \
     -F file=@/path/to/example.jpg
@@ -105,7 +105,7 @@ the reference.
 > An example of getting the user's uploads
 
 ```shell
-$ curl https://todoist.com/api/v7/uploads/get \
+$ curl https://todoist.com/api/v8/uploads/get \
     -d token=0123456789abcdef0123456789abcdef01234567
 [
     {
@@ -185,7 +185,7 @@ last_id *Integer* | No | Can be used for pagination. This should be the minimum 
 > An example of deleting an upload
 
 ```shell
-$ curl https://todoist.com/api/v7/uploads/delete \
+$ curl https://todoist.com/api/v8/uploads/delete \
     -d token=0123456789abcdef0123456789abcdef01234567 \
     -d file_url='https://*.cloudfront.net/*/example.jpg'
 
