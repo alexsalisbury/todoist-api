@@ -45,7 +45,8 @@ $ curl https://todoist.com/api/v8/sync \
   "settings_notifications": { ... },
   "sync_token": "JLlaPv840mDQK4PLl6-hmjYMbP2h_RHsfPmIXuqmJI_zRiQHFww9olfDvSSpw74nrdvS",
   "temp_id_mapping": { ... },
-  "user": { ... }
+  "user": { ... },
+  "user_settings": { ... }
 }
 ```
 
@@ -70,7 +71,8 @@ $ curl https://todoist.com/api/v8/sync \
   'settings_notifications: { ... },
   'sync_token': 'JLlaPv840mDQK4PLl6-hmjYMbP2h_RHsfPmIXuqmJI_zRiQHFww9olfDvSSpw74nrdvS',
   'temp_id_mapping': { ... },
-  'user': { ... }
+  'user': { ... },
+  'user_settings': { ... }
 }
 ```
 
@@ -90,7 +92,7 @@ Parameter | Required | Description
 --------- | -------- | -----------
 token *String* | Yes | The user's API token
 sync_token *String* | Yes | A special string, used to allow the client to perform incremental sync.  Pass `*` to retrieve all active resource data.  More details about this below.
-resource_types *JSON array of strings* | Yes | Used to specify what resources to fetch from the server.  It should be a JSON-encoded array of strings. Here is a list of available resource types: `labels`, `projects`,`items`, `notes`, `filters`, `reminders`, `locations`, `user`, `live_notifications`, `collaborators`, `notification_settings`. You may use `all` to include all the resource types. Resources can also be excluded by prefixing a `-` prior to the name, for example, `'-projects'`.
+resource_types *JSON array of strings* | Yes | Used to specify what resources to fetch from the server.  It should be a JSON-encoded array of strings. Here is a list of available resource types: `labels`, `projects`,`items`, `notes`, `filters`, `reminders`, `locations`, `user`, `live_notifications`, `collaborators`, `user_settings`, notification_settings`. You may use `all` to include all the resource types. Resources can also be excluded by prefixing a `-` prior to the name, for example, `'-projects'`.
 
 
 ### Incremental sync
@@ -131,8 +133,7 @@ collaborators | A JSON object containing all collaborators for all shared projec
 collaborators_states | An array specifying the state of each collaborator in each project. The state can be invited, active, inactive, deleted.
 live_notifications | An array of live_notification objects
 live_notifications_last_read | What is the last live notification the user has seen? This is used to implement unread notifications.
-settings_notifications | User's notification setting, used by clients that support native notifications.
-
+user_settings | A JSON object containing user settings.
 
 ## Write resources
 

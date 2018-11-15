@@ -23,6 +23,7 @@ includes:
   - sync/v8/miscellaneous
   - sync/v8/quick
   - sync/v8/user
+  - sync/v8/user_settings
   - sync/v8/sharing
   - sync/v8/livenotifications
   - sync/v8/business
