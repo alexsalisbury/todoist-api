@@ -233,7 +233,4 @@ object_event_types *Array of Strings* | No | An alternative way to filter by mul
 parent_project_id *Integer* | No | Filters object events by the id of the project they belong to, so this implicitly limits the results to items and notes.
 parent_item_id *Integer* | No | Filters object events by the id of the item they belong, so this implicitly limits the results to notes.
 initiator_id *Integer* | No | Filters event by the id of the initiator.
-since *String* | No | Filters events to those that took place after the specified date and time, formatted as for example `2016-06-28T12:00`.
-until *String* | No | Filters events to those that took place before the specified date and time, formatted as `2016-06-28T12:00`.
-limit *Integer* | No | The number of events to return, where the default is `30`, and the maximum is `100`.
-offset *Integer* | No | The number of events to skip, which can be used for pagination in order to get more events than those returned by the previous call.
+page *Integer* | No | The page number, used to iterate over the list of events. Events are split in pages by weeks. Page 0 corresponds to events of the current week. Page 1 is for events of the previous week, etc. Not defining a page parameter means events from the current week plus events from last week (ie. page=0 and page=1).  This is useful for the clients in order to always fetch at least a week's events even on Mondays.
