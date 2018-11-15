@@ -44,8 +44,8 @@ Property | Description
 -------- | -----------
 date *string* | Due date in the format of `YYYY-MM-DD` ([RFC 3339](https://tools.ietf.org/html/rfc3339)). For recurring dates, the date of the current iteration. 
 timezone *string* | Always set to `null`.
-string *string* | Human-readable representation of due date. String always represents the due object in user's timezone.
-lang *string* | Lang which has to be used to parse the content of the string attribute. Used by clients and on the server side to properly process due dates when date object is not set, and when dealing with recurring tasks
+string *string* | Human-readable representation of due date. String always represents the due object in user's timezone. Look at our reference to see [which formats are supported](https://get.todoist.help/hc/articles/205325931).
+lang *string* | Lang which has to be used to parse the content of the string attribute. Used by clients and on the server side to properly process due dates when date object is not set, and when dealing with recurring tasks. Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`.
 is_recurring *boolean* | Boolean flag which is set to "true" is due object represents a recurring due date 
 
 
@@ -67,8 +67,8 @@ Property | Description
 -------- | -----------
 date *string* | Due date in the format of `YYYY-MM-DDTHH:MM:SS`. For recurring dates, the date of the current iteration. Due date always represent an event in current user's timezone.  Note that it's not quite compatible with [RFC 3339](https://tools.ietf.org/html/rfc3339), because the concept of timezone is not applicable to this object. Also note that unlike fixed due dates, the date representation doesn't end with "Z"
 timezone *string* | Always set to `null`.
-string *string* | Human-readable representation of due date. String always represents the due object in user's timezone.
-lang *string* | Lang which has to be used to parse the content of the string attribute. Used by clients and on the server side to properly process due dates when date object is not set, and when dealing with recurring tasks
+string *string* | Human-readable representation of due date. String always represents the due object in user's timezone. Look at our reference to see [which formats are supported](https://get.todoist.help/hc/articles/205325931).
+lang *string* | Lang which has to be used to parse the content of the string attribute. Used by clients and on the server side to properly process due dates when date object is not set, and when dealing with recurring tasks. Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`.
 is_recurring *boolean* | Boolean flag which is set to "true" is due object represents a recurring due date 
 
 
@@ -92,8 +92,8 @@ Property | Description
 -------- | -----------
 date *string* | Due date in the format of `YYYY-MM-DDTHH:MM:SSZ` ([RFC 3339](https://tools.ietf.org/html/rfc3339)). For recurring dates, the date of the current iteration. Due date is stored in UTC. 
 timezone *string* | Timezone of the due instance. Used to recalculate properly the next iteration for a recurring due date.
-string *string* | Human-readable representation of due date. String always represents the due object in user's timezone, and not in UTC.
-lang *string* | Lang which has to be used to parse the content of the string attribute. Used by clients and on the server side to properly process due dates when date object is not set, and when dealing with recurring tasks
+string *string* | Human-readable representation of due date. String always represents the due object in user's timezone. Look at our reference to see [which formats are supported](https://get.todoist.help/hc/articles/205325931).
+lang *string* | Lang which has to be used to parse the content of the string attribute. Used by clients and on the server side to properly process due dates when date object is not set, and when dealing with recurring tasks. Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`.
 is_recurring *boolean* | Boolean flag which is set to "true" is due object represents a recurring due date 
 
 

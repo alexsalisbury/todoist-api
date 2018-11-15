@@ -88,7 +88,7 @@ X-Todoist-Hmac-SHA256: UEEq9si3Vf9yRSrLthbpazbb69kP9+CZQ7fXmVyjhPs=
       "id": 33511505,
       "content": "Task1",
       "user_id": 1234,
-      "due_date_utc": null,
+      "due": null,
       "children": null,
       "priority": 1,
       "item_order": 1,
@@ -96,7 +96,6 @@ X-Todoist-Hmac-SHA256: UEEq9si3Vf9yRSrLthbpazbb69kP9+CZQ7fXmVyjhPs=
       "responsible_uid": null,
       "project_id": 128501470,
       "collapsed": 0,
-      "date_string": ""
     }
 }
 ...

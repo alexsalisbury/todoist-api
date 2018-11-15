@@ -9,9 +9,13 @@
   "item_id": 33511505,
   "service": "email",
   "type": "absolute",
-  "date_string": "Oct 6 @ 2pm",
-  "date_lang" : "en",
-  "due_date_utc": "2014-10-06T11:00:00Z",
+  "due": {
+    "date": "2016-08-05T07:00:00Z",
+    "timezone": null,
+    "is_recurring": false,
+    "string": "tomorrow at 10:00",
+    "lang": "en"
+  },
   "mm_offset": 180,
   "is_deleted": 0
 }
@@ -28,10 +32,8 @@ notify_uid *Integer* | The user id which should be notified of the reminder, typ
 item_id *Integer* | The item id for which the reminder is about.
 service *String* | The way to get notified of the reminder: `email` for e-mail, `mobile` for mobile text message, or `push` for mobile push notification.
 type *String* | The type of the reminder: `relative` for a time-based reminder specified in minutes from now, `absolute` for a time-based reminder with a specific time and date in the future, and `location` for a location-based reminder.
-date_string *String* | The date of the reminder, added in free form text, for example it can be `every day @ 10` (or `null` or an empty string if not set). Look at our reference to see [which formats are supported](https://todoist.com/Help/DatesTimes).
-date_lang *String* | The language of the `date_string` (valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`).
-due_date_utc *String* | The date of the reminder in a format like `Mon 07 Aug 2006 12:34:56 +0100` (or `null` if not set).
-mm_offset *Integer* | The relative time in minutes before the due date of the item, in which the reminder should be triggered. Note, that the item should have a due date set in order to add a relative reminder.
+due *Object* | The due date of the reminder. See the [Due dates](#due-dates) section for more details. Note that reminders only support due dates with time, since full-day reminders don't make sense.
+mm_offset *Integer* | The relative time in minutes before the due date of the item, in which the reminder should be triggered. Note that the item should have a due date set in order to add a relative reminder.
 name *String* | An alias name for the location.
 loc_lat *String* | The location latitude.
 loc_long *String* | The location longitude.
@@ -69,7 +71,7 @@ $ curl https://todoist.com/api/v8/sync \
 ```shell
 $ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
-    -d commands='[{"type": "reminder_add", "temp_id": "952a365e-4965-4113-b4f4-80cdfcada172u", "uuid": "e7c8be2d-f484-4852-9422-a9984c58b1cd", "args": {"item_id": 33511505, "service": "email", "due_date_utc": "2014-10-15T11:00"}}]'
+    -d commands='[{"type": "reminder_add", "temp_id": "952a365e-4965-4113-b4f4-80cdfcada172u", "uuid": "e7c8be2d-f484-4852-9422-a9984c58b1cd", "args": {"item_id": 33511505, "service": "email", "due": {"date": "2014-10-15T11:00:00Z"}}}]'
 
 {
   ...
@@ -82,7 +84,7 @@ $ curl https://todoist.com/api/v8/sync \
 ```python
 >>> import todoist
 >>> api = todoist.TodoistAPI('0123456789abcdef0123456789abcdef01234567')
->>> reminder = api.reminders.add(33511505, service='email', due_date_utc='2014-10-15T11:00')
+>>> reminder = api.reminders.add(33511505, service='email', due={'date': '2014-10-15T11:00:00Z'})
 >>> api.commit()
 ```
 
@@ -118,9 +120,7 @@ item_id *Integer or String (temp_id)* | Yes | The item id for which the reminder
 type *String* | Yes | The type of the reminder: `relative` for a time-based reminder specified in minutes from now, `absolute` for a time-based reminder with a specific time and date in the future, and `location` for a location-based reminder.
 notify_uid *Integer* | No | The user id which should be notified of the reminder, typically the current user id creating the reminder.
 service *String* | No | The way to get notified of the reminder: `email` for e-mail, `mobile` for mobile text message, or `push` for mobile push notification.
-date_string *String* | No | The date of the reminder, added in free form text, for example it can be `every day @ 10` (or `null` or an empty string to unset). Look at our reference to see [which formats are supported](https://todoist.com/Help/DatesTimes).
-date_lang *String* | No | The language of the `date_string` (valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`).
-due_date_utc *String* | No | The date of the reminder in the format `YYYY-MM-DDTHH:MM` (for example: `2012-3-24T23:59`). The value of `due_date_utc` must be in UTC. Either `due_date_utc` or `date_string` can be used to set the reminder date, but the value of `due_date_utc` takes precedence over the value of `date_string`.
+due *Object* | The due date of the reminder. See the [Due dates](#due-dates) section for more details. Note that reminders only support due dates with time, since full-day reminders don't make sense.
 minute_offset *Integer* | No | The relative time in minutes before the due date of the item, in which the reminder should be triggered. Note, that the item should have a due date set in order to add a relative reminder.
 name *String* | No | An alias name for the location.
 loc_lat *String* | No | The location latitude.
@@ -135,7 +135,7 @@ radius *Integer* | No | The radius around the location that is still considered 
 ```shell
 $ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
-    -d commands='[{"type": "reminder_update", "uuid": "b0e7562e-ea9f-4c84-87ee-9cbf9c103234", "args": {"id": 12763422, "due_date_utc": "2014-10-10T15:00"}}]'
+    -d commands='[{"type": "reminder_update", "uuid": "b0e7562e-ea9f-4c84-87ee-9cbf9c103234", "args": {"id": 12763422, "due": {"date": "2014-10-10T15:00"}}}]'
 
 {
   ...
@@ -148,7 +148,7 @@ $ curl https://todoist.com/api/v8/sync \
 >>> import todoist
 >>> api = todoist.TodoistAPI('0123456789abcdef0123456789abcdef01234567')
 >>> reminder = api.reminders.get_by_id(12763422)
->>> reminder.update(due_date_utc='2014-10-10T15:00')
+>>> reminder.update(due={'date': '2014-10-10T15:00'})
 >>> api.commit()
 ```
 
@@ -162,9 +162,7 @@ id *Integer or String (temp_id)* | Yes | The id of the reminder.
 notify_uid *Integer* | No | The user id which should be notified of the reminder, typically the current user id creating the reminder.
 service *String* | No | The way to get notified of the reminder: `email` for e-mail, `mobile` for mobile text message, or `push` for mobile push notification.
 type *String* | No | The type of the reminder: `relative` for a time-based reminder specified in minutes from now, `absolute` for a time-based reminder with a specific time and date in the future, and `location` for a location-based reminder.
-date_string *String* | No | The date of the reminder, added in free form text, for example it can be `every day @ 10` (or `null` or an empty string to unset). Look at our reference to see [which formats are supported](https://todoist.com/Help/DatesTimes).
-date_lang *String* | No | The language of the `date_string` (valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`).
-due_date_utc *String* | No | The date of the reminder in the format `YYYY-MM-DDTHH:MM` (for example: `2012-3-24T23:59`). Either `due_date_utc` or `date_string` can be used to set the reminder date, but the value of `due_date_utc` takes precedence over the value of `date_string`.
+due *Object* | The due date of the reminder. See the [Due dates](#due-dates) section for more details. Note that reminders only support due dates with time, since full-day reminders don't make sense.
 minute_offset *Integer* | No | The relative time in minutes before the due date of the item, in which the reminder should be triggered. Note, that the item should have a due date set in order to add a relative reminder.
 name *String* | No | An alias name for the location.
 loc_lat *String* | No | The location latitude.

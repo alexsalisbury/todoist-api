@@ -23,7 +23,7 @@ $ curl https://todoist.com/api/v8/quick/add \
   "content": "Task1",
   "is_deleted": 0,
   "user_id": 1855589,
-  "due_date_utc": null,
+  "due": null,
   "id": 33548400,
   "priority": 4,
   "item_order": 1,
@@ -31,7 +31,6 @@ $ curl https://todoist.com/api/v8/quick/add \
   "project_id": 128501411,
   "collapsed": 0,
   "checked": 0,
-  "date_string": ""
 }
 ```
 
@@ -55,12 +54,11 @@ $ curl https://todoist.com/api/v8/quick/add \
   'content': 'Task1',
   'item_order': 1,
   'project_id': 128501411,
-  'date_string': '',
   'assigned_by_uid': 1855589,
   'collapsed': 0,
   'indent': 1,
   'is_deleted': 0,
-  'due_date_utc': None,
+  'due': None,
   'responsible_uid': 1855589,
 }
 ```

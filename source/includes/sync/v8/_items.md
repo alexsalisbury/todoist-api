@@ -8,9 +8,7 @@
   "user_id": 1855589,
   "project_id": 128501470,
   "content": "Task1",
-  "date_string": "",
-  "date_lang": "en",
-  "due_date_utc": null,
+  "due": null,
   "indent": 1,
   "priority": 1,
   "item_order": 1,
@@ -37,9 +35,7 @@ id  *Integer* | The id of the task.
 user_id *Integer* | The owner of the task.
 project_id *Integer* | Project that the task resides in
 content *String* | The text of the task
-date_string *String* | The date of the task, added in free form text, for example it can be `every day @ 10` (or `null` or an empty string if not set). Look at our reference to see [which formats are supported](https://todoist.com/Help/DatesTimes).
-date_lang *String* | The language of the `date_string` (valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`).
-due_date_utc *String* | The date of the task in the format `2006-08-07T12:34:56Z` (or `null` if not set). For all day task (i.e. task due "Today"), the time part will be set as xx:xx:59.
+due *Object* | The due date of the task. See the [Due dates](#due-dates) section for more details.
 priority *Integer* | The priority of the task (a number between `1` and `4`, `4` for very urgent and `1` for natural). <br>**Note**: Keep in mind that `very urgent` is the priority 1 on clients. So, `p1` will return `4` in the API.
 indent *Integer* | The indent of the task (a number between `1` and `5`, where `1` is top-level).
 item_order *Integer* | The order of the task inside a project (the smallest value would place the task at the top).
@@ -86,9 +82,7 @@ Argument | Required | Description
 --------- | -------- | -----------
 content *String* | Yes | The text of the task.
 project_id  *Integer or String (temp id)* | No | The id of the project to add the task to (a number or a temp id).  By default the task is added to the user’s `Inbox` project.
-date_string *String* | No | The date of the task, added in free form text, for example it can be `every day @ 10` (or `null` or an empty string to unset). Look at our reference to see [which formats are supported](https://todoist.com/Help/DatesTimes).
-date_lang *String* | No | The language of the `date_string` (valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`).
-due_date_utc *String* | No | The date of the task in the format `YYYY-MM-DDTHH:MM` (for example: `2012-3-24T23:59`). The value of `due_date_utc` must be in UTC. Note that, when the `due_date_utc` argument is specified, the `date_string` is required and has to specified as well, and also, the `date_string` argument will be parsed as local timestamp, and converted to UTC internally, according to the user's profile settings.
+due *Object* | No | The due date of the task. See the [Due dates](#due-dates) section for more details.
 priority *Integer* | No | The priority of the task (a number between `1` and `4`, `4` for very urgent and `1` for natural). <br>**Note**: Keep in mind that `very urgent` is the priority 1 on clients. So, `p1` will return `4` in the API.
 indent *Integer* | No | The indent of the task (a number between `1` and `5`, where `1` is top-level).
 item_order *Integer* | No | The order of the task inside a project (a number, where the smallest value would place the task at the top).
@@ -131,9 +125,7 @@ Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String (temp id)* | Yes | The id of the task.
 content *String* | No | The text of the task.
-date_string *String* | No | The date of the task, added in free form text, for example it can be `every day @ 10` (or `null` or an empty string to unset). Look at our reference to see [which formats are supported](https://todoist.com/Help/DatesTimes).
-date_lang  *String* | No | The language of the `date_string` (valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`).
-due_date_utc  *String* | No | The date of the task in the format `YYYY-MM-DDTHH:MM` (for example: `2012-3-24T23:59`). The value of `due_date_utc` must be in UTC. Note that, when the `due_date_utc` argument is specified, the `date_string` is required and has to specified as well, and also, the `date_string` argument will be parsed as local timestamp, and converted to UTC internally, according to the user's profile settings.
+due *Object* | No | The due date of the task. See the [Due dates](#due-dates) section for more details.
 priority *Integer* | No | The priority of the task (a number between `1` and `4`, `4` for very urgent and `1` for natural). <br>**Note**: Keep in mind that `very urgent` is the priority 1 on clients. So, `p1` will return `4` in the API.
 indent  *Integer* | No | The indent of the task (a number between `1` and `5`, where `1` is top-level).
 item_order  *Integer* | No | The order of the task inside a project (a number, where the smallest value would place the task at the top).
@@ -274,7 +266,7 @@ restore_state *Object* | No | A dictionary object, where the item id is the key,
 ```shell
 $ curl https://todoist.com/api/v8/sync \
     -d token=0123456789abcdef0123456789abcdef01234567 \
-    -d commands='[{"type": "item_update_date_complete", "uuid": "c5888360-96b1-46be-aaac-b49b1135feab", "args": {"id": 33548400, "new_date_utc": "2014-10-30T23:59", "date_string": "every day", "is_forward": 1}}]'
+    -d commands='[{"type": "item_update_date_complete", "uuid": "c5888360-96b1-46be-aaac-b49b1135feab", "args": {"id": 33548400, "due": {"date": "2014-10-30", "string": "every day"}, "is_forward": 1}}]
 
 {
   ...
@@ -299,9 +291,7 @@ this). See also `item_close` for a simplified version of the command.
 Argument | Required | Description
 --------- | -------- | -----------
 id *Integer or String* | Yes | The id of the item to update (a number or a temp id).
-new_date_utc *String* | No | The date of the task in the format `YYYY-MM-DDTHH:MM` (for example: `2012-3-24T23:59`). The value of `new_date_utc` must be in UTC. Note that, when the `new_date_utc` argument is specified, the `date_string` is required and has to specified as well, and also, the `date_string` argument will be parsed as local timestamp, and converted to UTC internally, according to the user's profile settings.
-date_string  *String* | No | The date of the task, added in free form text, for example it can be `every day @ 10` (or `null` or an empty string to unset). Look at our reference to see [which formats are supported](https://todoist.com/Help/DatesTimes).
-is_forward  *Integer* | No | Whether the task is to be completed (value `1`) or uncompleted (value `0`), while the default is `1`.
+due *Object* | The due date of the task. See the [Due dates](#due-dates) section for more details.
 
 
 ## Close item
