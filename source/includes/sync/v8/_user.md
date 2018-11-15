@@ -62,6 +62,7 @@ email *String* | The user's email.
 full_name *String* | The user's real name formatted as `Firstname Lastname`.
 inbox_project *Integer* | The id of the user's `Inbox` project.
 tz_info *Object* | The user's timezone (a dictionary structure), which includes the following elements: the `timezone` as a string value, the `hours` and `minutes` difference from GMT, whether daylight saving time applies denoted by `is_dst`, and a string value of the time difference from GMT that is `gmt_string`.
+days_off *Array* | Array of integers representing user's days off (between `1` and `7`, where `1` is `Monday` and `7` is `Sunday`).
 start_page *String* | The user's default view on Todoist. The start page can be one of the following: `_info_page` for the info page, `_blank` for a blank page, `_project_<PROJECT_ID>` for project with id `<PROJECT_ID>`, and `<ANY_QUERY>` to query after anything.
 start_day *Integer* | The first day of the week (between `1` and `7`, where `1` is `Monday` and `7` is `Sunday`).
 next_week *Integer* | The day of the next week, that tasks will be postponed to (between `1` and `7`, where `1` is `Monday` and `7` is `Sunday`).
@@ -113,6 +114,7 @@ $ curl https://todoist.com/api/v8/user/register \
     "minutes": 0,
     "is_dst": 0
   },
+  "days_off": [6, 7],
   "start_page": "overdue, 7 days",
   "start_day": 1,
   "next_week": 1,
@@ -163,6 +165,7 @@ $ curl https://todoist.com/api/v8/user/register \
     'minutes': 0,
     'is_dst': 0
   },
+  'days_off': [6, 7],
   'start_page': 'overdue, 7 days',
   'start_day': 1,
   'next_week': 1,
