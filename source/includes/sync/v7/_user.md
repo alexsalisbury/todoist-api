@@ -140,7 +140,7 @@ $ curl https://todoist.com/api/v7/user/register \
   "features" : {
     "beta": 0,
     "restriction" : 3,
-    "has_push_reminders": false,
+    "has_push_reminders": false
   },
   "join_date": "Wed 30 Apr 2014 13:24:38 +0000"
 }
